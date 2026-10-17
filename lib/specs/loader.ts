@@ -40,6 +40,7 @@ import {
   type TitulosNossaSenhoraContent,
   type VersionSpec,
 } from './types'
+import { validateAllDecor } from './decor'
 
 const SPECS_DIR = path.join(process.cwd(), 'specs')
 
@@ -154,10 +155,44 @@ export function loadContent<S extends ContentSlug>(slug: S): ContentMap[S] {
   }
 }
 
+/**
+ * v2 — formato de versão: X.Y.Z (oficial) ou X.Y.Z-snapshot (pre-release),
+ * sem número depois de "-snapshot". Feature = MINOR, correção = PATCH.
+ * Ver .cursor/rules/corpus-criste-versions.mdc.
+ */
+export const VERSION_FORMAT = /^\d+\.\d+\.\d+(-snapshot)?$/
+
+export function validateVersionConsistency(): void {
+  const version = loadVersion()
+  const checklist = loadChecklist()
+  const v = version.contentVersion
+  if (!VERSION_FORMAT.test(v)) {
+    throw new Error(
+      `version.json: contentVersion "${v}" fora do formato X.Y.Z ou X.Y.Z-snapshot`,
+    )
+  }
+  if (!version.specFile || !fs.existsSync(path.join(SPECS_DIR, version.specFile))) {
+    throw new Error(`version.json: specFile "${version.specFile}" não existe em specs/`)
+  }
+  if (checklist.version !== v) {
+    throw new Error(
+      `checklist.json: version "${checklist.version}" diferente de contentVersion "${v}"`,
+    )
+  }
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf-8'),
+  ) as { version?: string }
+  if (pkg.version !== v) {
+    throw new Error(`package.json: version "${pkg.version}" diferente de contentVersion "${v}"`)
+  }
+}
+
 export function validateAllSpecs(): void {
   loadVersion()
   loadRoutes()
   loadChecklist()
+  validateVersionConsistency()
+  validateAllDecor()
   ;(
     [
       'home',

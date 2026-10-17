@@ -1,0 +1,154 @@
+{
+  "slug": "nossa-senhora-aparecida",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela",
+      "pomba"
+    ],
+    "underline": "Aparecida"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "Nossa Senhora da Conceição Aparecida",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Nossa Senhora Aparecida",
+          "tape": true
+        },
+        {
+          "kind": "carimbo",
+          "text": "Padroeira do Brasil · 12 de outubro",
+          "center": "1717"
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "titleDrawing": "onda",
+      "marks": [
+        {
+          "text": "Porto do Itaguaçu",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "1717",
+          "text": "Porto do Itaguaçu",
+          "pin": "manto",
+          "paper": "areia"
+        },
+        {
+          "kind": "bilhete",
+          "text": "as redes quase se romperam",
+          "drawing": "gota"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "cerca de 36 centímetros",
+          "kind": "circulo"
+        },
+        {
+          "text": "mãos unidas em oração",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "lirio"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "bilhete",
+          "text": "barro cozido · estilo barroco",
+          "drawing": "seta"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "marks": [
+        {
+          "text": "o milagre das velas",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "1745",
+          "text": "mandou erguer uma capela",
+          "pin": "manto",
+          "paper": "papel"
+        },
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "vela"
+          ],
+          "tape": false,
+          "text": "o milagre das velas"
+        }
+      ]
+    },
+    {
+      "target": "sections[4]",
+      "titleDrawing": "coroa",
+      "marks": [
+        {
+          "text": "Rainha",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit-datas",
+          "items": [
+            {
+              "label": "1888",
+              "text": "coroa e manto"
+            },
+            {
+              "label": "1904",
+              "text": "coroar a imagem"
+            },
+            {
+              "label": "1911",
+              "text": "padroeira oficial"
+            },
+            {
+              "label": "1931",
+              "text": "Cuidai do Brasil."
+            }
+          ],
+          "pin": "coracao"
+        },
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "estrela",
+            "coracao-chama"
+          ],
+          "tape": false
+        }
+      ]
+    }
+  ]
+}
