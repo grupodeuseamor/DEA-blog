@@ -22,6 +22,7 @@ const noteDrawing = {
     style: { width: 56, height: 42, transform: 'scaleX(-1) rotate(-10deg)' },
     className: 'dsk-only',
   },
+  onda: { tone: 'ceu' as const, style: { width: 70, height: 22 }, className: undefined },
   aspas: { tone: 'ceu' as const, style: { width: 40, height: 27 }, className: undefined },
   brilhinhos: { tone: 'ceu' as const, style: { width: 40, height: 40 }, className: undefined },
 }

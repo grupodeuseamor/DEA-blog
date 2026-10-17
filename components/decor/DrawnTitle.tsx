@@ -7,6 +7,7 @@ const titleDrawingStyle: Partial<Record<DecorDrawing, { tone: 'manto' | 'ceu'; s
   coroa: { tone: 'manto', style: { width: 52, height: 42, marginLeft: 14, verticalAlign: -4, transform: 'rotate(8deg)' } },
   'coracao-chama': { tone: 'manto', style: { width: 36, height: 42, marginLeft: 14, verticalAlign: -6, transform: 'rotate(6deg)' } },
   pomba: { tone: 'ceu', style: { width: 56, height: 42, marginLeft: 14, verticalAlign: -6 } },
+  brilhinhos: { tone: 'ceu', style: { width: 38, height: 38, marginLeft: 12, verticalAlign: -4 } },
   gota: { tone: 'ceu', style: { width: 34, height: 34, marginLeft: 12, verticalAlign: -4 } },
   estrela: { tone: 'ceu', style: { width: 36, height: 36, marginLeft: 12, verticalAlign: -4, transform: 'rotate(-10deg)' } },
 }

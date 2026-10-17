@@ -13,6 +13,15 @@ Aplica o padrão v2c (folha única, post-its, tachinhas, rabiscos, figurinhas re
 1. `specs/decor/nossa-senhora-lourdes.json`, `nossa-senhora-guadalupe.json`, `nossa-senhora-das-gracas.json`.
 2. `specs/content/nossa-senhora-lourdes.json`, `specs/content/nossa-senhora-guadalupe.json`, `specs/content/nossa-senhora-das-gracas.json` — remove só o campo opcional `hero.overlay`.
 3. Graças tem 6 seções curtas: as laterais alternam polaroid / post-it / carimbo para não repetir o mesmo detalhe em sequência.
+4. **Reaproveitamento de imagens (opcional, regra da 2.0.1-snapshot)**, com moderação:
+   - Lourdes: **foto colada** (`sheetPhotos`, `hero.backgroundImage`, `after: "sections[1]"`, lado esquerdo, `rotate: 4`) ao lado de “Dezoito aparições e a fonte milagrosa” — no mobile desce para baixo do texto.
+   - Guadalupe: **fundo esmaecido** (`blocks[].backdrop`, `hero.backgroundImage`, `suave`, `direita`) em “Uma mensagem que permanece atual” (`sections[4]`).
+   - Graças: sem reaproveitamento extra (ver D9).
+5. Ajustes mínimos de tamanho em componentes da Exec 1 (sem componentes novos): bilhete com desenho `onda` e título com `brilhinhos`.
+
+## Decisões
+
+- **D9 — densidade em Graças (6 seções curtas):** seguida a recomendação do plano (“revisar no preview; as regras deixam tirar itens sem mexer em código”). Mantida a decoração da spec — 1 item lateral por seção, alternando tipos — e **sem** foto colada ou fundo de imagem, para não pesar uma página de seções curtas. Se cansar no preview, remover itens só em `specs/decor/nossa-senhora-das-gracas.json` (correção `2.2.1-snapshot`).
 
 ## Rotas desta versão
 
@@ -73,6 +82,8 @@ Breadcrumb no topo (abaixo do menu) e bloco `SectionFlowNav` no fim da página, 
 - `navigation-flow.spec.ts` cobre as 3 rotas novas automaticamente.
 - `specs/tests/e2e/titulos-v2-visual.spec.ts` (novo, parametrizado por `specs/decor/nossa-senhora-*.json`) — seções na ordem do JSON, sem scroll horizontal em 390 px, `[data-decor]` sem interseção com `p`/`h2`.
 - `npm run test:specs` com os novos `specs/decor/*.json`.
+
+- `specs/tests/e2e/decor-pages-v2.spec.ts` (novo) — para toda rota com `specs/decor/`: 1 folha única, sem scroll horizontal, nenhum `[data-decor]` sobre `p`/`h2` e no máx. 1 tachinha vermelha, em 1440 e 390 px.
 
 ## Critérios de aceite
 

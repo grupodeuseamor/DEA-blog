@@ -1,0 +1,85 @@
+{
+  "slug": "nossa-senhora-lourdes",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Lourdes"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "Sou a Imaculada Conceição",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "gruta de Massabielle",
+          "tape": true
+        },
+        {
+          "kind": "postit",
+          "label": "1858",
+          "text": "Santa Bernadette Soubirous",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "titleDrawing": "gota",
+      "marks": [
+        {
+          "text": "18 vezes",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "uma fonte brotou da terra",
+          "drawing": "onda"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "Deus escolhe os pequenos",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "lirio"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "carimbo",
+          "text": "Imaculada Conceição · Lourdes",
+          "center": "1858"
+        }
+      ]
+    }
+  ],
+  "sheetPhotos": [
+    {
+      "image": "hero.backgroundImage",
+      "after": "sections[1]",
+      "side": "esquerda",
+      "rotate": 4,
+      "focus": "50% 35%"
+    }
+  ]
+}
