@@ -3,6 +3,18 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0.
 
+## [2.4.0-snapshot] — pendente (pre-release)
+Exec 5 — listagem Ministérios, DEA Ajuda e Perseverança no visual v2c. Spec: `specs/spec-2.4.0-snapshot.md`.
+
+### Adicionado
+- Decoração de Ministérios, DEA Ajuda e Perseverança; composição `MinistryLandingV2` (hero com carrossel em azul de carimbo, folha única com as 6 seções, vídeo em moldura com fita, projetos em post-its, valores com desenhos, citação com margem de caderno).
+- Breadcrumb e anterior/voltar/próximo nas landing pages; carimbo “em breve” em Louvor e Intercessão.
+- Testes `ministerios-listing-v2.spec.ts` e asserts v2 em `dea-ajuda-visual` e `perseveranca-visual`.
+
+### Alterado
+- `hero.overlay` removido de `dea-ajuda.json`.
+- D6: nenhuma foto de pessoas em lugar novo; D8: imagem externa (Vercel Blob) da DEA Ajuda mantida como está.
+
 ## [2.3.0-snapshot] — pendente (pre-release)
 Exec 4 — Comunicação, Dores e Fátima no visual v2c; fecha os Títulos de Nossa Senhora. Spec: `specs/spec-2.3.0-snapshot.md`.
 

@@ -22,6 +22,13 @@ Leva a seção **Ministérios** para o padrão v2c (folha única): listagem, **D
 10. `app/ministerios/dea-ajuda/page.tsx` e `app/ministerios/perseveranca/page.tsx` — só incluem `Breadcrumb` e `SectionFlowNav` na composição (sem JSX de seção na page).
 11. `specs/content/dea-ajuda.json` — remove só o campo opcional `hero.overlay`.
 
+12. **Decisões (Exec 5)**:
+    - **D6 — autorização de fotos de menores:** não colocar fotos de pessoas em lugares **novos** (sem foto colada nem fundo esmaecido com fotos de pessoas/grupos). As fotos só permanecem onde já eram usadas: hero/carrossel e a imagem da seção “inspiração” (que vira polaroid na própria seção).
+    - **D8 — imagem externa (Vercel Blob) da DEA Ajuda:** mantida como está, sem baixar nem trocar (`inspiration.backgroundImage`).
+    - Reaproveitamento opcional: nenhum nesta versão (só seria permitido com imagens sem pessoas identificáveis).
+    - Implementação: composição única `components/ministry-landing/MinistryLandingV2.tsx` (hero, folha, Breadcrumb e `SectionFlowNav`), escolhida pela page via `loadDecor`; os componentes `MinistryLanding*` ficam como ramo v1. Hero v2 aceita carrossel (`backgroundImages`) sobre uma base estática com a 1ª foto (o hero nunca fica vazio entre as trocas).
+    - Carimbo “em breve” (`decor.cards.soonStamp`) substitui o rótulo “Em breve” nos cards sem página.
+
 ## Rotas desta versão
 
 | Rota | Template | Arquivo de decoração |

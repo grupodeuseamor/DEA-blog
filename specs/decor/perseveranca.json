@@ -1,0 +1,91 @@
+{
+  "slug": "perseveranca",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "chama"
+    ],
+    "underline": "Perseverança"
+  },
+  "blocks": [
+    {
+      "target": "about",
+      "marks": [
+        {
+          "text": "formar servos gentis e generosos do amor de Deus",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "chama"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "carimbo",
+          "text": "Ministério Perseverança · perseverar",
+          "centerDrawing": "cruz"
+        }
+      ]
+    },
+    {
+      "target": "projects",
+      "marks": [],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "Formação e oração",
+          "text": "descubra seus dons",
+          "pin": "coracao",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "inspiration",
+      "marks": [
+        {
+          "text": "servir a Deus é caminhar junto",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "inspiration.backgroundImage",
+          "caption": "comunidade, alegria e compromisso",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "values",
+      "marks": [],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "brilhinhos"
+          ],
+          "tape": false
+        }
+      ]
+    },
+    {
+      "target": "quote",
+      "marks": [],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "aspas"
+          ],
+          "tape": false
+        }
+      ]
+    }
+  ]
+}

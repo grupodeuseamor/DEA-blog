@@ -1,0 +1,102 @@
+{
+  "slug": "dea-ajuda",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "coracao-chama"
+    ],
+    "underline": "Ajuda"
+  },
+  "blocks": [
+    {
+      "target": "about",
+      "marks": [
+        {
+          "text": "a fé não pode permanecer apenas nas palavras",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coracao"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "carimbo",
+          "text": "DEA Ajuda · Transformando Fé em Caridade",
+          "centerDrawing": "coracao"
+        }
+      ]
+    },
+    {
+      "target": "video",
+      "marks": [],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "Assista ao vídeo",
+          "drawing": "seta"
+        }
+      ]
+    },
+    {
+      "target": "projects",
+      "marks": [],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "Sopão Solidário",
+          "text": "refeições para pessoas em situação de vulnerabilidade",
+          "pin": "coracao",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "inspiration",
+      "marks": [
+        {
+          "text": "servir é uma forma de amar",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "inspiration.backgroundImage",
+          "caption": "Nossa Senhora Auxiliadora",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "values",
+      "marks": [],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "brilhinhos"
+          ],
+          "tape": false
+        }
+      ]
+    },
+    {
+      "target": "quote",
+      "marks": [],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "aspas"
+          ],
+          "tape": false
+        }
+      ]
+    }
+  ]
+}

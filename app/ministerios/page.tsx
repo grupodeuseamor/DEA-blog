@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function MinisteriosPage() {
   return (
     <ListingPageTemplate
+      slug="ministerios"
       hero={content.hero}
       items={content.ministries}
       gradient="wine"

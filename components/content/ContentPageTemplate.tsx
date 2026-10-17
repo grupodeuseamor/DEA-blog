@@ -18,7 +18,7 @@ type ContentPageTemplateProps = {
 }
 
 /** Listagem de cada seção (ordem de anterior/próximo). */
-function loadListing(pathname: string) {
+export function loadListing(pathname: string) {
   if (pathname.startsWith('/titulos-nossa-senhora/')) {
     const listing = loadContent('titulos-nossa-senhora')
     return { path: '/titulos-nossa-senhora', cards: listing.galleries }

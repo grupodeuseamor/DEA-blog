@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import type { ReactNode } from 'react'
+import { HeroBackgroundCarousel } from '@/components/content/HeroBackgroundCarousel'
 import { Drawing, ScribbleUnderline } from '@/components/decor/Drawing'
 import type { PageDecor } from '@/lib/specs/decor'
 import type { heroSchema } from '@/lib/specs/types'
@@ -25,17 +27,27 @@ export function HeroSectionV2({
   hero,
   decor,
   backgroundSrc,
+  children,
 }: {
   hero: HeroData
   decor: PageDecor
   /** Imagem já usada pela página (decor.hero.backdrop resolvido); padrão: hero.backgroundImage. */
   backgroundSrc?: string | null
+  /** Conteúdo extra do hero (ex.: tagline e CTA do ministry-landing). */
+  children?: ReactNode
 }) {
+  const carousel = !backgroundSrc && hero.backgroundImages && hero.backgroundImages.length > 1 ? hero.backgroundImages : null
   const bgSrc = backgroundSrc ?? hero.backgroundImage
   const parts = splitUnderline(hero.title, decor.hero.underline)
   return (
     <section className="hero" data-testid="hero-v2">
-      {bgSrc && (
+      {carousel ? (
+        <div className="bg">
+          {/* base estática com a 1ª foto: o hero nunca fica vazio entre as trocas do carrossel */}
+          <Image src={carousel[0]} alt="" fill priority sizes="100vw" />
+          <HeroBackgroundCarousel images={carousel} overlay="none" />
+        </div>
+      ) : bgSrc && (
         <div className="bg">
           <Image src={bgSrc} alt="" fill priority sizes="100vw" />
         </div>
@@ -82,6 +94,7 @@ export function HeroSectionV2({
             {decor.hero.bilhete}
           </p>
         )}
+        {children}
       </div>
     </section>
   )

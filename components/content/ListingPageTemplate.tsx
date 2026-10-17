@@ -63,6 +63,7 @@ export function ListingPageTemplate({
                   tape={cards?.tape ?? true}
                   year={cards?.yearFromDescription ? (item.description.match(YEAR)?.[1] ?? null) : null}
                   drawing={cards?.drawings[item.slug]}
+                  soonStamp={cards?.soonStamp}
                 />
               ))}
             </div>

@@ -67,6 +67,8 @@ type ListingCardV2Props = ListingCardProps & {
   tape?: boolean
   year?: string | null
   drawing?: DecorDrawing
+  /** Carimbo dos cards indisponíveis (decor.cards.soonStamp). */
+  soonStamp?: string
 }
 
 /** Ficha v2 presa com fita, leve rotação alternada, etiqueta de ano da própria description e figurinha opcional. */
@@ -83,6 +85,7 @@ export function ListingCardV2({
   tape = true,
   year,
   drawing,
+  soonStamp,
 }: ListingCardV2Props) {
   const rotate = [-1.2, 0.8, -0.6, 1.1, -0.9, 0.6][index % 6]
   const body = (
@@ -112,8 +115,15 @@ export function ListingCardV2({
       </div>
       <h2 className="t-titulo8">{title}</h2>
       <p>{description}</p>
-      <span className="mais">{available !== false ? availableLabel : 'Em breve'}</span>
+      {available === false && soonStamp ? null : (
+        <span className="mais">{available !== false ? availableLabel : 'Em breve'}</span>
+      )}
       {drawing && <Drawing name={drawing} tone="manto" className="figura" />}
+      {available === false && soonStamp && (
+        <span className="carimbo-breve mao" data-testid="soon-stamp">
+          {soonStamp}
+        </span>
+      )}
     </>
   )
   const style = { '--r': `${rotate}deg` } as CSSProperties

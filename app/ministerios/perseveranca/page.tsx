@@ -5,6 +5,8 @@ import { MinistryLandingInspiration } from '@/components/ministry-landing/Minist
 import { MinistryLandingProjects } from '@/components/ministry-landing/MinistryLandingProjects'
 import { MinistryLandingQuote } from '@/components/ministry-landing/MinistryLandingQuote'
 import { MinistryLandingValues } from '@/components/ministry-landing/MinistryLandingValues'
+import { MinistryLandingV2 } from '@/components/ministry-landing/MinistryLandingV2'
+import { loadDecor } from '@/lib/specs/decor'
 import { loadContent } from '@/lib/specs/loader'
 
 const content = loadContent('perseveranca')
@@ -15,6 +17,9 @@ export const metadata: Metadata = {
 }
 
 export default function PerseverancaPage() {
+  const decor = loadDecor('perseveranca')
+  if (decor) return <MinistryLandingV2 content={content} decor={decor} pathname="/ministerios/perseveranca" />
+
   const { hero, about, projects, inspiration, values, quote } = content
 
   return (

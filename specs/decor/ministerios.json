@@ -1,0 +1,23 @@
+{
+  "slug": "ministerios",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "pomba"
+    ],
+    "underline": "Ministérios",
+    "bilhete": "caminho de serviço e evangelização"
+  },
+  "blocks": [],
+  "cards": {
+    "tape": true,
+    "yearFromDescription": false,
+    "drawings": {
+      "dea-ajuda": "coracao-chama",
+      "perseveranca": "chama",
+      "louvor": "louvor",
+      "intercessao": "pomba"
+    },
+    "soonStamp": "em breve"
+  }
+}
