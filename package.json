@@ -1,6 +1,6 @@
 {
   "name": "corpus-criste",
-  "version": "2.4.0-snapshot",
+  "version": "2.5.0-snapshot",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "test:specs": "tsx scripts/validate-specs.ts",
     "test:video": "tsx specs/tests/video-embed.unit.ts",
+    "test:preview": "tsx specs/tests/home-preview.unit.tsx",
     "test:e2e": "playwright test"
   },
   "dependencies": {

@@ -77,6 +77,8 @@ export const decorBlockSchema = z.object({
   marks: z.array(decorMarkSchema).max(2).default([]),
   side: z.array(decorSideItemSchema).max(2).default([]),
   backdrop: backdropSchema.optional(),
+  /** Opcional (2.5.0): força (true) ou desliga (false) o bloco Areia interno; padrão = variant highlight. */
+  highlight: z.boolean().optional(),
 })
 
 export const decorSchema = z.object({

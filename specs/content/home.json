@@ -15,7 +15,6 @@
       "/images/home-carousel-03.png",
       "/images/home-carousel-04.png"
     ],
-    "overlay": "linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.82))",
     "logo": {
       "src": "/logo-deus-e-amor.png",
       "alt": "Grupo Deus É Amor",
@@ -54,5 +53,10 @@
         "href": "/titulos-nossa-senhora"
       }
     }
-  ]
+  ],
+  "previewCta": {
+    "label": "Ministérios",
+    "href": "/ministerios",
+    "badge": "preview"
+  }
 }

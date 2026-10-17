@@ -51,3 +51,22 @@ for (const slug of decorSlugs) {
     }
   })
 }
+
+/** 2.5.0-snapshot: da home até um título e até um ministério só com cliques (home → listagem → card). */
+test('fluxo v2: home → Títulos → Aparecida', async ({ page }) => {
+  await page.goto('/')
+  await page.getByTestId('section-flow').getByTestId('section-flow-next').click()
+  await expect(page).toHaveURL('/titulos-nossa-senhora')
+  await page.getByTestId('paper-sheet').locator('a[href="/titulos-nossa-senhora/nossa-senhora-aparecida"]').click()
+  await expect(page).toHaveURL('/titulos-nossa-senhora/nossa-senhora-aparecida')
+})
+
+test('fluxo v2: home → Ministérios (preview) → DEA Ajuda', async ({ page }) => {
+  const home = JSON.parse(fs.readFileSync(path.join(root, 'specs/content/home.json'), 'utf-8'))
+  test.skip(!home.previewCta, 'sem previewCta no home.json')
+  await page.goto('/')
+  await page.getByTestId('home-preview-ministerios').click()
+  await expect(page).toHaveURL('/ministerios')
+  await page.locator('a[data-testid="ministry-dea-ajuda"]').click()
+  await expect(page).toHaveURL('/ministerios/dea-ajuda')
+})

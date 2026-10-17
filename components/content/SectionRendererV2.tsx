@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { CtaButtonGroup } from '@/components/ui/CtaButtonGroup'
 import { DecorAside } from '@/components/decor/DecorAside'
 import { DrawnTitle } from '@/components/decor/DrawnTitle'
 import { ImageBackdrop } from '@/components/decor/ImageBackdrop'
@@ -51,7 +52,7 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
               </section>
             ) : (
               <section
-                className={['bloco', section.variant === 'highlight' && 'hl', backdrop && 'com-fundo']
+                className={['bloco', (block?.highlight ?? section.variant === 'highlight') && 'hl', backdrop && 'com-fundo']
                   .filter(Boolean)
                   .join(' ')}
                 data-section-index={i}
@@ -64,6 +65,9 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
                       <p key={p.slice(0, 40)}>{highlightText(p, marks)}</p>
                     ))}
                     {section.quote && <blockquote className="ql margem-caderno">{section.quote}</blockquote>}
+                    {section.type === 'paragraphs' && (section.cta || section.secondaryCta) && (
+                      <CtaButtonGroup v2 primary={section.cta} secondary={section.secondaryCta} />
+                    )}
                   </div>
                   <DecorAside items={block?.side ?? []} content={content} imageAlt={imageAlt} index={i} />
                 </div>

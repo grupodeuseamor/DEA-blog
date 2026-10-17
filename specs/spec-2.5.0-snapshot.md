@@ -21,6 +21,13 @@ Aplica o padrão v2 na **Home**, a porta de entrada do fluxo. O hero segue a abe
    - **para remover:** apagar `previewCta` do `home.json` (o botão some; nenhum outro arquivo precisa mudar). Opcionalmente apagar o componente e o campo do schema.
 6. `specs/content/home.json` — remove só o campo opcional `hero.overlay` e acrescenta o campo opcional `previewCta` (5a).
 
+7. **Decisões (Exec 6)**:
+   - **D6 — autorização de fotos de menores:** nenhuma foto de pessoas em lugar novo. As 4 fotos do carrossel mostram grupos de jovens, então a polaroid prevista para `sections[0]` (`hero.backgroundImages[1]`) **não** foi usada; no lugar entra um carimbo com a frase do conteúdo “Jovens evangelizando Jovens desde 2000” (`hero.subtitle`) e coração com chama. As fotos ficam só no carrossel do hero, onde já estavam.
+   - Reaproveitamento opcional de imagens: nenhum (não há imagem da página sem pessoas identificáveis).
+   - `sections[0]` também é `highlight` no conteúdo; para manter só “Venha participar” como bloco Areia, o decor ganhou o campo opcional `blocks[].highlight` (`false` em `sections[0]`), sem mudar o JSON de conteúdo.
+   - “Continue navegando” usa `getEntryFlow` (1º item de topo de `routes.json`) e o `SectionFlowNav` em modo `entry`; o botão preview fica ao lado do card.
+   - Teste do botão preview: e2e condicional (`home-visual`) + teste unitário `specs/tests/home-preview.unit.tsx` (`npm run test:preview`) cobrindo presença com `previewCta` e ausência sem ele; `validate-specs` exige que `previewCta.href` exista em `routes.json`.
+
 ## Rotas desta versão
 
 | Rota | Template | Arquivo de decoração |

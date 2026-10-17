@@ -214,4 +214,8 @@ export function validateAllSpecs(): void {
   ).forEach((slug) => {
     loadContent(slug)
   })
+  const preview = loadContent('home').previewCta
+  if (preview && !loadRoutes().items.some((item) => item.path === preview.href)) {
+    throw new Error(`home.previewCta.href "${preview.href}" não existe em specs/routes.json`)
+  }
 }

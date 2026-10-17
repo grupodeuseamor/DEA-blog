@@ -8,9 +8,10 @@ import { Breadcrumb } from '@/components/navigation/Breadcrumb'
 import { SectionFlowNav } from '@/components/navigation/SectionFlowNav'
 import { loadDecor } from '@/lib/specs/decor'
 import { loadContent, loadRoutes } from '@/lib/specs/loader'
-import { getBreadcrumb, getSectionFlow } from '@/lib/specs/nav'
+import { getBreadcrumb, getEntryFlow, getSectionFlow } from '@/lib/specs/nav'
+import { HomePreviewCta } from '@/components/ui/HomePreviewCta'
 import { contentContainer } from '@/lib/theme'
-import type { ContentPage } from '@/lib/specs/types'
+import type { ContentPage, HomeContent } from '@/lib/specs/types'
 
 type ContentPageTemplateProps = {
   content: ContentPage
@@ -40,7 +41,13 @@ export function ContentPageTemplate({ content, compact = false }: ContentPageTem
     )
     const pathname = content.slug === 'home' ? '/' : route?.path ?? '/' + content.slug
     const listing = loadListing(pathname)
-    const flow = listing ? getSectionFlow(pathname, routes, listing) : null
+    const preview = content.slug === 'home' && 'previewCta' in content ? (content as HomeContent).previewCta : undefined
+    const entry = pathname === '/' ? getEntryFlow(routes) : null
+    const flow = listing
+      ? getSectionFlow(pathname, routes, listing)
+      : entry
+        ? { ...entry, extra: <HomePreviewCta cta={preview} /> }
+        : null
     const imageAlt = content.hero.title
 
     return (
@@ -58,7 +65,7 @@ export function ContentPageTemplate({ content, compact = false }: ContentPageTem
             />
           </PaperSheet>
         </div>
-        {flow && <SectionFlowNav flow={flow} />}
+        {flow && <SectionFlowNav flow={flow} heading={flow.entry ? 'Continue navegando' : undefined} />}
       </PageShell>
     )
   }

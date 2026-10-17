@@ -401,3 +401,15 @@ svg.d circle { fill: currentColor; stroke: none; }
   .v2 .ml-projetos { grid-template-columns: 1fr; gap: 30px; }
   .v2 .ml-valores { grid-template-columns: 1fr; }
 }
+
+/* ===== v2 · home (2.5.0) ===== */
+.v2 .ctas-v2 { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+.v2 .btn-manto { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; background: var(--color-manto); color: var(--color-areia); font-weight: 600; box-shadow: var(--sombra-postit); transition: transform .2s ease; }
+.v2 .btn-outline-manto { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 10px 22px; border-radius: 999px; border: 2px solid var(--color-manto); color: var(--color-manto); font-weight: 600; background: transparent; transition: transform .2s ease; }
+.v2 .btn-manto:hover, .v2 .btn-outline-manto:hover { transform: translateY(-2px); }
+.v2 .fluxo.entrada .grid { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+.v2 .preview-cta { align-self: center; justify-self: start; }
+.v2 .etiqueta-preview { padding: 0 10px; border: 1.5px dashed var(--color-manto); border-radius: 6px; font-size: 18px; font-weight: 400; line-height: 1.4; transform: rotate(-4deg); background: var(--color-areia); }
+@media (max-width: 767px) {
+  .v2 .fluxo.entrada .grid { grid-template-columns: 1fr; }
+}

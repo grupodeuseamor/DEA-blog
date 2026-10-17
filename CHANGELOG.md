@@ -3,6 +3,20 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0.
 
+## [2.5.0-snapshot] — pendente (pre-release)
+Exec 6 — Home no visual v2c. Spec: `specs/spec-2.5.0-snapshot.md`.
+
+### Adicionado
+- `specs/decor/home.json`: hero Novo Lote (carrossel em azul de carimbo, sublinhado em “Amor”, bilhete “desde 2000”), folha única com “Venha participar” como bloco Areia e post-it das quintas com a única tachinha vermelha.
+- Botão preview para `/ministerios` (item 5a): campo opcional `previewCta` no `home.json` + `components/ui/HomePreviewCta.tsx` com etiqueta “preview”; apagar o campo remove o botão.
+- Bloco “Continue navegando” (modo entrada) com card para Títulos de Nossa Senhora.
+- Botões v2: Instagram em Azul Manto com ícone e secundário `outline-manto`.
+- Testes: `home-visual` em v2, `home-preview.unit.tsx` (`npm run test:preview`: presença com o campo e ausência sem ele) e percursos home → título / home → ministério em `navigation-flow`.
+
+### Alterado
+- `hero.overlay` removido do `home.json`.
+- D6: a polaroid prevista (foto do carrossel, com pessoas) virou carimbo com frase do conteúdo.
+
 ## [2.4.0-snapshot] — pendente (pre-release)
 Exec 5 — listagem Ministérios, DEA Ajuda e Perseverança no visual v2c. Spec: `specs/spec-2.4.0-snapshot.md`.
 

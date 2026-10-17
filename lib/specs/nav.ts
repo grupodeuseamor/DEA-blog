@@ -64,6 +64,10 @@ export type SectionFlow = {
   /** Posição (1..total) da página na listagem. */
   position: number
   total: number
+  /** Modo entrada (home): sem anterior/voltar. */
+  entry?: boolean
+  /** Extras renderizados ao lado do card (ex.: botão preview). */
+  extra?: import('react').ReactNode
 }
 
 type ListingCard = { title: string; path: string }
@@ -92,6 +96,13 @@ export function getSectionFlow(
     position: index + 1,
     total: cards.length,
   }
+}
+
+/** Fluxo de entrada da home: card para o 1º item de topo do menu (rótulo de routes.json). */
+export function getEntryFlow(routes: RoutesSpec): SectionFlow | null {
+  const first = routes.items.find((item) => !item.parent && item.path !== '/')
+  if (!first) return null
+  return { back: { label: 'Início', path: '/' }, next: { label: first.label, path: first.path }, position: 1, total: 1, entry: true }
 }
 
 /**

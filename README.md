@@ -2,7 +2,7 @@
 
 Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **React 19** e **Tailwind CSS 4**. O conteúdo e os testes são versionados na pasta `specs/`.
 
-**Versão atual do conteúdo:** `2.4.0-snapshot` (pre-release, preview da branch `v2`) — ver [`specs/spec-2.4.0-snapshot.md`](specs/spec-2.4.0-snapshot.md) e o [`CHANGELOG.md`](CHANGELOG.md).
+**Versão atual do conteúdo:** `2.5.0-snapshot` (pre-release, preview da branch `v2`) — ver [`specs/spec-2.5.0-snapshot.md`](specs/spec-2.5.0-snapshot.md) e o [`CHANGELOG.md`](CHANGELOG.md).
 **Produção:** `1.1.0` (release `v1.1.0`, ponto de rollback) até a publicação oficial da `2.7.0`.
 
 Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
@@ -80,6 +80,7 @@ Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-c
 | 2.2.0-snapshot | *pre-release* — Exec 3: Lourdes, Guadalupe, Graças |
 | 2.3.0-snapshot | *pre-release* — Exec 4: Comunicação, Dores, Fátima (fecha Títulos) |
 | 2.4.0-snapshot | *pre-release* — Exec 5: Ministérios (listagem), DEA Ajuda, Perseverança |
+| 2.5.0-snapshot | *pre-release* — Exec 6: Home (+ botão preview Ministérios) |
 
 ## Estrutura de specs
 
