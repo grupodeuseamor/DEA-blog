@@ -8,25 +8,27 @@ alwaysApply: false
 
 ## Template mapping
 
-| Page | Template | JSON |
-|------|----------|------|
-| Home | ContentPageTemplate (hero com carrossel CSS opcional; sem menção a ministérios) | home.json |
-| Títulos de Nossa Senhora (index) | ListingPageTemplate | titulos-nossa-senhora.json |
-| Nossa Senhora Auxiliadora | ContentPageTemplate compact | nossa-senhora-auxiliadora.json |
-| Nossa Senhora em Medjugorje | ContentPageTemplate compact | nossa-senhora-medjugorje.json |
-| Nossa Senhora Aparecida | ContentPageTemplate compact | nossa-senhora-aparecida.json |
-| Nossa Senhora de La Salette | ContentPageTemplate compact | nossa-senhora-la-salette.json |
-| Nossa Senhora de Lourdes | ContentPageTemplate compact | nossa-senhora-lourdes.json |
-| Nossa Senhora de Guadalupe | ContentPageTemplate compact | nossa-senhora-guadalupe.json |
-| Nossa Senhora das Graças | ContentPageTemplate compact | nossa-senhora-das-gracas.json |
-| Nossa Senhora da Comunicação | ContentPageTemplate compact | nossa-senhora-da-comunicacao.json |
-| Nossa Senhora das Dores | ContentPageTemplate compact | nossa-senhora-das-dores.json |
-| Nossa Senhora de Fátima | ContentPageTemplate compact | nossa-senhora-de-fatima.json |
-| Ministérios (index) | ListingPageTemplate | ministerios.json |
-| Ministério Perseverança | Ministry landing (7 seções) | perseveranca.json |
-| DEA Ajuda | Ministry landing (7 seções) | dea-ajuda.json |
+| Page | Template | JSON | Decor v2 |
+|------|----------|------|----------|
+| Home | ContentPageTemplate (hero com carrossel CSS opcional; sem menção a ministérios, exceto o botão **preview** opcional `previewCta` → `/ministerios`, removível — Exec 6) | home.json | `specs/decor/home.json` |
+| Títulos de Nossa Senhora (index) | ListingPageTemplate | titulos-nossa-senhora.json | `specs/decor/titulos-nossa-senhora.json` |
+| Nossa Senhora Auxiliadora | ContentPageTemplate compact | nossa-senhora-auxiliadora.json | `specs/decor/nossa-senhora-auxiliadora.json` |
+| Nossa Senhora em Medjugorje | ContentPageTemplate compact | nossa-senhora-medjugorje.json | `specs/decor/nossa-senhora-medjugorje.json` |
+| Nossa Senhora Aparecida | ContentPageTemplate compact | nossa-senhora-aparecida.json | `specs/decor/nossa-senhora-aparecida.json` |
+| Nossa Senhora de La Salette | ContentPageTemplate compact | nossa-senhora-la-salette.json | `specs/decor/nossa-senhora-la-salette.json` |
+| Nossa Senhora de Lourdes | ContentPageTemplate compact | nossa-senhora-lourdes.json | `specs/decor/nossa-senhora-lourdes.json` |
+| Nossa Senhora de Guadalupe | ContentPageTemplate compact | nossa-senhora-guadalupe.json | `specs/decor/nossa-senhora-guadalupe.json` |
+| Nossa Senhora das Graças | ContentPageTemplate compact | nossa-senhora-das-gracas.json | `specs/decor/nossa-senhora-das-gracas.json` |
+| Nossa Senhora da Comunicação | ContentPageTemplate compact | nossa-senhora-da-comunicacao.json | `specs/decor/nossa-senhora-da-comunicacao.json` |
+| Nossa Senhora das Dores | ContentPageTemplate compact | nossa-senhora-das-dores.json | `specs/decor/nossa-senhora-das-dores.json` |
+| Nossa Senhora de Fátima | ContentPageTemplate compact | nossa-senhora-de-fatima.json | `specs/decor/nossa-senhora-de-fatima.json` |
+| Ministérios (index) | ListingPageTemplate | ministerios.json | `specs/decor/ministerios.json` |
+| Ministério Perseverança | Ministry landing (7 seções) | perseveranca.json | `specs/decor/perseveranca.json` |
+| DEA Ajuda | Ministry landing (7 seções) | dea-ajuda.json | `specs/decor/dea-ajuda.json` |
 
 **Novo conteúdo:** copiar de `.cursor/examples/content-page/` (não há rotas `/template` públicas).
+
+**v2:** a página entra no visual Caderno + Novo Lote quando ganha `specs/decor/{slug}.json` (ver `corpus-criste-design-v2.mdc`). Breadcrumb e fluxo vêm dos templates; `page.tsx` continua mínimo. Durante a v2 **não** se criam páginas novas.
 
 ## Minimal page.tsx (copy exactly)
 

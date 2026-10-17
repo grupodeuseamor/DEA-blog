@@ -1,0 +1,62 @@
+---
+description: Padrões visuais v2 (Caderno + Novo Lote) — tokens, fontes, desenhos, decoração por JSON, vermelho só em acento
+alwaysApply: true
+---
+
+# CorpusCriste — Design v2
+
+Direção aprovada: **Caderno + Novo Lote** (design doc v3). Referência viva: `/titulos-nossa-senhora/nossa-senhora-aparecida` (piloto v2c, `spec-2.0.0-snapshot.md`).
+
+## Tokens (`app/globals.css` → `@theme inline`)
+
+| Token | Hex | Uso |
+|-------|-----|-----|
+| `manto` | #00479F | cor principal, botões, títulos sobre papel, desenhos |
+| `ceu` | #84ADBD | desenhos, sublinhados, títulos grandes sobre azul — **nunca texto sobre areia** |
+| `areia` | #E7E0CA | post-its, faixas, texto sobre azul |
+| `tinta` | #000 | texto corrido |
+| `papel` | #F6F2E7 | fundo de página e da folha única |
+| `noite` | #0B2550 | rodapé, overlay de hero |
+| `coracao` | #C8372D | **reservado**: margem da citação, 1 tachinha por página, selo especial |
+
+- Use só classes de token (`bg-papel`, `text-manto`). **Proibido** `#hex`, `rgb()`, `text-[#…]` ou `style={{ color }}` em componentes, páginas e JSON.
+- Fontes: `font-titulo` (Fraunces), `font-corpo` (Jost), `font-mao` (Gochi Hand), `font-leitura` (Newsreader).
+
+## Texto contínuo numa folha única
+
+- **Todas as seções de conteúdo da página ficam numa única folha creme (`PaperSheet`), grande e contínua.** Nunca um card por seção.
+- Divisores internos = títulos azuis (`DrawnTitle`, Fraunces, `text-manto`) com sublinhado rabiscado em `ceu`. Entre seções: **no máximo um** respiro ou rabisco (`SectionBreak`). O fundo da folha não se interrompe.
+- A seção `highlight` (Areia) entra na folha como **bloco destacado interno** (`bg-areia`, cantos arredondados), não como card separado.
+- Decoração (polaroid, post-its, carimbos, figurinhas, bilhetes) fica **nas margens da folha**: coluna lateral no desktop; abaixo do texto da seção no mobile, ainda dentro da folha.
+- Duas fitas no topo da folha; sem grão na folha. Hero, fluxo e rodapé ficam fora dela.
+- Listagens: o grid de cards fica numa folha única; ministry-landing e Home: todas as seções abaixo do hero numa folha única.
+- Referência: `piloto/aparecida-v2c--desktop.png` / `--mobile.png` e `spec-2.0.0-snapshot.md`.
+
+## Decoração por página
+
+- Arquivo `specs/decor/{slug}.json` (mesmo slug de `specs/content/`). Schema e regras em `lib/specs/decor.ts`.
+- Por bloco: até 1 `titleDrawing`, 2 `marks` (marca-texto / círculo / sublinhado) e 2 itens `side` (polaroid, carimbo, postit, postit-datas, bilhete, figurinha). Hero: até 3 desenhos.
+- **Toda frase** (bilhete, post-it, carimbo, legenda, marca) precisa existir no JSON de conteúdo da página. Marca-texto precisa existir no próprio bloco. `npm run test:specs` reprova o resto.
+- Máximo **1** `pin: "coracao"` por página.
+- Polaroid só com imagem já referenciada no conteúdo (`hero.backgroundImage`, `inspiration.backgroundImage`, `hero.backgroundImages[n]`).
+
+## Componentes (`components/decor/`)
+
+`Drawing`, `RoughFilters`, `PaperSheet`, `SectionBreak`, `WashiTape`, `Pin`, `PostIt`, `PostItDates`, `Polaroid`, `HandNote`, `Stamp`, `Sticker`, `Highlight`, `DecorAside`, `DrawnTitle`. Não criar variações locais: estender o componente e documentar no spec da versão.
+
+## Desenhos
+
+- SVG inline, `stroke="currentColor"`, filtro `#rough`, `aria-hidden="true"`, `data-decor`.
+- Banco: brilho, brilhinhos, estrela, respingo, raios, orbita, selo-estrelado, coracao-chama, chama, pomba, coroa-espinhos, cruz, terco, vela, aureola, lirio, coroa, gota, nuvem, onda, coracao, louvor, pregacao, sublinhado, circulo, seta, asterisco, aspas.
+- Sempre nas bordas, nunca atrás/por cima de texto. Sobre papel: manto ou ceu. Sobre azul: areia ou ceu.
+- Só o brilho anima, e só com `prefers-reduced-motion: no-preference`.
+- Mobile (≤ 640 px): `DecorAside` desce para baixo do texto; esconder desenhos que não couberem (`hidden sm:block`), nunca sobrepor.
+
+## Fotos e texturas
+
+- Fotos só as que a página já usa: polaroid com fita ou “azul de carimbo”.
+- Textura de papel discreta; pauta só em bilhetes. “Não somos cursinho.”
+
+## Opt-in durante os snapshots
+
+Do `2.0.0-snapshot` ao `2.5.0-snapshot`, a página só usa o ramo v2 dos templates se `loadDecor(slug)` retornar decoração. Na Exec 7 (`2.6.0-snapshot`) o ramo legado é removido.

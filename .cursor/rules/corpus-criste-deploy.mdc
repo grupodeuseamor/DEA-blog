@@ -30,6 +30,12 @@ When renaming public URLs, add a permanent redirect.
 
 ## Deploy flow
 
-Push to GitHub → Vercel detects Next.js → `npm run build`
+Push to GitHub → Vercel Git integration detects Next.js → `npm run build`
+
+- **No GitHub Actions.** The account is at the free-tier limit; do not add `.github/workflows/`. Run `npm run test:specs`, `npm run build` and `CI=1 npm run test:e2e` locally before pushing.
+- `main` = production (https://www.grupodeuseamor.com.br).
+- `v2` = branch of the v2 snapshots (`2.0.0-snapshot` … `2.6.x-snapshot`) → automatic **Preview Deployment** (branch URL). Review there before tagging `v2.N.0-snapshot` (or patch `v2.N.x-snapshot`).
+- Official release 2.7.0: merge `v2` → `main`, tag `v2.7.0`, GitHub Release Latest. Rollback: Vercel *Instant Rollback* to the last 1.1.0 deployment and/or revert the merge (code preserved in release `v1.1.0`).
+- v2 does **not** rename public URLs, so no new redirects are needed.
 
 Static assets (`public/`, `_next/static/`) are cached automatically by Vercel/Next.js. Do not add custom `headers` regex patterns in `vercel.json` — path-to-regexp rejects patterns like `/(.*\\.(png|jpg))`.

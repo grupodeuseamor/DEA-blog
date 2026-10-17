@@ -24,16 +24,23 @@ alwaysApply: true
 
 - DEA Ajuda e Perseverança (`/ministerios/dea-ajuda`, `/ministerios/perseveranca`) usam `components/ministry-landing/` — não converter para `ContentPageTemplate`
 
-## Visual identity
+## Visual identity (v2 — Caderno + Novo Lote)
 
-- Background: `#0f0f12`
-- Gold accent: `#d4af37`
-- Wine secondary: `#8B2332`
-- Serif titles: Cormorant Garamond
-- Rounded cards: `rounded-2xl`
+- Tokens únicos em `app/globals.css` (`@theme inline`): `manto`, `ceu`, `areia`, `tinta`, `papel`, `noite`, `coracao`
+- Fontes: Fraunces (títulos), Jost (corpo), Gochi Hand (bilhetes), Newsreader (citações)
+- Vermelho `coracao` só em acentos (margem da citação, 1 tachinha por página, selo especial)
+- **Never** write colors in classes or `style` (`text-[#…]`, `#hex`, `rgb()`)
+- Decoração por página em `specs/decor/{slug}.json`, só com frases do conteúdo
+- Detalhes: `.cursor/rules/corpus-criste-design-v2.mdc` · navegação: `corpus-criste-navigation.mdc` · resumo para IAs: `AGENTS.md`
+- Visual 1.1.0 (fundo `#0f0f12`, dourado `#d4af37`, vinho `#8B2332`, Cormorant Garamond) é **legado**: só nas páginas ainda sem `specs/decor/` até a 2.0.0
+
+## Never
+
+- Change routes, folders or menu options; create `[slug]` dynamic routes or new redirects
+- Add GitHub Actions (`.github/workflows/`) — tests and builds run locally, deploy via Vercel Git integration
 
 ## Version reference
 
 - Read `specs/version.json` → field `specFile` for current release notes
-- Versioning policy: `.cursor/rules/corpus-criste-versions.mdc` (releases `0.0.x` / `0.1.x` / `1.0.0+`)
+- Versioning policy: `.cursor/rules/corpus-criste-versions.mdc` (releases `0.0.x` / `0.1.x` / `1.0.0+` / snapshots `2.N.0-snapshot` / correções `2.N.x-snapshot` / oficial `2.7.0`)
 - **Engenharia e padrões de código:** [`specs/CORPUS-CRISTE-ENGINEERING.md`](../specs/CORPUS-CRISTE-ENGINEERING.md) — hierarquia de componentes, o que evitar, Server vs Client
