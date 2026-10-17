@@ -54,12 +54,29 @@ export const decorSideItemSchema = z.discriminatedUnion('kind', [
   }),
 ])
 
+/**
+ * Reaproveitamento de imagens (desde 2.1.0-snapshot, opcional): referência a uma imagem que a PRÓPRIA página
+ * já usa — caminho no JSON de conteúdo (`hero.backgroundImage`, `hero.backgroundImages[1]`) ou o `src`
+ * literal (`/images/...`) que já aparece no conteúdo. Nunca uma imagem nova.
+ */
+export const imageRefSchema = z.string().min(2)
+
+/** Fundo esmaecido atrás de um bloco da folha (legibilidade garantida por véu de papel via token). */
+export const backdropSchema = z.object({
+  image: imageRefSchema,
+  /** `suave` (padrão, imagem quase apagada) ou `media`. O texto fica sempre sobre o véu `--veu-*`. */
+  strength: z.enum(['suave', 'media']).default('suave'),
+  /** Lado onde a imagem aparece; o lado do texto fica coberto pelo véu. */
+  side: z.enum(['direita', 'esquerda', 'inteiro']).default('direita'),
+})
+
 export const decorBlockSchema = z.object({
   /** Caminho no JSON de conteúdo: `sections[2]`, `about`, `projects`, `quote`… */
   target: z.string(),
   titleDrawing: drawingSchema.optional(),
   marks: z.array(decorMarkSchema).max(2).default([]),
   side: z.array(decorSideItemSchema).max(2).default([]),
+  backdrop: backdropSchema.optional(),
 })
 
 export const decorSchema = z.object({
@@ -69,8 +86,29 @@ export const decorSchema = z.object({
     /** Palavra do título do hero que recebe o sublinhado à mão. */
     underline: z.string().optional(),
     bilhete: text.optional(),
+    /** Opcional: troca a foto de fundo do hero por outra imagem que a página já usa. */
+    backdrop: backdropSchema.optional(),
   }),
   blocks: z.array(decorBlockSchema).default([]),
+  /**
+   * Foto colada na borda da folha (desde 2.0.1-snapshot, opcional): reaproveita uma imagem que a página
+   * já usa, presa com fitas nos cantos, levemente inclinada. Desktop largo: na margem da folha, ao lado do
+   * bloco `after`; telas menores: abaixo do texto desse bloco (nunca por cima do texto).
+   */
+  sheetPhotos: z
+    .array(
+      z.object({
+        image: imageRefSchema,
+        after: z.string(),
+        side: z.enum(['esquerda', 'direita']).default('esquerda'),
+        rotate: z.number().min(-8).max(8).default(-4),
+        caption: text.optional(),
+        /** Recorte da foto (CSS object-position), ex.: "50% 20%". */
+        focus: z.string().regex(/^\d{1,3}% \d{1,3}%$/).default('50% 50%'),
+      }),
+    )
+    .max(1)
+    .default([]),
   /** Só listagens: fita nos cards, etiqueta de ano tirada da description, figurinha por card. */
   cards: z
     .object({
@@ -85,6 +123,7 @@ export const decorSchema = z.object({
 export type DecorDrawing = z.infer<typeof drawingSchema>
 export type PageDecor = z.infer<typeof decorSchema>
 export type DecorBlock = z.infer<typeof decorBlockSchema>
+export type DecorBackdrop = z.infer<typeof backdropSchema>
 export type DecorSideItem = z.infer<typeof decorSideItemSchema>
 
 const DECOR_DIR = path.join(process.cwd(), 'specs', 'decor')
@@ -105,6 +144,17 @@ export function resolveContentPath(root: unknown, target: string): unknown {
     .split('.')
     .filter(Boolean)
     .reduce<unknown>((node, key) => (node == null ? undefined : (node as Record<string, unknown>)[key]), root)
+}
+
+const IMAGE_EXT = /\.(png|jpe?g|webp|avif|gif|svg)(\?.*)?$/i
+
+/** Resolve uma referência de imagem reaproveitada; devolve o src ou null se a página não usa essa imagem. */
+export function resolveImageRef(content: unknown, ref: string): string | null {
+  if (ref.startsWith('/') || ref.startsWith('http')) {
+    return IMAGE_EXT.test(ref) && collectStrings(content).includes(ref) ? ref : null
+  }
+  const value = resolveContentPath(content, ref)
+  return typeof value === 'string' && IMAGE_EXT.test(value) ? value : null
 }
 
 /** Divide "Padroeira do Brasil · 12 de outubro" em trechos; cada trecho precisa existir no conteúdo. */
@@ -128,6 +178,16 @@ export function validateDecor(slug: string): PageDecor {
   }
   if (decor.hero.bilhete) mustBeInPage(decor.hero.bilhete, 'hero.bilhete')
 
+  if (decor.hero.backdrop && !resolveImageRef(content, decor.hero.backdrop.image)) {
+    errors.push(`hero.backdrop.image "${decor.hero.backdrop.image}" não é uma imagem já usada pela página`)
+  }
+
+  decor.sheetPhotos.forEach((photo, i) => {
+    if (!resolveImageRef(content, photo.image)) errors.push(`sheetPhotos[${i}]: imagem "${photo.image}" não é usada pela página`)
+    if (resolveContentPath(content, photo.after) === undefined) errors.push(`sheetPhotos[${i}]: after "${photo.after}" não existe no conteúdo`)
+    if (photo.caption) mustBeInPage(photo.caption, `sheetPhotos[${i}].caption`)
+  })
+
   let redPins = 0
   const seen = new Set<string>()
   decor.blocks.forEach((block, i) => {
@@ -139,6 +199,9 @@ export function validateDecor(slug: string): PageDecor {
       errors.push(`${where}: target não existe no conteúdo`)
       return
     }
+    if (block.backdrop && !resolveImageRef(content, block.backdrop.image)) {
+      errors.push(`${where}: backdrop.image "${block.backdrop.image}" não é uma imagem já usada pela página`)
+    }
     const blockText = norm(collectStrings(node).join(' \n '))
     block.marks.forEach((m) => {
       if (!blockText.includes(norm(m.text))) errors.push(`${where}: marca "${m.text}" não está nesse bloco`)
@@ -146,8 +209,7 @@ export function validateDecor(slug: string): PageDecor {
     block.side.forEach((item) => {
       switch (item.kind) {
         case 'polaroid': {
-          const img = resolveContentPath(content, item.image)
-          if (typeof img !== 'string') errors.push(`${where}: polaroid.image "${item.image}" não aponta para uma imagem do conteúdo`)
+          if (!resolveImageRef(content, item.image)) errors.push(`${where}: polaroid.image "${item.image}" não aponta para uma imagem já usada pela página`)
           mustBeInPage(item.caption, `${where} polaroid`)
           break
         }

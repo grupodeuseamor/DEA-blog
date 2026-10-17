@@ -47,6 +47,11 @@ A v2 (snapshots `2.0.0-snapshot` … `2.6.x-snapshot`, oficial `2.7.0`) troca **
 8. **Mobile primeiro:** em 390 px, a lateral decorativa desce para baixo do texto; sem scroll horizontal.
 9. **Texto contínuo numa folha única.** Todas as seções de conteúdo da página ficam numa única folha creme (`PaperSheet`) grande e contínua, nunca um card por seção. Os títulos azuis com sublinhado rabiscado são os divisores internos; entre seções cabe no máximo um respiro ou rabisco (`SectionBreak`), sem quebrar o fundo. A seção de destaque (Areia) entra na folha como bloco destacado interno. Decorações ficam nas margens da folha. Referência: `piloto/aparecida-v2c--*.png`.
 
+### Reaproveitamento de imagens (desde 2.0.1-snapshot, opcional)
+
+- Imagens que a página **já usa** (hero, carrossel, fotos do JSON) podem virar **foto colada** na borda da folha (`sheetPhotos`), **fundo esmaecido** de um bloco (`blocks[].backdrop`) ou do hero (`hero.backdrop`), além da polaroid. Nunca imagem nova; o validador (`resolveImageRef`) reprova.
+- Legibilidade primeiro: escala de cinza + opacidade baixa + véu de papel por token (`--veu-papel*`). Moderação: máx. 1 foto colada e 1 fundo de imagem por página. Detalhes em `.cursor/rules/corpus-criste-design-v2.mdc`.
+
 ## 4. Regras de navegação e fluxo
 
 - Home → listagens (CTAs) → cards → página → Anterior / Voltar / Próximo.

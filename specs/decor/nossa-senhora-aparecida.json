@@ -150,5 +150,14 @@
         }
       ]
     }
+  ],
+  "sheetPhotos": [
+    {
+      "image": "hero.backgroundImage",
+      "after": "sections[2]",
+      "side": "esquerda",
+      "rotate": -5,
+      "focus": "50% 30%"
+    }
   ]
 }

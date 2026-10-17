@@ -5,7 +5,7 @@ import { PostIt } from '@/components/decor/PostIt'
 import { PostItDates } from '@/components/decor/PostItDates'
 import { Stamp } from '@/components/decor/Stamp'
 import { Sticker } from '@/components/decor/Sticker'
-import { resolveContentPath, type DecorSideItem } from '@/lib/specs/decor'
+import { resolveImageRef, type DecorSideItem } from '@/lib/specs/decor'
 
 type DecorAsideProps = {
   items: DecorSideItem[]
@@ -22,6 +22,8 @@ const noteDrawing = {
     style: { width: 56, height: 42, transform: 'scaleX(-1) rotate(-10deg)' },
     className: 'dsk-only',
   },
+  aspas: { tone: 'ceu' as const, style: { width: 40, height: 27 }, className: undefined },
+  brilhinhos: { tone: 'ceu' as const, style: { width: 40, height: 40 }, className: undefined },
 }
 
 /** Coluna lateral de um bloco (máx. 2 itens). No mobile desce para baixo do texto (nunca por cima). */
@@ -33,8 +35,8 @@ export function DecorAside({ items, content, imageAlt, index }: DecorAsideProps)
         const key = `${item.kind}-${i}`
         switch (item.kind) {
           case 'polaroid': {
-            const src = resolveContentPath(content, item.image)
-            return typeof src === 'string' ? (
+            const src = resolveImageRef(content, item.image)
+            return src ? (
               <Polaroid key={key} src={src} alt={imageAlt} caption={item.caption} tape={item.tape} />
             ) : null
           }

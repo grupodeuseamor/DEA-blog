@@ -116,6 +116,10 @@ Breadcrumb no topo (abaixo do menu) e bloco `SectionFlowNav` no fim da página, 
 | Vercel | preview automático da branch `v2` (produção continua em `main` = 1.1.0) |
 | Correções | cada correção publicada sobre esta versão incrementa o PATCH: `2.4.1-snapshot`, `2.4.2-snapshot`… (mesmo spec, seção “Correções”) |
 
+## Reaproveitamento de imagens (opcional, desde 2.0.1-snapshot)
+
+Cada página desta execução **pode** reaproveitar imagens que já usa (hero, carrossel, fotos do conteúdo) como foto colada (`sheetPhotos`), fundo esmaecido (`blocks[].backdrop` / `hero.backdrop`) ou polaroid, com moderação (máx. 1 foto colada e 1 fundo por página) e legibilidade garantida pelo véu de papel. Não é obrigatório. Regra: `.cursor/rules/corpus-criste-design-v2.mdc`.
+
 ## Fora do escopo
 
 - Novas rotas, pastas, páginas (Quem somos, Galeria, Participe, Loja) ou rota dinâmica `[slug]`

@@ -26,6 +26,7 @@ test.describe('Aparecida v2', () => {
     await expect(page.locator('[data-decor="postit-datas"]')).toHaveCount(1)
     await expect(page.locator('[data-decor="bilhete"]')).toHaveCount(2)
     await expect(page.locator('.pin.coracao')).toHaveCount(1)
+    await expect(page.getByTestId('sheet-photo')).toHaveCount(1)
   })
 
   for (const width of [1440, 390]) {

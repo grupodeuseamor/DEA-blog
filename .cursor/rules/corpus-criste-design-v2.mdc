@@ -52,9 +52,21 @@ Direção aprovada: **Caderno + Novo Lote** (design doc v3). Referência viva: `
 - Só o brilho anima, e só com `prefers-reduced-motion: no-preference`.
 - Mobile (≤ 640 px): `DecorAside` desce para baixo do texto; esconder desenhos que não couberem (`hidden sm:block`), nunca sobrepor.
 
+## Reaproveitamento de imagens da própria página (desde 2.0.1-snapshot, opcional)
+
+- Decisão do Michel: imagens que a página **já usa** (hero, carrossel, fotos já selecionadas no JSON de conteúdo) podem ser reaproveitadas como **fundo** ou em **detalhes**. Nunca imagem nova. Nenhuma página é obrigada a usar.
+- Referência = caminho no conteúdo (`hero.backgroundImage`, `hero.backgroundImages[1]`) ou o `src` literal que já aparece no conteúdo. `resolveImageRef` em `lib/specs/decor.ts` reprova o resto (`npm run test:specs`).
+- Onde declarar em `specs/decor/{slug}.json`:
+  - `sheetPhotos` (máx. 1): **foto colada** na borda da folha, fitas washi em cantos opostos, leve inclinação (`rotate` −8…8), recorte por `focus`. Desktop ≥ 1440 px: na margem esquerda/direita ao lado do bloco `after`, sem alcançar o texto; telas menores: abaixo do texto desse bloco.
+  - `blocks[].backdrop`: **fundo esmaecido** atrás de um bloco (`strength: suave|media`, `side: direita|esquerda|inteiro`).
+  - `hero.backdrop`: troca a foto do hero por outra já usada pela página.
+  - `polaroid.image`: mesma regra.
+- Legibilidade: imagem em escala de cinza com opacidade baixa (0.22 suave / 0.34 média) **sob véu de papel** (`--veu-papel*` em `app/globals.css`); o texto fica sempre sobre o véu. No mobile o véu cobre o bloco inteiro.
+- Moderação: no máximo 1 foto colada e 1 fundo de imagem por página.
+
 ## Fotos e texturas
 
-- Fotos só as que a página já usa: polaroid com fita ou “azul de carimbo”.
+- Fotos só as que a página já usa: polaroid com fita, foto colada, fundo esmaecido ou “azul de carimbo” (ver seção acima).
 - Textura de papel discreta; pauta só em bilhetes. “Não somos cursinho.”
 
 ## Opt-in durante os snapshots

@@ -52,6 +52,7 @@ export function ContentPageTemplate({ content, compact = false }: ContentPageTem
             <SectionRendererV2
               sections={content.sections}
               blocks={decor.blocks}
+              sheetPhotos={decor.sheetPhotos}
               content={content}
               imageAlt={imageAlt}
             />

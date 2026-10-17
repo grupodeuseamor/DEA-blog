@@ -21,6 +21,7 @@ alwaysApply: false
 | 0.0.0 | Baseline (templates, navbar) | — |
 | 0.0.1 | Nossa Senhora em Medjugorje | `/titulos-nossa-senhora/nossa-senhora-medjugorje` |
 | 0.0.2 | Nossa Senhora Aparecida | `/titulos-nossa-senhora/nossa-senhora-aparecida` |
+| 2.0.1-snapshot | Ajuste da Exec 1 (PATCH): reaproveitamento opcional de imagens (`sheetPhotos`, `backdrop`) + foto colada na Aparecida | `/titulos-nossa-senhora/nossa-senhora-aparecida` |
 | 0.0.3 | Ministério Perseverança | `/ministerios/perseveranca` |
 | 0.0.3 | Nossa Senhora de La Salette | `/titulos-nossa-senhora/nossa-senhora-la-salette` |
 | 0.0.3 | Nossa Senhora de Lourdes | `/titulos-nossa-senhora/nossa-senhora-lourdes` |

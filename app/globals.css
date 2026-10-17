@@ -317,3 +317,41 @@ svg.d circle { fill: currentColor; stroke: none; }
   .v2 .fx.nx .fita { right: auto !important; left: 18px; }
   .v2 .fluxo .lab { font-size: 10.5px; letter-spacing: 0.14em; }
 }
+
+/* ---------- v2.0.1 — reaproveitamento de imagens da própria página (opcional, specs/decor backdrop) ---------- */
+:root {
+  --veu-papel: linear-gradient(90deg, var(--color-folha) 0 46%, rgb(251 248 240 / 0.86) 62%, rgb(251 248 240 / 0.35) 100%);
+  --veu-papel-esq: linear-gradient(270deg, var(--color-folha) 0 46%, rgb(251 248 240 / 0.86) 62%, rgb(251 248 240 / 0.35) 100%);
+  --veu-papel-inteiro: linear-gradient(rgb(251 248 240 / 0.82), rgb(251 248 240 / 0.82));
+  --veu-papel-mobile: linear-gradient(rgb(251 248 240 / 0.9), rgb(251 248 240 / 0.78));
+}
+.v2 .bloco.com-fundo { border-radius: 14px; padding: 38px 40px; margin: 0 -16px; overflow: hidden; isolation: isolate; }
+.v2 .bloco.com-fundo > .row { position: relative; z-index: 1; }
+.v2 .fundo-img { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.v2 .fundo-img img { object-fit: cover; filter: grayscale(1) contrast(1.05); }
+.v2 .fundo-img.suave img { opacity: 0.22; }
+.v2 .fundo-img.media img { opacity: 0.34; }
+.v2 .fundo-img .veu { position: absolute; inset: 0; background: var(--veu-papel); }
+.v2 .fundo-img.esquerda .veu { background: var(--veu-papel-esq); }
+.v2 .fundo-img.inteiro .veu { background: var(--veu-papel-inteiro); }
+@media (max-width: 760px) {
+  .v2 .bloco.com-fundo { padding: 28px 18px; margin: 0 -8px; }
+  .v2 .fundo-img .veu, .v2 .fundo-img.esquerda .veu { background: var(--veu-papel-mobile); }
+}
+
+/* ---------- v2.0.1 — foto colada na borda da folha (reaproveitamento opcional, specs/decor sheetPhotos) ---------- */
+.v2 .foto-colada { position: relative; z-index: 2; width: 200px; margin: 34px auto 0; background: var(--color-polaroid); padding: 9px; box-shadow: var(--sombra-postit); transform: rotate(var(--r)); }
+.v2 .foto-colada .ph { position: relative; height: 250px; overflow: hidden; background: var(--color-noite); }
+.v2 .foto-colada .ph img { object-fit: cover; }
+.v2 .foto-colada figcaption { font-size: 19px; color: var(--color-manto); text-align: center; padding-top: 6px; line-height: 1.1; }
+@media (min-width: 1440px) {
+  /* na margem da folha: avança sobre a borda, mas para antes do texto (padding da folha = 56px) */
+  .v2 .foto-colada { position: absolute; top: 70px; margin: 0; width: 176px; }
+  .v2 .foto-colada .ph { height: 230px; }
+  .v2 .foto-colada.esquerda { left: -214px; }
+  .v2 .foto-colada.direita { right: -214px; }
+}
+@media (max-width: 760px) {
+  .v2 .foto-colada { width: 190px; margin-top: 30px; }
+  .v2 .foto-colada .ph { height: 220px; }
+}
