@@ -1,14 +1,12 @@
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
-import { GradientOverlay } from '@/components/ui/GradientOverlay'
 import { carouselIntervalMs } from '@/lib/theme'
 
 type HeroBackgroundCarouselProps = {
   images: string[]
-  overlay: string
 }
 
-export function HeroBackgroundCarousel({ images, overlay }: HeroBackgroundCarouselProps) {
+export function HeroBackgroundCarousel({ images }: HeroBackgroundCarouselProps) {
   const durationSec = (images.length * carouselIntervalMs) / 1000
   const duration = `${durationSec}s`
 
@@ -37,7 +35,6 @@ export function HeroBackgroundCarousel({ images, overlay }: HeroBackgroundCarous
           />
         </div>
       ))}
-      <GradientOverlay overlay={overlay} className="z-[1]" />
     </div>
   )
 }

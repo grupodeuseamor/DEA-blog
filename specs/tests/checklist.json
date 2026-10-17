@@ -1,5 +1,5 @@
 {
-  "version": "2.5.0-snapshot",
+  "version": "2.6.0-snapshot",
   "items": [
     {
       "id": "nav-horizontal-links",
@@ -155,11 +155,6 @@
       "id": "nav-section-flow",
       "description": "Páginas v2 terminam com Anterior / Voltar para a listagem / Próximo na ordem dos cards da listagem (data-testid=section-flow), sem volta circular",
       "category": "navigation"
-    },
-    {
-      "id": "legacy-visual-opt-in",
-      "description": "Página entra no visual v2 ao ganhar specs/decor/{slug}.json; páginas sem decoração mantêm o visual 1.1.0 até a sua execução",
-      "category": "visual"
     },
     {
       "id": "v2-design-tokens",

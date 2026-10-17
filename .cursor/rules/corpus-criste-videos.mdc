@@ -43,7 +43,7 @@ O arquivo no Drive deve estar compartilhado (ex.: qualquer pessoa com o link) pa
 
 - Adicionar video.js, react-player ou players pesados
 - Hospedar MP4 em `public/` para esta feature
-- Duplicar o container visual (`aspect-video`, borda dourada) fora de `MinistryLandingVideo`
+- Duplicar o container visual (`aspect-video`, moldura com fita) fora de `MinistryLandingV2`
 
 ## Testes
 

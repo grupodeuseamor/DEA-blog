@@ -18,6 +18,15 @@ status: snapshot (pre-release não oficial) · Execução 7 de 7 da v2 · tamanh
 4. `specs/tests/checklist.json`: remover `legacy-visual-opt-in`; versão `2.6.0-snapshot`.
 5. `CHANGELOG.md` (novo, raiz): entradas de `2.0.0-snapshot` a `2.6.0-snapshot`, com link para cada spec.
 
+### Decisões e resultado (Exec 7)
+
+- **Legado removido sem quebrar rotas:** todas as 15 rotas já tinham decoração; nenhuma dependia do ramo 1.1.0. `ContentPageTemplate` mantém a prop `compact` (sem efeito) só para não mexer nas 9 pages de título; `PageShell` mantém `variant` opcional por compatibilidade.
+- **Menu:** já era fixo no topo (`.v2-header { position: fixed }`) desde a 2.0.0-snapshot; nada a mudar.
+- **Tema geral no papel:** `body` passou de `#0f0f12` para os tokens `papel`/`tinta`.
+- **D6 conservador:** nenhuma imagem nova nem reaproveitamento novo nesta versão.
+- **Lighthouse local (build de produção, `next start`):** Home, Aparecida e DEA Ajuda com Acessibilidade 100 e SEO 100 em desktop e mobile; Performance 100 (desktop) e 85–86 (mobile). Boas práticas 96 (Home/Aparecida; erro de console do `@vercel/analytics`, que só existe no deploy) e 74–75 na DEA Ajuda (cookies de terceiros e avisos do iframe do Google Drive — conteúdo da 1.1.0, mantido).
+- **Pendências para a 2.7.0:** Lighthouse nas 15 rotas no preview da Vercel e comparação com a 1.1.0; redirects do `vercel.json` testados no preview; `npm run lint` (eslint não instalado na box); percurso com leitor de tela; tag/pre-release `v2.6.0-snapshot` e aprovação do Michel.
+
 ## Rotas desta versão
 
 As mesmas 15 rotas da 1.1.0, todas no visual v2 e em folha única. Nenhuma rota, pasta ou redirect novo.

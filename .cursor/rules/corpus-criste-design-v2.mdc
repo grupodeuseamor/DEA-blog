@@ -71,4 +71,4 @@ Direção aprovada: **Caderno + Novo Lote** (design doc v3). Referência viva: `
 
 ## Opt-in durante os snapshots
 
-Do `2.0.0-snapshot` ao `2.5.0-snapshot`, a página só usa o ramo v2 dos templates se `loadDecor(slug)` retornar decoração. Na Exec 7 (`2.6.0-snapshot`) o ramo legado é removido.
+Do `2.0.0-snapshot` ao `2.5.0-snapshot`, a página só usava o ramo v2 se tivesse decoração. Desde a `2.6.0-snapshot` o ramo legado foi removido: `loadDecor(slug)` lança erro sem `specs/decor/{slug}.json` e `validateAllDecor()` exige decoração para todo `specs/content/*.json`.

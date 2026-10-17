@@ -1,6 +1,6 @@
 ---
 description: Padronização de carrosséis (hero background) no CorpusCriste
-globs: specs/content/*.json, components/content/HeroBackgroundCarousel.tsx, components/content/HeroSection.tsx, components/ministry-landing/MinistryLandingHero.tsx, app/globals.css
+globs: specs/content/*.json, components/content/HeroBackgroundCarousel.tsx, components/content/HeroSectionV2.tsx, components/ministry-landing/MinistryLandingV2.tsx, app/globals.css
 alwaysApply: true
 ---
 
@@ -28,7 +28,7 @@ No `hero` do JSON:
 
 - `backgroundImage`: primeira imagem (fallback e compatibilidade)
 - `backgroundImages`: array de imagens (min 1); **carrossel ativa quando length > 1**
-- `overlay`: opcional e **legado** (v2 usa o token `--overlay-hero`)
+- `overlay`: removido dos JSON na v2 (o tratamento vem do token `--overlay-hero`)
 
 Exemplo:
 
@@ -43,8 +43,7 @@ Exemplo:
 
 ## Onde usar
 
-- Páginas `ContentPageTemplate`: via `components/content/HeroSection.tsx`
-- Páginas `ministry-landing`: via `components/ministry-landing/MinistryLandingHero.tsx`
+- Páginas `ContentPageTemplate` e ministry-landing: via `components/content/HeroSectionV2.tsx` (base estática com a 1ª foto + crossfade)
 
 ## Checklist ao adicionar/alterar carrossel
 

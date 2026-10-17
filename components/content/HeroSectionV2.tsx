@@ -45,7 +45,7 @@ export function HeroSectionV2({
         <div className="bg">
           {/* base estática com a 1ª foto: o hero nunca fica vazio entre as trocas do carrossel */}
           <Image src={carousel[0]} alt="" fill priority sizes="100vw" />
-          <HeroBackgroundCarousel images={carousel} overlay="none" />
+          <HeroBackgroundCarousel images={carousel} />
         </div>
       ) : bgSrc && (
         <div className="bg">

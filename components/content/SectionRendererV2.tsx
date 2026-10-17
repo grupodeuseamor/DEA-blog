@@ -66,7 +66,7 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
                     ))}
                     {section.quote && <blockquote className="ql margem-caderno">{section.quote}</blockquote>}
                     {section.type === 'paragraphs' && (section.cta || section.secondaryCta) && (
-                      <CtaButtonGroup v2 primary={section.cta} secondary={section.secondaryCta} />
+                      <CtaButtonGroup primary={section.cta} secondary={section.secondaryCta} />
                     )}
                   </div>
                   <DecorAside items={block?.side ?? []} content={content} imageAlt={imageAlt} index={i} />

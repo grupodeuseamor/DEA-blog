@@ -2,7 +2,7 @@
 
 Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **React 19** e **Tailwind CSS 4**. O conteúdo e os testes são versionados na pasta `specs/`.
 
-**Versão atual do conteúdo:** `2.5.0-snapshot` (pre-release, preview da branch `v2`) — ver [`specs/spec-2.5.0-snapshot.md`](specs/spec-2.5.0-snapshot.md) e o [`CHANGELOG.md`](CHANGELOG.md).
+**Versão atual do conteúdo:** `2.6.0-snapshot` (pre-release, preview da branch `v2`) — ver [`specs/spec-2.6.0-snapshot.md`](specs/spec-2.6.0-snapshot.md) e o [`CHANGELOG.md`](CHANGELOG.md).
 **Produção:** `1.1.0` (release `v1.1.0`, ponto de rollback) até a publicação oficial da `2.7.0`.
 
 Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
@@ -81,6 +81,7 @@ Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-c
 | 2.3.0-snapshot | *pre-release* — Exec 4: Comunicação, Dores, Fátima (fecha Títulos) |
 | 2.4.0-snapshot | *pre-release* — Exec 5: Ministérios (listagem), DEA Ajuda, Perseverança |
 | 2.5.0-snapshot | *pre-release* — Exec 6: Home (+ botão preview Ministérios) |
+| 2.6.0-snapshot | *pre-release* — Exec 7: fechamento — limpeza do legado 1.1.0 e QA total |
 
 ## Estrutura de specs
 
@@ -162,7 +163,7 @@ O arquivo [`vercel.json`](vercel.json) inclui redirects de URLs legadas.
 - Tipografia: Fraunces (títulos), Jost (corpo), Gochi Hand (bilhetes), Newsreader (citações)
 - Desenhos à mão em SVG (`components/decor/`), polaroid com fita, post-its, carimbos, marca-texto
 - Cores só pelos tokens de `app/globals.css`; nunca em classes ou `style`
-- Páginas ainda não migradas mantêm o visual 1.1.0 (fundo `#0f0f12`, dourado `#d4af37`) até a 2.0.0
+- Desde a `2.6.0-snapshot` todas as 15 rotas usam o visual v2; `specs/decor/{slug}.json` é obrigatório (validado em `npm run test:specs`)
 
 ## Licença
 

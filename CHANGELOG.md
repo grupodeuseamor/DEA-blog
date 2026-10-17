@@ -3,6 +3,20 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0.
 
+## [2.6.0-snapshot] — pendente (pre-release)
+Exec 7 — fechamento: limpeza do legado 1.1.0 e QA total. Sem mudança visual nas páginas. Spec: [`specs/spec-2.6.0-snapshot.md`](specs/spec-2.6.0-snapshot.md). Correções seguintes: `2.6.1-snapshot`, `2.6.2-snapshot`… (listar aqui).
+
+### Removido
+- Ramo 1.1.0 de `ContentPageTemplate`, `ListingPageTemplate`, `ListingCard`, `PageShell` e das pages de ministério; componentes legados `HeroSection`, `SectionRenderer`, `ContentCard`, `ProjectCard`, `ValueCard`, `MinistryLanding{Hero,About,Video,Projects,Inspiration,Values,Quote}`, `HeroLogo`, `ParagraphList`, `QuoteDisplay`, `SectionTitle`, `BackgroundImageLayer`, `GradientOverlay`.
+- Bloco `/* legado 1.1.0 */` do `app/globals.css` (`#0f0f12`, `#d4af37`, `#8B2332`, `bg-instagram-gradient`, `shadow-card`), helpers dourados de `lib/theme.ts` (`goldText`, `outlineGoldButtonClass`, `heroOverlayDefault`, `ministryNameGlow`…) e as fontes Cormorant Garamond / Montserrat.
+- Item `legacy-visual-opt-in` do checklist.
+
+### Alterado
+- `OutlineGoldLink` → `OutlineLink`; `CtaButtonGroup` e `InstagramCtaButton` só no estilo v2.
+- Decoração obrigatória: `loadDecor` lança erro sem `specs/decor/{slug}.json`; `validateAllDecor()` exige decoração para as 15 rotas.
+- Tema geral no papel: `body` em `papel`/`tinta`, fonte base Jost; variáveis shadcn apontam para os tokens v2.
+- Acessibilidade: foco visível claro sobre fundos azuis (hero e rodapé), foco em botões, transições desligadas com `prefers-reduced-motion: reduce`, aviso “(abre em nova aba)” no botão do Instagram.
+
 ## [2.5.0-snapshot] — pendente (pre-release)
 Exec 6 — Home no visual v2c. Spec: `specs/spec-2.5.0-snapshot.md`.
 

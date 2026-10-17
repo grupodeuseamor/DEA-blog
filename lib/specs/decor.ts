@@ -247,9 +247,15 @@ export function validateDecor(slug: string): PageDecor {
   return decor
 }
 
-/** Valida todos os arquivos de specs/decor/ (páginas ainda não migradas podem não ter arquivo). */
+/** Valida todos os arquivos de specs/decor/; desde 2.6.0-snapshot todo conteúdo (as 15 rotas) precisa ter decoração. */
 export function validateAllDecor(): void {
-  if (!fs.existsSync(DECOR_DIR)) return
+  const missing = fs
+    .readdirSync(CONTENT_DIR)
+    .filter((f) => f.endsWith('.json'))
+    .filter((f) => !fs.existsSync(path.join(DECOR_DIR, f)))
+  if (missing.length) {
+    throw new Error(`Decoração obrigatória ausente: ${missing.map((f) => 'specs/decor/' + f).join(', ')}`)
+  }
   fs.readdirSync(DECOR_DIR)
     .filter((f) => f.endsWith('.json'))
     .forEach((f) => {
@@ -261,6 +267,10 @@ export function validateAllDecor(): void {
     })
 }
 
-export function loadDecor(slug: string): PageDecor | null {
-  return fs.existsSync(path.join(DECOR_DIR, `${slug}.json`)) ? validateDecor(slug) : null
+/** Decoração da página (obrigatória desde 2.6.0-snapshot): falta de arquivo é erro. */
+export function loadDecor(slug: string): PageDecor {
+  if (!fs.existsSync(path.join(DECOR_DIR, `${slug}.json`))) {
+    throw new Error(`specs/decor/${slug}.json ausente (decoração obrigatória desde 2.6.0-snapshot)`)
+  }
+  return validateDecor(slug)
 }

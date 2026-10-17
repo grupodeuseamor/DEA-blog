@@ -26,7 +26,7 @@ Validação: `npm run test:specs` → `npm run build` → `CI=1 npm run test:e2e
 
 A v2 (snapshots `2.0.0-snapshot` … `2.6.x-snapshot`, oficial `2.7.0`) troca **só o estilo**. Rotas, pastas, menu, seções e textos são os da 1.1.0.
 
-- **Tokens únicos** no `@theme`: `manto` #00479F, `ceu` #84ADBD, `areia` #E7E0CA, `tinta` #000, `papel` #F6F2E7, `noite` #0B2550, `coracao` #C8372D. As cores antigas (preto `#0f0f12`, dourado `#d4af37`, vinho `#8B2332`) saem na Exec 7 (`2.6.0-snapshot`).
+- **Tokens únicos** no `@theme`: `manto` #00479F, `ceu` #84ADBD, `areia` #E7E0CA, `tinta` #000, `papel` #F6F2E7, `noite` #0B2550, `coracao` #C8372D. As cores antigas (preto `#0f0f12`, dourado `#d4af37`, vinho `#8B2332`) e o ramo 1.1.0 dos templates foram removidos na `2.6.0-snapshot`; `specs/decor/{slug}.json` é obrigatório para as 15 rotas.
 - **Fontes:** Fraunces (títulos), Jost (corpo), Gochi Hand (bilhetes à mão), Newsreader (citações).
 - **Biblioteca de desenhos** `components/decor/`: SVG inline com traço à mão (filtro `#rough`), 28 desenhos do banco do design doc.
 - **Componentes decorativos:** `Polaroid`, `WashiTape`, `Pin`, `PostIt`, `PostItDates`, `HandNote` (bilhete), `Stamp` (carimbo), `Sticker` (figurinha), `Highlight` (marca-texto/círculo), `DecorAside`, `DrawnTitle`, `PaperSheet` (folha única) e `SectionBreak` (respiro entre seções).
