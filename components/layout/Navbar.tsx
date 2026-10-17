@@ -6,36 +6,28 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { NavDropdown } from '@/components/layout/NavDropdown'
 import { buildNavTree, isNavItemActive } from '@/lib/specs/nav'
-import { goldText, navDropdownParentClass, navLinkClass } from '@/lib/theme'
 import type { RoutesSpec } from '@/lib/specs/types'
 
 type NavbarProps = {
   routes: RoutesSpec
 }
 
+/** Menu global v2 (papel translúcido, pílula Azul Manto no item ativo). Mesmas opções de specs/routes.json. */
 export function Navbar({ routes }: NavbarProps) {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const navTree = buildNavTree(routes)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[rgba(212,175,55,0.2)] bg-[#0f0f12]/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1100px] w-[92%] items-center justify-between gap-4 py-3">
-        <Link href="/" className="flex items-center gap-3 shrink-0">
-          <Image
-            src="/logo-deus-e-amor.png"
-            alt="Grupo Deus É Amor"
-            width={44}
-            height={44}
-            className="rounded-full bg-white p-1 object-contain"
-          />
-          <span className={`hidden sm:block font-serif text-lg ${goldText()}`}>
-            Deus É Amor
-          </span>
+    <header className="v2-header">
+      <div className="bar">
+        <Link href="/" className="brand shrink-0">
+          <Image src="/brand/logo-cruz-coracao.svg" alt="Grupo Deus É Amor" width={26} height={33} priority />
+          <span className="hidden sm:block">Deus É Amor</span>
         </Link>
 
         <nav
-          className="hidden md:flex items-center gap-1"
+          className="hidden md:flex items-center gap-1.5"
           aria-label="Navegação principal"
           data-testid="nav-desktop"
         >
@@ -46,7 +38,7 @@ export function Navbar({ routes }: NavbarProps) {
 
         <button
           type="button"
-          className={`md:hidden rounded-lg border border-[rgba(212,175,55,0.3)] px-3 py-2 text-sm ${goldText()}`}
+          className="menu-btn md:hidden"
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           data-testid="nav-mobile-toggle"
@@ -57,40 +49,23 @@ export function Navbar({ routes }: NavbarProps) {
       </div>
 
       {mobileOpen && (
-        <nav
-          id="mobile-nav"
-          className="md:hidden border-t border-[rgba(212,175,55,0.15)] bg-[#0f0f12]/95"
-          aria-label="Navegação mobile"
-          data-testid="nav-mobile"
-        >
+        <nav id="mobile-nav" className="mob md:hidden" aria-label="Navegação mobile" data-testid="nav-mobile">
           <div
-            className="nav-scroll-invisible mx-auto max-h-[calc(100dvh-4.5rem)] max-w-[1100px] w-[92%] space-y-2 py-4"
+            className="nav-scroll-invisible mx-auto max-h-[calc(100dvh-4.5rem)] max-w-[1100px] w-[92%] space-y-1 py-4"
             data-testid="nav-mobile-scroll"
           >
             {navTree.map((item) => {
               const isActive = isNavItemActive(pathname, item.path)
-
-              if (item.children.length === 0) {
-                return (
-                  <Link
-                    key={item.path}
-                    href={item.path}
-                    className={navLinkClass(isActive, 'mobile-top')}
-                    onClick={() => setMobileOpen(false)}
-                    data-testid={`nav-mobile-link-${item.path === '/' ? 'home' : item.path.slice(1)}`}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              }
-
+              const exact = pathname === item.path
               return (
                 <div key={item.path} className="space-y-1">
                   <Link
                     href={item.path}
-                    className={navDropdownParentClass(isActive)}
+                    className={`top${exact ? ' on' : ''}`}
+                    aria-current={exact ? 'page' : undefined}
+                    data-active={isActive || undefined}
                     onClick={() => setMobileOpen(false)}
-                    data-testid={`nav-mobile-link-${item.path.slice(1)}`}
+                    data-testid={`nav-mobile-link-${item.path === '/' ? 'home' : item.path.slice(1)}`}
                   >
                     {item.label}
                   </Link>
@@ -98,7 +73,8 @@ export function Navbar({ routes }: NavbarProps) {
                     <Link
                       key={child.path}
                       href={child.path}
-                      className={navLinkClass(pathname === child.path, 'mobile-child')}
+                      className={`child${pathname === child.path ? ' on' : ''}`}
+                      aria-current={pathname === child.path ? 'page' : undefined}
                       onClick={() => setMobileOpen(false)}
                       data-testid={`nav-mobile-link-${child.path.slice(1).replace(/\//g, '-')}`}
                     >
