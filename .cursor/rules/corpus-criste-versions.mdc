@@ -45,7 +45,7 @@ alwaysApply: false
 | 2.5.0-snapshot | Exec 6 — Home | `/` |
 | 2.6.0-snapshot | Exec 7 — fechamento: limpeza do legado e QA total | — |
 | 2.6.x-snapshot | Correções após a Exec 7 (2.6.1-snapshot, 2.6.2-snapshot…) | conforme correção |
-| 2.7.0 | **Release oficial** (merge `v2` → `main`, tag `v2.7.0`, Release Latest) | — |
+| 2.7.0 | **Release oficial — versão atual** (2026-10-17; merge `v2` → `main`, tag `v2.7.0`, Release Latest) | as 15 rotas |
 
 A partir de **1.0.0**, não existem rotas `/titulos-nossa-senhora/template` nem `/ministerios/template` no site.
 
@@ -61,7 +61,7 @@ A v2 é entregue em **7 execuções**. Cada execução é uma **feature** e incr
 - Formato aceito em `contentVersion`: `^\d+\.\d+\.\d+(-snapshot)?$`. O `npm run test:specs` (`validateVersionConsistency` em `lib/specs/loader.ts`) reprova outro formato (ex.: `-snapshot.1`) e exige `specFile` existente e `checklist.version` = `package.json` = `contentVersion`.
 - Trabalho na branch `v2` (criada de `main` depois da release `v1.1.0`, que é o ponto de rollback).
 - Cada snapshot: `specs/spec-2.N.0-snapshot.md`, `version.json`, `package.json`, `checklist.json`, README, esta tabela; commit `Versão 2.N.0-snapshot`; tag `v2.N.0-snapshot`; GitHub Release marcada como **pre-release** (nunca Latest).
-- Preview: deploy automático da branch `v2` na Vercel. Produção continua em `main` (1.1.0) até a 2.7.0.
+- Preview: deploy automático da branch `v2` na Vercel. Produção em `main`: 2.7.0 após o merge (rollback: `v1.1.0`). Correções seguintes: `2.7.1`, `2.7.2`…
 - **Sem GitHub Actions.** QA local (`test:specs`, `build`, `test:e2e`, Lighthouse) antes de cada tag.
 - Snapshots não mudam rotas, pastas, menu nem textos (só estilo, breadcrumb e fluxo).
 

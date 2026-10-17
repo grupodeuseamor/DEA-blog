@@ -1,7 +1,30 @@
 # Changelog
 
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
-Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0.
+Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0 (versão atual).
+
+## [2.7.0] — 2026-10-17 (oficial, Latest)
+
+Novo visual **Caderno + Novo Lote** em todas as 15 rotas, com o conteúdo em folha única, breadcrumb e navegação de fluxo. Mesmas URLs, pastas, menu e conteúdo da 1.1.0. Consolida os snapshots `2.0.0-snapshot` → `2.6.0-snapshot`. Spec: [`specs/spec-2.7.0.md`](specs/spec-2.7.0.md).
+
+### Adicionado
+- Tokens únicos no `@theme` (manto, ceu, areia, tinta, papel, noite, coracao, folha, polaroid) e fontes Fraunces, Jost, Gochi Hand e Newsreader.
+- Biblioteca de desenhos SVG à mão e componentes decorativos (`components/decor/`): `PaperSheet` (folha única), `SectionBreak`, post-its, tachinhas, fita, polaroid, carimbo, marca-texto, foto colada e fundo esmaecido.
+- Decoração por página em `specs/decor/{slug}.json` (obrigatória nas 15 rotas), validada para usar só frases do conteúdo e no máximo 1 tachinha vermelha.
+- Breadcrumb e navegação Anterior · Voltar · Próximo (`components/navigation/`); “Continue navegando” na home e nas listagens.
+- Reaproveitamento opcional de imagens que a página já usa (2.0.1-snapshot), com D6 (sem fotos de pessoas em lugares novos).
+- Botão **preview** opcional para `/ministerios` na home (`previewCta`, removível).
+- Testes: e2e v2 por página, percursos de fluxo, `test:preview`, **`test:links`** (links internos 200 + em `routes.json`, âncoras, externos https) e **`test:redirects`** / **`test:redirects:remote -- <baseUrl>`** (vercel.json estático; 308 + Location; apex e `dea-blog.vercel.app` → www preservando caminho).
+- `AGENTS.md` e regras `corpus-criste-design-v2.mdc` / `corpus-criste-navigation.mdc`.
+
+### Alterado
+- Menu e rodapé no estilo novo (mesmas opções); menu fixo no topo.
+- Templates de conteúdo, listagem e ministry-landing no visual v2: todas as seções numa folha única contínua; tema geral no papel.
+- Campo opcional `hero.overlay` removido dos JSON (o tratamento vem do token).
+- Acessibilidade: foco visível, `prefers-reduced-motion`, desenhos com `aria-hidden`.
+
+### Removido
+- Visual e código 1.1.0 (preto `#0f0f12`, dourado `#d4af37`, vinho `#8B2332`, `goldText`, `ministryNameGlow`, templates e componentes legados, Cormorant/Montserrat).
 
 ## [2.6.0-snapshot] — pendente (pre-release)
 Exec 7 — fechamento: limpeza do legado 1.1.0 e QA total. Sem mudança visual nas páginas. Spec: [`specs/spec-2.6.0-snapshot.md`](specs/spec-2.6.0-snapshot.md). Correções seguintes: `2.6.1-snapshot`, `2.6.2-snapshot`… (listar aqui).

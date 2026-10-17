@@ -78,5 +78,7 @@ A v2 (snapshots `2.0.0-snapshot` … `2.6.x-snapshot`, oficial `2.7.0`) troca **
 
 - Cada execução da v2 é uma **feature** e incrementa a **MINOR**: Exec 1 `2.0.0-snapshot`, Exec 2 `2.1.0-snapshot`, Exec 3 `2.2.0-snapshot`, Exec 4 `2.3.0-snapshot`, Exec 5 `2.4.0-snapshot`, Exec 6 `2.5.0-snapshot`, Exec 7 `2.6.0-snapshot`. Sufixo `-snapshot` sem número depois. Pre-release no GitHub, preview da branch `v2` na Vercel.
 - Cada **correção** incrementa o **PATCH**: `2.6.1-snapshot`, `2.6.2-snapshot`…
+- **Versão atual: `2.7.0` (oficial, 2026-10-17).** Próximas correções: `2.7.1`, `2.7.2`… (sem `-snapshot`).
 - **Oficial: `2.7.0`** (decisão do Michel). Depois da `2.6.x-snapshot` e das correções, merge `v2` → `main`, tag `v2.7.0`, GitHub Release **Latest**. Rollback: release `v1.1.0`.
+- Testes locais de navegação (sem Actions): `npm run test:links` e `npm run test:redirects`; contra preview/produção: `npm run test:redirects:remote -- <baseUrl>`.
 - Cada versão: `specs/spec-{v}.md`, `specs/version.json`, `package.json`, `specs/tests/checklist.json`, README e `.cursor/rules/corpus-criste-versions.mdc`. Commit `Versão {v}`.

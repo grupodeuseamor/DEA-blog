@@ -1,5 +1,5 @@
 {
-  "version": "2.6.0-snapshot",
+  "version": "2.7.0",
   "items": [
     {
       "id": "nav-horizontal-links",
@@ -210,6 +210,16 @@
       "id": "no-github-actions",
       "description": "Sem GitHub Actions: testes e build rodam localmente; deploy pela integração Git da Vercel (preview da branch v2)",
       "category": "content"
+    },
+    {
+      "id": "links-internos",
+      "description": "npm run test:links: todos os <a href> internos das 15 rotas existem em routes.json e respondem 200; âncoras existem; externos só https",
+      "category": "navigation"
+    },
+    {
+      "id": "redirects-vercel",
+      "description": "npm run test:redirects (estático: destinos em routes.json, sem loop/cadeia/duplicata) e npm run test:redirects:remote -- <baseUrl> (308 + Location; apex e dea-blog.vercel.app → www preservando caminho)",
+      "category": "navigation"
     }
   ]
 }

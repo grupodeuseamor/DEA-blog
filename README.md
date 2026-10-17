@@ -2,8 +2,8 @@
 
 Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **React 19** e **Tailwind CSS 4**. O conteúdo e os testes são versionados na pasta `specs/`.
 
-**Versão atual do conteúdo:** `2.6.0-snapshot` (pre-release, preview da branch `v2`) — ver [`specs/spec-2.6.0-snapshot.md`](specs/spec-2.6.0-snapshot.md) e o [`CHANGELOG.md`](CHANGELOG.md).
-**Produção:** `1.1.0` (release `v1.1.0`, ponto de rollback) até a publicação oficial da `2.7.0`.
+**Versão atual do conteúdo:** `2.7.0` (oficial, 2026-10-17) — ver [`specs/spec-2.7.0.md`](specs/spec-2.7.0.md) e o [`CHANGELOG.md`](CHANGELOG.md).
+**Produção:** `2.7.0` (v2, “Caderno + Novo Lote”) após o merge na `main`; rollback: release `v1.1.0`.
 
 Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
 
@@ -82,6 +82,7 @@ Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-c
 | 2.4.0-snapshot | *pre-release* — Exec 5: Ministérios (listagem), DEA Ajuda, Perseverança |
 | 2.5.0-snapshot | *pre-release* — Exec 6: Home (+ botão preview Ministérios) |
 | 2.6.0-snapshot | *pre-release* — Exec 7: fechamento — limpeza do legado 1.1.0 e QA total |
+| **2.7.0** | **Oficial** — v2 “Caderno + Novo Lote” nas 15 rotas (consolida 2.0.0-snapshot … 2.6.0-snapshot) + testes de links e redirects |
 
 ## Estrutura de specs
 
@@ -131,6 +132,9 @@ Abra [http://localhost:3000](http://localhost:3000).
 |---------|-----------|
 | `npm run dev` | Servidor de desenvolvimento |
 | `npm run build` | Build de produção |
+| `npm run test:links` | Links internos/âncoras/externos das 15 rotas (Playwright) |
+| `npm run test:redirects` | Redirects do `vercel.json` (validação estática) |
+| `npm run test:redirects:remote -- <baseUrl>` | Redirects e domínios contra preview/produção |
 | `npm run test:specs` | Valida JSONs em `specs/` com Zod (inclui `specs/decor/`) |
 | `npm run test:video` | Testes do parser de URLs de vídeo |
 | `npm run test:e2e` | Testes end-to-end (Playwright) |
