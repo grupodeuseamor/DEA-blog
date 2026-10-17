@@ -1,0 +1,81 @@
+{
+  "slug": "nossa-senhora-la-salette",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Salette"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "globo de luz",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Alpes franceses",
+          "tape": true
+        },
+        {
+          "kind": "postit",
+          "label": "1846",
+          "text": "Maximino e Melanie",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "titleDrawing": "gota",
+      "marks": [
+        {
+          "text": "um chamado permanente à conversão",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "Há tanto tempo que sofro por vós",
+          "drawing": "aspas"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "lamenta, intercede e convida ao retorno",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coracao-chama"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "carimbo",
+          "text": "Vinde, meus filhos, não temais",
+          "center": "1846"
+        }
+      ],
+      "backdrop": {
+        "image": "hero.backgroundImage",
+        "strength": "suave",
+        "side": "direita"
+      }
+    }
+  ]
+}

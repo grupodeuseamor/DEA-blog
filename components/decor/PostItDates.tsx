@@ -12,7 +12,7 @@ export function PostItDates({ items, pin = 'manto', rotate = 2 }: PostItDatesPro
   return (
     <div className="postit datas areia" style={{ '--r': `${rotate}deg` } as CSSProperties} data-decor="postit-datas">
       <Pin tone={pin} />
-      <ul>
+      <ul className={items.some((item) => item.label.length > 5) ? 'empilhado' : undefined}>
         {items.map((item) => (
           <li key={item.label}>
             <b className="t-titulo">{item.label}</b>

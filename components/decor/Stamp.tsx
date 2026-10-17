@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { Drawing } from '@/components/decor/Drawing'
+import { drawings } from '@/components/decor/drawings'
 import type { DecorDrawing } from '@/lib/specs/decor'
 
 type StampProps = {
@@ -12,6 +12,8 @@ type StampProps = {
 export function Stamp({ text, center, centerDrawing }: StampProps) {
   const id = `cp-${useId().replace(/:/g, '')}`
   const ring = `${text} ·`.toUpperCase()
+  // Ajusta o anel ao perímetro (2π·72 ≈ 452): espaçamento uniforme e fonte menor quando o texto é longo.
+  const fontSize = Math.min(17.5, 440 / (ring.length * 0.66))
   return (
     <svg className="carimbo" viewBox="0 0 200 200" role="img" aria-label={`Carimbo: ${text}`} data-decor="carimbo">
       <defs>
@@ -20,7 +22,7 @@ export function Stamp({ text, center, centerDrawing }: StampProps) {
       <g filter="url(#stamp)">
         <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" strokeWidth="4" />
         <circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" strokeWidth="2" />
-        <text className="anel" fill="currentColor">
+        <text className="anel" fill="currentColor" style={{ fontSize }} textLength={440} lengthAdjust="spacing">
           <textPath href={`#${id}`} startOffset="0">
             {ring}
           </textPath>
@@ -31,9 +33,19 @@ export function Stamp({ text, center, centerDrawing }: StampProps) {
           </text>
         )}
         {centerDrawing && !center && (
-          <foreignObject x="70" y="62" width="60" height="50">
-            <Drawing name={centerDrawing} style={{ width: 60, height: 50 }} />
-          </foreignObject>
+          <svg
+            x="76"
+            y="56"
+            width="48"
+            height="48"
+            viewBox={drawings[centerDrawing].viewBox}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2.6}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            dangerouslySetInnerHTML={{ __html: drawings[centerDrawing].body }}
+          />
         )}
         <path d="M80 112h40" stroke="currentColor" strokeWidth="2" />
         <path

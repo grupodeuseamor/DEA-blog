@@ -16,6 +16,7 @@ export default function TitulosNossaSenhoraPage() {
       items={content.galleries}
       gradient="gold"
       testIdPrefix="gallery"
+      slug={content.slug}
     />
   )
 }

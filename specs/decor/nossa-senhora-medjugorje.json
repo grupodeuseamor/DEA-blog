@@ -1,0 +1,172 @@
+{
+  "slug": "nossa-senhora-medjugorje",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Medjugorje"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "24 de junho de 1981",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Bósnia e Herzegovina",
+          "tape": true
+        },
+        {
+          "kind": "postit",
+          "label": "1981",
+          "text": "Podbrdo, no sopé da colina Crnica",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "Aniversário das Aparições",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit-datas",
+          "items": [
+            {
+              "label": "24 de junho",
+              "text": "Ivanka vê Nossa Senhora"
+            },
+            {
+              "label": "25 de junho",
+              "text": "Marija Pavlović e Jakov Čolo"
+            },
+            {
+              "label": "26 de junho",
+              "text": "seu chamado à paz"
+            }
+          ],
+          "pin": "manto"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "titleDrawing": "pomba",
+      "marks": [
+        {
+          "text": "Paz, paz, paz – e somente paz!",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "os jovens não mentem",
+          "drawing": "aspas"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "marks": [
+        {
+          "text": "continuaram professando sua fé",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "vela"
+          ],
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[4]",
+      "marks": [
+        {
+          "text": "PAZ, FÉ, CONVERSÃO, ORAÇÃO E JEJUM",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "São Tiago · centro de oração",
+          "centerDrawing": "cruz"
+        }
+      ],
+      "backdrop": {
+        "image": "hero.backgroundImage",
+        "strength": "suave",
+        "side": "direita"
+      }
+    },
+    {
+      "target": "sections[5]",
+      "marks": [
+        {
+          "text": "Eu escolhi esta paróquia de modo especial",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "1982",
+          "text": "locuções interiores",
+          "pin": "manto",
+          "paper": "papel"
+        }
+      ]
+    },
+    {
+      "target": "sections[6]",
+      "titleDrawing": "estrela",
+      "marks": [
+        {
+          "text": "fé, amor, paz, jejum e conversão",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit-datas",
+          "items": [
+            {
+              "label": "2015",
+              "text": "Papa Francisco"
+            },
+            {
+              "label": "2019",
+              "text": "permitiu peregrinações para Medjugorje"
+            }
+          ],
+          "pin": "coracao"
+        },
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coracao-chama"
+          ],
+          "tape": false
+        }
+      ]
+    }
+  ]
+}

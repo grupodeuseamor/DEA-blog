@@ -1,0 +1,77 @@
+{
+  "slug": "nossa-senhora-auxiliadora",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Auxiliadora"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "aquela que socorre, protege e acompanha os cristãos",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Auxiliadora dos Cristãos",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "São João Bosco",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "1868",
+          "text": "Basílica de Maria Auxiliadora em Turim",
+          "pin": "manto",
+          "paper": "areia"
+        },
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coroa"
+          ],
+          "tape": true,
+          "text": "Família Salesiana"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "titleDrawing": "coracao-chama",
+      "marks": [
+        {
+          "text": "entrega total à vontade de Deus",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "Auxiliadora dos Cristãos · rogai por nós",
+          "centerDrawing": "cruz"
+        },
+        {
+          "kind": "bilhete",
+          "text": "milhares de testemunhos",
+          "drawing": "brilhinhos"
+        }
+      ]
+    }
+  ]
+}

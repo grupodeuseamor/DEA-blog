@@ -3,6 +3,17 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0.
 
+## [2.1.0-snapshot] — pendente (pre-release)
+Exec 2 — listagem Títulos de Nossa Senhora + Auxiliadora, Medjugorje e La Salette no visual v2c. Spec: `specs/spec-2.1.0-snapshot.md`.
+
+### Adicionado
+- Listagem em folha única com fichas presas por fita, etiqueta de ano da própria descrição e figurinhas; fluxo Voltar Início / Próximo Ministérios.
+- Decoração de Auxiliadora, Medjugorje e La Salette; fundo esmaecido reaproveitando a foto do hero em Medjugorje e La Salette.
+
+### Alterado
+- Carimbo com desenho no centro e anel ajustado ao perímetro; post-it de datas empilha rótulos longos.
+- `hero.overlay` removido dos 3 JSON de conteúdo.
+
 ## [2.0.1-snapshot] — pendente (pre-release)
 Ajuste da Exec 1. Spec: `specs/spec-2.0.1-snapshot.md`.
 

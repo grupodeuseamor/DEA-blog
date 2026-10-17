@@ -93,3 +93,21 @@ export function getSectionFlow(
     total: cards.length,
   }
 }
+
+/**
+ * Fluxo de uma listagem de topo (ex.: /titulos-nossa-senhora): Voltar = Início; anterior/próximo = itens de topo
+ * do menu (sem a Home), na ordem de routes.json. Sem volta circular.
+ */
+export function getTopLevelFlow(pathname: string, routes: RoutesSpec): SectionFlow | null {
+  const tops = routes.items.filter((item) => !item.parent && item.path !== '/')
+  const index = tops.findIndex((item) => item.path === pathname)
+  if (index < 0) return null
+  const toLink = (item?: { label: string; path: string }) => (item ? { label: item.label, path: item.path } : undefined)
+  return {
+    back: { label: 'Início', path: '/' },
+    prev: toLink(tops[index - 1]),
+    next: toLink(tops[index + 1]),
+    position: index + 1,
+    total: tops.length,
+  }
+}

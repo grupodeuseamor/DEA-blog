@@ -14,6 +14,12 @@ Aplica o padrão v2c (folha única, post-its, tachinhas, rabiscos, figurinhas re
 2. `components/content/ListingPageTemplate.tsx` e `components/ui/ListingCard.tsx` — ramo v2 com opt-in por `loadDecor`: hero da listagem com bilhete, os 10 cards sobre **uma folha única** (`PaperSheet`, mesma regra das páginas de conteúdo), cada card como ficha presa com fita adesiva e leve rotação alternada, etiqueta de ano extraída da `description` do próprio card (regex de 4 dígitos), figurinha nos cards indicados, link do card inteiro para a página (fluxo listagem → página). Ordem dos cards = ordem do JSON (é também a ordem do anterior/próximo).
 3. `specs/content/nossa-senhora-auxiliadora.json`, `specs/content/nossa-senhora-medjugorje.json`, `specs/content/nossa-senhora-la-salette.json` — remove só o campo opcional `hero.overlay`.
 4. Medjugorje tem 7 seções: conferir que a lateral não alonga o card (no desktop a coluna lateral é `align-self:start`).
+5. **Reaproveitamento de imagens (opcional, regra da 2.0.1-snapshot)** aplicado com moderação: fundo esmaecido (`blocks[].backdrop`, `hero.backgroundImage`, `strength: suave`, `side: direita`) em Medjugorje `sections[4]` (“Um centro de oração mundial”) e La Salette `sections[2]` (“Uma mãe que chora por seus filhos”). Texto sempre sobre o véu de papel; no mobile o véu cobre o bloco inteiro. A listagem continua sem fotos.
+6. Ajustes de componentes da Exec 1 necessários para esta decoração (sem componentes novos): `Stamp` com desenho no centro (`centerDrawing`) e anel ajustado ao perímetro; `PostItDates` empilha rótulo e frase quando o rótulo é longo (“24 de junho”); `DrawnTitle` com tamanhos para coração com chama, pomba, gota e estrela; `HeroSectionV2` com bilhete do hero e sem foto obrigatória; `SectionFlowNav` com título opcional; `getTopLevelFlow` em `lib/specs/nav.ts` (listagem de topo: Voltar = Início, Próximo = Ministérios).
+
+## Decisões
+
+- **D9 — densidade em Medjugorje:** seguida a recomendação do plano (“revisar no preview; as regras deixam tirar itens sem mexer em código”). Mantida a decoração da spec (7 seções, 1–2 itens por seção, 9 itens laterais no total), sem cortes, porque várias seções têm só 1 item e a revisão em 1440/390 px não mostrou excesso. Se cansar no preview, basta remover itens de `specs/decor/nossa-senhora-medjugorje.json` (correção `2.1.1-snapshot`).
 
 ## Rotas desta versão
 
@@ -82,6 +88,7 @@ Breadcrumb no topo (abaixo do menu) e bloco `SectionFlowNav` no fim da página, 
 - `specs/tests/e2e/titulos-listing-v2.spec.ts` (novo) — 10 cards na ordem do JSON, cada um leva à rota certa, etiqueta de ano só nos cards cuja description tem ano.
 - `navigation-flow.spec.ts` passa a cobrir as 4 rotas novas automaticamente (lê `specs/decor/`).
 - `npm run test:specs` com os novos `specs/decor/*.json`.
+- `titulos-listing-v2.spec.ts` também confere breadcrumb/fluxo da listagem e, em 1440 e 390 px, ausência de scroll horizontal e de detalhe sobre texto nas 3 páginas de conteúdo.
 
 ## Critérios de aceite
 

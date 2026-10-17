@@ -5,6 +5,10 @@ import type { DecorDrawing } from '@/lib/specs/decor'
 const titleDrawingStyle: Partial<Record<DecorDrawing, { tone: 'manto' | 'ceu'; style: CSSProperties }>> = {
   onda: { tone: 'ceu', style: { width: 84, height: 26, marginLeft: 14, verticalAlign: 'middle' } },
   coroa: { tone: 'manto', style: { width: 52, height: 42, marginLeft: 14, verticalAlign: -4, transform: 'rotate(8deg)' } },
+  'coracao-chama': { tone: 'manto', style: { width: 36, height: 42, marginLeft: 14, verticalAlign: -6, transform: 'rotate(6deg)' } },
+  pomba: { tone: 'ceu', style: { width: 56, height: 42, marginLeft: 14, verticalAlign: -6 } },
+  gota: { tone: 'ceu', style: { width: 34, height: 34, marginLeft: 12, verticalAlign: -4 } },
+  estrela: { tone: 'ceu', style: { width: 36, height: 36, marginLeft: 12, verticalAlign: -4, transform: 'rotate(-10deg)' } },
 }
 
 /** Título de seção (Fraunces, Azul Manto) com sublinhado rabiscado em Azul Céu + desenho opcional. */

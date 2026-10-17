@@ -238,7 +238,7 @@ svg.d circle { fill: currentColor; stroke: none; }
 .v2 .polaroid figcaption { font-size: 21px; color: var(--color-manto); text-align: center; padding: 10px 4px 14px; line-height: 1.1; }
 .fita { position: absolute; z-index: 3; width: 96px; height: 26px; background: var(--fita); box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); border-left: 2px dotted rgb(255 255 255 / 0.5); border-right: 2px dotted rgb(255 255 255 / 0.5); }
 .v2 .carimbo { opacity: 0.9; mix-blend-mode: multiply; flex: none; width: 150px; height: 150px; color: var(--color-manto); transform: rotate(-10deg); margin-top: -6px; }
-.v2 .carimbo .anel { font-family: var(--font-corpo); font-weight: 700; font-size: 17.5px; letter-spacing: 2.2px; }
+.v2 .carimbo .anel { font-family: var(--font-corpo); font-weight: 700; font-size: 17.5px; letter-spacing: 0; }
 .v2 .carimbo .centro { font-family: var(--font-titulo); font-weight: 900; font-size: 34px; }
 
 .v2 .postit { position: relative; width: 200px; padding: 30px 20px 20px; transform: rotate(var(--r)); box-shadow: var(--sombra-postit); text-align: center; }
@@ -339,6 +339,25 @@ svg.d circle { fill: currentColor; stroke: none; }
   .v2 .fundo-img .veu, .v2 .fundo-img.esquerda .veu { background: var(--veu-papel-mobile); }
 }
 
+/* ---------- v2.1 — listagem: fichas sobre a folha única ---------- */
+.v2 .hero-bilhete { margin-top: 18px; font-size: 26px; color: var(--color-areia); transform: rotate(-2deg); }
+.v2 .fichas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px 32px; padding-top: 8px; }
+.v2 .ficha { position: relative; display: flex; flex-direction: column; gap: 10px; background: var(--color-polaroid); border: 1.5px solid var(--linha-manto); border-radius: 12px; padding: 30px 24px 24px; box-shadow: var(--sombra-postit); transform: rotate(var(--r)); transition: transform .2s ease, box-shadow .2s ease; }
+.v2 a.ficha:hover { transform: rotate(0deg) translateY(-3px); box-shadow: var(--sombra-polaroid); }
+.v2 .ficha .topo { display: flex; align-items: center; justify-content: space-between; min-height: 34px; }
+.v2 .ficha .emoji { font-size: 26px; line-height: 1; }
+.v2 .ficha .ano { font-size: 22px; color: var(--color-manto); background: url(/textures/grain-light.svg), var(--color-areia); padding: 2px 12px; border-radius: 4px; transform: rotate(3deg); }
+.v2 .ficha h2 { font-size: 23px; color: var(--color-manto); }
+.v2 .ficha p { font-size: 15.5px; color: rgb(0 0 0 / 0.78); line-height: 1.55; flex: 1; }
+.v2 .ficha .mais { font-size: 14px; font-weight: 600; color: var(--color-manto); background: linear-gradient(var(--color-ceu), var(--color-ceu)) 0 100% / 100% 1.5px no-repeat; align-self: flex-start; }
+.v2 .ficha .figura { position: absolute; right: 18px; bottom: 16px; width: 40px; height: 40px; opacity: 0.85; }
+.v2 .ficha.off { opacity: 0.7; }
+@media (max-width: 1000px) { .v2 .fichas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .v2 .fichas { grid-template-columns: 1fr; gap: 34px; }
+  .v2 .hero-bilhete { font-size: 22px; }
+}
+
 /* ---------- v2.0.1 — foto colada na borda da folha (reaproveitamento opcional, specs/decor sheetPhotos) ---------- */
 .v2 .foto-colada { position: relative; z-index: 2; width: 200px; margin: 34px auto 0; background: var(--color-polaroid); padding: 9px; box-shadow: var(--sombra-postit); transform: rotate(var(--r)); }
 .v2 .foto-colada .ph { position: relative; height: 250px; overflow: hidden; background: var(--color-noite); }
@@ -355,3 +374,5 @@ svg.d circle { fill: currentColor; stroke: none; }
   .v2 .foto-colada { width: 190px; margin-top: 30px; }
   .v2 .foto-colada .ph { height: 220px; }
 }
+.v2 .postit.datas ul.empilhado li { flex-direction: column; align-items: flex-start; gap: 0; }
+.v2 .postit.datas ul.empilhado li b { font-size: 21px; }

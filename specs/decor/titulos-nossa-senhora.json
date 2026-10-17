@@ -1,0 +1,21 @@
+{
+  "slug": "titulos-nossa-senhora",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "lirio"
+    ],
+    "underline": "Senhora",
+    "bilhete": "Explore as devoções marianas"
+  },
+  "blocks": [],
+  "cards": {
+    "tape": true,
+    "yearFromDescription": true,
+    "drawings": {
+      "nossa-senhora-aparecida": "coroa",
+      "nossa-senhora-das-dores": "coracao-chama",
+      "nossa-senhora-de-fatima": "raios"
+    }
+  }
+}

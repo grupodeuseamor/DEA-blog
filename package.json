@@ -1,6 +1,6 @@
 {
   "name": "corpus-criste",
-  "version": "2.0.1-snapshot",
+  "version": "2.1.0-snapshot",
   "private": true,
   "scripts": {
     "dev": "next dev",

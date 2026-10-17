@@ -3,12 +3,12 @@ import { WashiTape } from '@/components/decor/WashiTape'
 import type { SectionFlow } from '@/lib/specs/nav'
 
 /** Fluxo da seção: ← Anterior · Voltar para {listagem} · Próximo →. Fica fora da folha única. */
-export function SectionFlowNav({ flow }: { flow: SectionFlow }) {
+export function SectionFlowNav({ flow, heading }: { flow: SectionFlow; heading?: string }) {
   const { back, prev, next, position, total } = flow
   return (
-    <nav className="c fluxo" aria-label={`Navegação na seção ${back.label}`} data-testid="section-flow">
+    <nav className="c fluxo" aria-label={heading ? heading : `Navegação na seção ${back.label}`} data-testid="section-flow">
       <div className="lab">
-        <span>Continue em {back.label}</span>
+        <span>{heading ?? `Continue em ${back.label}`}</span>
         <span>
           {position} de {total}
         </span>

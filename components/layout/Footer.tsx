@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="v2-footer" data-testid="site-footer">
       <Drawing name="cruz" className="cruz" strokeWidth={2.2} />
       <div className="lg">
-        <Image src="/brand/logo-cruz-coracao-areia.svg" alt="Grupo Deus É Amor" width={36} height={45} />
+        <Image src="/brand/logo-cruz-coracao-areia.svg" alt="Grupo Deus É Amor" width={36} height={45} loading="eager" />
       </div>
       <p className="nome">Grupo Deus É Amor</p>
       <p className="min" data-testid="footer-easter-egg">

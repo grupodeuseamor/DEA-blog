@@ -4,7 +4,7 @@ import type { PageDecor } from '@/lib/specs/decor'
 import type { heroSchema } from '@/lib/specs/types'
 import type { z } from 'zod'
 
-type HeroData = z.infer<typeof heroSchema>
+type HeroData = Omit<z.infer<typeof heroSchema>, 'backgroundImage'> & { backgroundImage?: string }
 
 /** Posições dos desenhos do hero (máx. 3), como no piloto v2c. Só os brilhinhos se mexem. */
 const slots = [
@@ -21,13 +21,25 @@ function splitUnderline(title: string, word?: string) {
 }
 
 /** Hero v2: foto do JSON com tratamento “azul de carimbo” (token --overlay-hero), título Fraunces com sublinhado. */
-export function HeroSectionV2({ hero, decor }: { hero: HeroData; decor: PageDecor }) {
+export function HeroSectionV2({
+  hero,
+  decor,
+  backgroundSrc,
+}: {
+  hero: HeroData
+  decor: PageDecor
+  /** Imagem já usada pela página (decor.hero.backdrop resolvido); padrão: hero.backgroundImage. */
+  backgroundSrc?: string | null
+}) {
+  const bgSrc = backgroundSrc ?? hero.backgroundImage
   const parts = splitUnderline(hero.title, decor.hero.underline)
   return (
     <section className="hero" data-testid="hero-v2">
-      <div className="bg">
-        <Image src={hero.backgroundImage} alt="" fill priority sizes="100vw" />
-      </div>
+      {bgSrc && (
+        <div className="bg">
+          <Image src={bgSrc} alt="" fill priority sizes="100vw" />
+        </div>
+      )}
       <div className="ov" />
       <div className="ov2" />
       {decor.hero.drawings.map((name, i) => {
@@ -65,6 +77,11 @@ export function HeroSectionV2({ hero, decor }: { hero: HeroData; decor: PageDeco
         </h1>
         {hero.subtitle && <p className="sub">{hero.subtitle}</p>}
         {hero.quote && <p className="q">&ldquo;{hero.quote}&rdquo;</p>}
+        {decor.hero.bilhete && (
+          <p className="hero-bilhete mao" data-decor="hero-bilhete">
+            {decor.hero.bilhete}
+          </p>
+        )}
       </div>
     </section>
   )
