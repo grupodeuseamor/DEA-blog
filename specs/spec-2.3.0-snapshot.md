@@ -15,6 +15,11 @@ Aplica o padrão v2c (folha única, post-its, tachinhas, rabiscos, figurinhas re
 3. Comunicação tem `hero.quote` com quebras de linha (`\n`): o hero v2 preserva as quebras (`white-space: pre-line`).
 4. Das Dores: tom mais sóbrio (sem brilhinhos no hero; estrela + gota).
 5. Fecha a seção: os 10 títulos e a listagem no visual v2; o fluxo anterior/próximo percorre Auxiliadora → … → Fátima sem pular nenhum.
+6. **Reaproveitamento de imagens (opcional, regra da 2.0.1-snapshot)**, com moderação:
+   - Fátima: **foto colada** (`sheetPhotos`, `hero.backgroundImage`, `after: "sections[2]"`, lado esquerdo, `rotate: -4`) ao lado de “Os ensinamentos de Fátima”; no mobile desce para baixo do texto.
+   - Das Dores: **fundo esmaecido** suave (`blocks[].backdrop`, `hero.backgroundImage`, `direita`) em “Promessas” (`sections[2]`), mantendo o tom sóbrio.
+   - Comunicação: sem reaproveitamento extra (a polaroid já usa a foto do hero; a página fica leve).
+7. Ajustes mínimos em componentes da Exec 1 (sem componentes novos): `hero .q` com `white-space: pre-line`; post-it com rótulo longo (“Itatiaia (MG)”, “século XIII”) em fonte menor; tamanhos de `terco`/`raios` no título e de coração com chama no bilhete.
 
 ## Rotas desta versão
 
@@ -73,6 +78,8 @@ Breadcrumb no topo (abaixo do menu) e bloco `SectionFlowNav` no fim da página, 
 - `titulos-v2-visual.spec.ts` e `navigation-flow.spec.ts` cobrem as 3 rotas novas.
 - Teste de percurso: começa em Auxiliadora e clica “Próximo” 9 vezes até Fátima; depois volta com “Anterior” até Auxiliadora.
 - `npm run test:specs` com os novos `specs/decor/*.json`.
+
+- `decor-pages-v2.spec.ts` e `navigation-flow.spec.ts` cobrem as 3 rotas novas automaticamente (leem `specs/decor/`); o fluxo dos 10 títulos fica coberto de ponta a ponta.
 
 ## Critérios de aceite
 

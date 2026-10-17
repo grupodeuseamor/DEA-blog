@@ -213,7 +213,7 @@ svg.d circle { fill: currentColor; stroke: none; }
 .v2 .selo svg { width: 58px; height: 72px; }
 .v2 .hero h1 { font-size: 72px; color: var(--color-areia); }
 .v2 .hero .sub { font-size: 21px; margin-top: 26px; color: rgb(231 224 202 / 0.92); }
-.v2 .hero .q { font-family: var(--font-leitura); font-style: italic; font-size: 25px; margin-top: 10px; color: var(--color-ceu); }
+.v2 .hero .q { font-family: var(--font-leitura); font-style: italic; font-size: 25px; margin-top: 10px; color: var(--color-ceu); white-space: pre-line; }
 
 .v2 .secs { padding: 64px 0 40px; }
 .v2 .folha { position: relative; background: var(--color-folha); border: 1.5px solid var(--linha-manto); border-radius: 6px 6px 18px 18px; padding: 64px 56px 56px; box-shadow: var(--sombra-folha); }
@@ -376,3 +376,5 @@ svg.d circle { fill: currentColor; stroke: none; }
 }
 .v2 .postit.datas ul.empilhado li { flex-direction: column; align-items: flex-start; gap: 0; }
 .v2 .postit.datas ul.empilhado li b { font-size: 21px; }
+.v2 .postit b.longo { font-size: 30px; line-height: 1.05; }
+@media (max-width: 760px) { .v2 .postit b.longo { font-size: 27px; } }

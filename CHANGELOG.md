@@ -3,6 +3,17 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0.
 
+## [2.3.0-snapshot] — pendente (pre-release)
+Exec 4 — Comunicação, Dores e Fátima no visual v2c; fecha os Títulos de Nossa Senhora. Spec: `specs/spec-2.3.0-snapshot.md`.
+
+### Adicionado
+- Decoração de Comunicação, Dores e Fátima.
+- Foto colada reaproveitando a imagem do hero em Fátima; fundo esmaecido suave em Das Dores.
+
+### Alterado
+- Hero v2 preserva quebras de linha da citação; post-it com rótulo longo em fonte menor.
+- `hero.overlay` removido dos 3 JSON de conteúdo.
+
 ## [2.2.0-snapshot] — pendente (pre-release)
 Exec 3 — Lourdes, Guadalupe e Graças no visual v2c. Spec: `specs/spec-2.2.0-snapshot.md`.
 

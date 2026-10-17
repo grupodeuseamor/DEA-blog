@@ -23,6 +23,7 @@ const noteDrawing = {
     className: 'dsk-only',
   },
   onda: { tone: 'ceu' as const, style: { width: 70, height: 22 }, className: undefined },
+  'coracao-chama': { tone: 'manto' as const, style: { width: 38, height: 44 }, className: undefined },
   aspas: { tone: 'ceu' as const, style: { width: 40, height: 27 }, className: undefined },
   brilhinhos: { tone: 'ceu' as const, style: { width: 40, height: 40 }, className: undefined },
 }

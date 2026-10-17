@@ -14,7 +14,7 @@ export function PostIt({ label, text, pin = 'manto', paper = 'areia', rotate = -
   return (
     <div className={`postit ${paper}`} style={{ '--r': `${rotate}deg` } as CSSProperties} data-decor="postit">
       <Pin tone={pin} />
-      <b className="t-titulo">{label}</b>
+      <b className={label.length > 6 ? 't-titulo longo' : 't-titulo'}>{label}</b>
       <span className="mao">{text}</span>
     </div>
   )

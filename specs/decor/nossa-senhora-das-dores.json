@@ -1,0 +1,98 @@
+{
+  "slug": "nossa-senhora-das-dores",
+  "hero": {
+    "drawings": [
+      "estrela",
+      "gota"
+    ],
+    "underline": "Dores"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "sete adagas",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Mater Dolorosa",
+          "tape": true
+        },
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coracao-chama"
+          ],
+          "tape": false
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "15 de setembro",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "século XIII",
+          "text": "Ordem dos Servos de Maria",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "promessas de Maria",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "lirio"
+          ],
+          "tape": true
+        }
+      ],
+      "backdrop": {
+        "image": "hero.backgroundImage",
+        "strength": "suave",
+        "side": "direita"
+      }
+    },
+    {
+      "target": "sections[3]",
+      "titleDrawing": "terco",
+      "marks": [
+        {
+          "text": "rosário das sete dores",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "Mater Dolorosa · sete dores",
+          "centerDrawing": "cruz"
+        },
+        {
+          "kind": "bilhete",
+          "text": "um Pai-Nosso e sete Ave-Marias"
+        }
+      ]
+    }
+  ]
+}
