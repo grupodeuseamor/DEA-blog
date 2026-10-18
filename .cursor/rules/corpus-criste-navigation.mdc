@@ -1,0 +1,33 @@
+---
+description: Breadcrumb e navegação de fluxo (anterior, voltar, próximo) derivados de routes.json e das listagens
+globs: components/navigation/**, components/layout/Navbar.tsx, components/layout/NavDropdown.tsx, lib/specs/nav.ts, specs/routes.json, specs/content/titulos-nossa-senhora.json, specs/content/ministerios.json
+alwaysApply: false
+---
+
+# CorpusCriste — Navegação e fluxo
+
+## Fluxo aprovado
+
+Home → CTA para a listagem → card → página → **Anterior · Voltar para a listagem · Próximo**.
+
+## Fonte de verdade
+
+- Menu e breadcrumb: `specs/routes.json` (rótulos e `parent`). O menu mantém **as mesmas opções e dropdowns** da 1.1.0.
+- Ordem de anterior/próximo: ordem dos cards em `specs/content/titulos-nossa-senhora.json` (`galleries`) e `specs/content/ministerios.json` (`ministries`).
+- Cards cujo `path` é a própria listagem (Louvor, Intercessão) ficam fora do fluxo.
+- Funções: `getBreadcrumb()` e `getSectionFlow()` em `lib/specs/nav.ts`. **Nunca** escrever links de fluxo à mão em página ou JSON.
+
+## Componentes
+
+- `components/navigation/Breadcrumb.tsx` — `<nav aria-label="Você está aqui">`, `<ol>`, último item com `aria-current="page"`, raiz “Início”, `data-testid="breadcrumb"`.
+- `components/navigation/SectionFlowNav.tsx` — `data-testid="section-flow"`, `section-flow-prev`, `section-flow-back`, `section-flow-next`. Sem volta circular.
+- Listagens: “Voltar” = Início; seção vizinha pela ordem de topo de `routes.json`.
+
+## Não fazer
+
+- Não criar rotas, pastas, rota dinâmica `[slug]` nem redirects.
+- Não remover nem renomear `data-testid` do menu (`nav-desktop`, `nav-link-home`, `nav-dropdown-*`, `nav-dropdown-scroll`, `nav-mobile-scroll`).
+
+## Testes
+
+`specs/tests/e2e/navigation.spec.ts` (menu) e `navigation-flow.spec.ts` (breadcrumb + fluxo de toda rota com `specs/decor/{slug}.json`).

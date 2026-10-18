@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-test.describe('DEA Ajuda — regressão visual aprovada', () => {
+test.describe('DEA Ajuda — v2 (2.4.0-snapshot)', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/ministerios/dea-ajuda', {
       waitUntil: 'domcontentloaded',
@@ -10,7 +10,7 @@ test.describe('DEA Ajuda — regressão visual aprovada', () => {
 
   test('hero com título DEA Ajuda', async ({ page }) => {
     await expect(page.getByRole('heading', { level: 1 })).toContainText('DEA')
-    await expect(page.getByText('Transformando Fé em Caridade')).toBeVisible()
+    await expect(page.getByTestId('hero-v2').getByText('Transformando Fé em Caridade')).toBeVisible()
     await expect(page.getByTestId('hero-background-carousel')).toBeVisible()
   })
 
@@ -30,8 +30,8 @@ test.describe('DEA Ajuda — regressão visual aprovada', () => {
   })
 
   test('projetos realizados', async ({ page }) => {
-    await expect(page.getByText('Prova Rústica Tiradentes')).toBeVisible()
-    await expect(page.getByText('Campanha do Agasalho')).toBeVisible()
+    await expect(page.locator('.ml-projetos').getByText('Prova Rústica Tiradentes')).toBeVisible()
+    await expect(page.locator('.ml-projetos').getByText('Campanha do Agasalho')).toBeVisible()
   })
 
   test('citação e valores', async ({ page }) => {
@@ -39,6 +39,19 @@ test.describe('DEA Ajuda — regressão visual aprovada', () => {
     await expect(
       page.getByRole('heading', { name: 'Solidariedade' }),
     ).toBeVisible()
+  })
+
+  test('v2: folha única com 7 seções (hero + 6) e navegação', async ({ page }) => {
+    await expect(page.locator('main.v2[data-visual="v2"]')).toHaveCount(1)
+    await expect(page.getByTestId('paper-sheet')).toHaveCount(1)
+    await expect(page.getByTestId('paper-sheet').locator('section.bloco')).toHaveCount(6)
+    await expect(page.getByTestId('hero-v2')).toHaveCount(1)
+    await expect(page.locator('.margem-caderno')).toContainText('pequenas coisas com muito amor')
+    await expect(page.locator('#projects .pin.coracao')).toHaveCount(1)
+    await expect(page.locator('.pin.coracao')).toHaveCount(1)
+    // D8: imagem externa (Vercel Blob) da inspiração mantida como está, em polaroid
+    await expect(page.locator('#inspiration img[src*="blob.vercel-storage.com"]')).toHaveCount(1)
+    await expect(page.locator('#about img, #video img, #projects img, #values img, #quote img')).toHaveCount(0)
   })
 
   test('rodapé global presente', async ({ page }) => {

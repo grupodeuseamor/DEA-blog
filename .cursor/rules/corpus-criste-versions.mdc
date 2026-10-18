@@ -1,5 +1,5 @@
 ---
-description: CorpusCriste versioning policy — each 0.0.x release adds page(s) per spec
+description: CorpusCriste versioning policy — 0.0.x pages, 1.x releases, v2 snapshots 2.N.0-snapshot (feature = MINOR, correção = PATCH) until the official 2.7.0
 globs: specs/version.json, specs/spec-*.md, specs/content/**
 alwaysApply: false
 ---
@@ -21,6 +21,7 @@ alwaysApply: false
 | 0.0.0 | Baseline (templates, navbar) | — |
 | 0.0.1 | Nossa Senhora em Medjugorje | `/titulos-nossa-senhora/nossa-senhora-medjugorje` |
 | 0.0.2 | Nossa Senhora Aparecida | `/titulos-nossa-senhora/nossa-senhora-aparecida` |
+| 2.0.1-snapshot | Ajuste da Exec 1 (PATCH): reaproveitamento opcional de imagens (`sheetPhotos`, `backdrop`) + foto colada na Aparecida | `/titulos-nossa-senhora/nossa-senhora-aparecida` |
 | 0.0.3 | Ministério Perseverança | `/ministerios/perseveranca` |
 | 0.0.3 | Nossa Senhora de La Salette | `/titulos-nossa-senhora/nossa-senhora-la-salette` |
 | 0.0.3 | Nossa Senhora de Lourdes | `/titulos-nossa-senhora/nossa-senhora-lourdes` |
@@ -36,10 +37,35 @@ alwaysApply: false
 | 1.0.0 | Primeira versão completa — remoção de páginas-modelo públicas; exemplo em `.cursor/examples/content-page/` | — |
 | 1.0.1 | Scroll invisível no menu (dropdown desktop + mobile) | — |
 | 1.1.0 | Vídeo por URL (YouTube / Google Drive) em DEA Ajuda | `/ministerios/dea-ajuda` |
+| 2.0.0-snapshot | Exec 1 — fundação v2 (tokens, fontes, desenhos, decor, folha única, breadcrumb, fluxo, menu, rodapé) + piloto Aparecida | `/titulos-nossa-senhora/nossa-senhora-aparecida` |
+| 2.1.0-snapshot | Exec 2 — listagem Títulos + Auxiliadora, Medjugorje, La Salette | `/titulos-nossa-senhora` e 3 filhas |
+| 2.2.0-snapshot | Exec 3 — Lourdes, Guadalupe, Graças | 3 filhas de `/titulos-nossa-senhora` |
+| 2.3.0-snapshot | Exec 4 — Comunicação, Dores, Fátima (fecha Títulos) | 3 filhas de `/titulos-nossa-senhora` |
+| 2.4.0-snapshot | Exec 5 — Ministérios, DEA Ajuda, Perseverança | `/ministerios` e filhas |
+| 2.5.0-snapshot | Exec 6 — Home | `/` |
+| 2.6.0-snapshot | Exec 7 — fechamento: limpeza do legado e QA total | — |
+| 2.6.x-snapshot | Correções após a Exec 7 (2.6.1-snapshot, 2.6.2-snapshot…) | conforme correção |
+| 2.7.0 | **Release oficial — versão atual** (2026-10-17; merge `v2` → `main`, tag `v2.7.0`, Release Latest) | as 15 rotas |
 
 A partir de **1.0.0**, não existem rotas `/titulos-nossa-senhora/template` nem `/ministerios/template` no site.
 
-## Checklist obrigatório por versão
+## Snapshots da v2 (pre-release) e versão oficial 2.7.0
+
+A v2 é entregue em **7 execuções**. Cada execução é uma **feature** e incrementa a **MINOR**, sempre com o sufixo `-snapshot` sem número depois:
+
+`2.0.0-snapshot` (Exec 1) → `2.1.0-snapshot` → `2.2.0-snapshot` → `2.3.0-snapshot` → `2.4.0-snapshot` → `2.5.0-snapshot` → `2.6.0-snapshot` (Exec 7).
+
+- **Correção** = incrementa o **PATCH** da versão vigente: `2.6.1-snapshot`, `2.6.2-snapshot`… (vale também para snapshots anteriores, ex.: `2.1.1-snapshot`). Correção não ganha spec novo: entra na seção “Correções” do spec da feature; `contentVersion`, `package.json` e `checklist.version` sobem, e `specFile` continua o da feature.
+- **Oficial (decisão do Michel):** depois da `2.6.x-snapshot` e das correções aprovadas, incrementa a MINOR e publica **`2.7.0`** sem `-snapshot`: `spec-2.7.0.md`, merge `v2` → `main`, commit `Versão 2.7.0`, tag `v2.7.0`, GitHub Release **Latest**. Correções depois disso: `2.7.1`, `2.7.2`…
+- Ordem SemVer: `2.0.0-snapshot < 2.1.0-snapshot < … < 2.6.2-snapshot < 2.7.0`.
+- Formato aceito em `contentVersion`: `^\d+\.\d+\.\d+(-snapshot)?$`. O `npm run test:specs` (`validateVersionConsistency` em `lib/specs/loader.ts`) reprova outro formato (ex.: `-snapshot.1`) e exige `specFile` existente e `checklist.version` = `package.json` = `contentVersion`.
+- Trabalho na branch `v2` (criada de `main` depois da release `v1.1.0`, que é o ponto de rollback).
+- Cada snapshot: `specs/spec-2.N.0-snapshot.md`, `version.json`, `package.json`, `checklist.json`, README, esta tabela; commit `Versão 2.N.0-snapshot`; tag `v2.N.0-snapshot`; GitHub Release marcada como **pre-release** (nunca Latest).
+- Preview: deploy automático da branch `v2` na Vercel. Produção em `main`: 2.7.0 após o merge (rollback: `v1.1.0`). Correções seguintes: `2.7.1`, `2.7.2`…
+- **Sem GitHub Actions.** QA local (`test:specs`, `build`, `test:e2e`, Lighthouse) antes de cada tag.
+- Snapshots não mudam rotas, pastas, menu nem textos (só estilo, breadcrumb e fluxo).
+
+## Checklist obrigatório por versão (páginas novas, 0.x/1.x)
 
 1. Criar `specs/content/{slug}.json`
 2. Criar `app/.../page.tsx` mínimo (copiar de `.cursor/examples/content-page/page.example.tsx`)
@@ -53,7 +79,7 @@ A partir de **1.0.0**, não existem rotas `/titulos-nossa-senhora/template` nem 
 
 ## Referência da versão atual
 
-Sempre ler `specs/version.json` → campo `specFile` aponta para o release notes ativo.
+Sempre ler `specs/version.json` → campo `specFile` aponta para o release notes ativo (na v2, o spec do snapshot mais recente).
 
 ## URL da seção mariana
 

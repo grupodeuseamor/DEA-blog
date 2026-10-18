@@ -2,7 +2,10 @@
 
 Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **React 19** e **Tailwind CSS 4**. O conteúdo e os testes são versionados na pasta `specs/`.
 
-**Versão atual do conteúdo:** `1.1.0` — ver [`specs/spec-1.1.0.md`](specs/spec-1.1.0.md).
+**Versão atual do conteúdo:** `2.7.0` (oficial, 2026-10-17) — ver [`specs/spec-2.7.0.md`](specs/spec-2.7.0.md) e o [`CHANGELOG.md`](CHANGELOG.md).
+**Produção:** `2.7.0` (v2, “Caderno + Novo Lote”) após o merge na `main`; rollback: release `v1.1.0`.
+
+Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
 
 ## Rotas
 
@@ -26,7 +29,9 @@ Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **Reac
 
 **Total:** 15 páginas de produção.
 
-A navegação é feita pela **navbar horizontal** com dropdowns em Títulos de Nossa Senhora e Ministérios (menu expansível no mobile). As rotas da navbar vêm de [`specs/routes.json`](specs/routes.json).
+A navegação é feita pela **navbar horizontal** (mesmas opções na v2, só com estilo novo) com dropdowns em Títulos de Nossa Senhora e Ministérios (menu expansível no mobile). As rotas da navbar vêm de [`specs/routes.json`](specs/routes.json).
+
+Na v2, toda página interna tem **breadcrumb** (Início › Seção › Página) e, no fim, **Anterior · Voltar para a listagem · Próximo**, na ordem dos cards da listagem (`.cursor/rules/corpus-criste-navigation.mdc`). A v2 não cria nem renomeia rotas.
 
 **Redirects legados** ([`vercel.json`](vercel.json)):
 
@@ -49,7 +54,7 @@ Não há páginas-modelo públicas no site. Para agentes e desenvolvedores:
 
 ## Versionamento
 
-Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-criste-versions.mdc). Releases `0.0.x` / `0.1.x` adicionaram páginas e melhorias; **1.0.0** consolida o conjunto publicado e remove modelos do site.
+Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-criste-versions.mdc). Releases `0.0.x` / `0.1.x` adicionaram páginas e melhorias; **1.0.0** consolida o conjunto publicado e remove modelos do site. A **v2** (novo visual) é entregue em 7 execuções; cada uma é uma feature que incrementa a MINOR: `2.0.0-snapshot` … `2.6.0-snapshot` (GitHub pre-release + preview da branch `v2`). Correções incrementam o PATCH (`2.6.1-snapshot`…). A versão oficial é a **2.7.0** (merge em `main`, tag `v2.7.0`, Release Latest).
 
 | Versão | Entrega |
 |--------|---------|
@@ -68,14 +73,24 @@ Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-c
 | 0.1.6 | Nossa Senhora de Fátima |
 | **1.0.0** | **Versão completa** — 15 rotas; modelos só em `.cursor/examples/` |
 | 1.0.1 | Scroll invisível no menu quando a lista não cabe na tela |
-| 1.1.0 | Vídeo por URL (YouTube / Google Drive) na seção DEA Ajuda |
+| 1.1.0 | Vídeo por URL (YouTube / Google Drive) na seção DEA Ajuda — **ponto de rollback** |
+| 2.0.0-snapshot | *pre-release* — Exec 1: fundação v2 (Caderno + Novo Lote, folha única) + piloto Aparecida |
+| 2.0.1-snapshot | *pre-release* — ajuste da Exec 1: reaproveitamento opcional de imagens + foto colada na Aparecida |
+| 2.1.0-snapshot | *pre-release* — Exec 2: listagem Títulos + Auxiliadora, Medjugorje, La Salette |
+| 2.2.0-snapshot | *pre-release* — Exec 3: Lourdes, Guadalupe, Graças |
+| 2.3.0-snapshot | *pre-release* — Exec 4: Comunicação, Dores, Fátima (fecha Títulos) |
+| 2.4.0-snapshot | *pre-release* — Exec 5: Ministérios (listagem), DEA Ajuda, Perseverança |
+| 2.5.0-snapshot | *pre-release* — Exec 6: Home (+ botão preview Ministérios) |
+| 2.6.0-snapshot | *pre-release* — Exec 7: fechamento — limpeza do legado 1.1.0 e QA total |
+| **2.7.0** | **Oficial** — v2 “Caderno + Novo Lote” nas 15 rotas (consolida 2.0.0-snapshot … 2.6.0-snapshot) + testes de links e redirects |
 
 ## Estrutura de specs
 
 ```
 specs/
 ├── version.json          # versão semver do conteúdo + specFile
-├── spec-1.1.0.md         # release notes da versão atual
+├── spec-2.0.0-snapshot.md    # release notes da versão atual (pre-release)
+├── spec-1.1.0.md
 ├── spec-1.0.1.md
 ├── spec-1.0.0.md
 ├── spec-0.1.6.md …       # histórico de releases
@@ -83,6 +98,7 @@ specs/
 ├── CORPUS-CRISTE-ENGINEERING.md
 ├── routes.json           # rotas da navbar (parent = dropdown)
 ├── content/              # textos e dados das páginas
+├── decor/                # v2: decoração por página (só frases do conteúdo)
 └── tests/
     ├── checklist.json
     └── e2e/              # Playwright
@@ -93,6 +109,8 @@ specs/
 Agentes devem seguir [`.cursor/rules/`](.cursor/rules/):
 
 - `corpus-criste-base.mdc` — padrões gerais (always apply)
+- `corpus-criste-design-v2.mdc` — tokens, fontes, desenhos e decoração v2 (always apply)
+- `corpus-criste-navigation.mdc` — breadcrumb e navegação de fluxo
 - `corpus-criste-pages.mdc` — criação de páginas
 - `corpus-criste-carousels.mdc` — carrossel no hero (CSS)
 - `corpus-criste-videos.mdc` — vídeo por URL (YouTube / Google Drive)
@@ -114,7 +132,10 @@ Abra [http://localhost:3000](http://localhost:3000).
 |---------|-----------|
 | `npm run dev` | Servidor de desenvolvimento |
 | `npm run build` | Build de produção |
-| `npm run test:specs` | Valida JSONs em `specs/` com Zod |
+| `npm run test:links` | Links internos/âncoras/externos das 15 rotas (Playwright) |
+| `npm run test:redirects` | Redirects do `vercel.json` (validação estática) |
+| `npm run test:redirects:remote -- <baseUrl>` | Redirects e domínios contra preview/produção |
+| `npm run test:specs` | Valida JSONs em `specs/` com Zod (inclui `specs/decor/`) |
 | `npm run test:video` | Testes do parser de URLs de vídeo |
 | `npm run test:e2e` | Testes end-to-end (Playwright) |
 
@@ -129,13 +150,24 @@ Abra [http://localhost:3000](http://localhost:3000).
 
 O arquivo [`vercel.json`](vercel.json) inclui redirects de URLs legadas.
 
-## Identidade visual
+**Sem GitHub Actions** (a conta está no limite gratuito): testes e build rodam localmente antes do push; a Vercel faz o deploy pela integração Git. A branch `v2` gera *Preview Deployments* automáticos para revisar os snapshots; `main` é produção.
 
-- Fundo escuro (`#0f0f12`)
-- Dourado primário (`#d4af37`)
-- Vinho secundário (`#8B2332`)
-- Tipografia: Cormorant Garamond (títulos) + Montserrat (corpo)
-- Cantos arredondados (`rounded-2xl`)
+## Identidade visual (v2 — Caderno + Novo Lote)
+
+| Token | Cor | Uso |
+|-------|-----|-----|
+| `manto` | #00479F | cor principal |
+| `ceu` | #84ADBD | desenhos e sublinhados |
+| `areia` | #E7E0CA | post-its, texto sobre azul |
+| `tinta` | #000 | texto |
+| `papel` | #F6F2E7 | fundo |
+| `noite` | #0B2550 | rodapé, overlay do hero |
+| `coracao` | #C8372D | só acentos (margem da citação, 1 tachinha por página) |
+
+- Tipografia: Fraunces (títulos), Jost (corpo), Gochi Hand (bilhetes), Newsreader (citações)
+- Desenhos à mão em SVG (`components/decor/`), polaroid com fita, post-its, carimbos, marca-texto
+- Cores só pelos tokens de `app/globals.css`; nunca em classes ou `style`
+- Desde a `2.6.0-snapshot` todas as 15 rotas usam o visual v2; `specs/decor/{slug}.json` é obrigatório (validado em `npm run test:specs`)
 
 ## Licença
 

@@ -1,0 +1,115 @@
+{
+  "slug": "nossa-senhora-guadalupe",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Guadalupe"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "colina de Tepeyac",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Padroeira da América Latina",
+          "tape": true
+        },
+        {
+          "kind": "postit",
+          "label": "1531",
+          "text": "Juan Diego",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "titleDrawing": "brilhinhos",
+      "marks": [
+        {
+          "text": "belas rosas castelhanas",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "flores no alto do monte",
+          "drawing": "seta"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "fibras de cacto",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "estrela"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "bilhete",
+          "text": "quase cinco séculos"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "marks": [
+        {
+          "text": "Padroeira de toda a América",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "1945",
+          "text": "Papa Pio XII",
+          "pin": "coracao",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[4]",
+      "titleDrawing": "coracao-chama",
+      "marks": [
+        {
+          "text": "ninguém está sozinho",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "Padroeira da América Latina · 12 de dezembro",
+          "center": "1531"
+        }
+      ],
+      "backdrop": {
+        "image": "hero.backgroundImage",
+        "strength": "suave",
+        "side": "direita"
+      }
+    }
+  ]
+}

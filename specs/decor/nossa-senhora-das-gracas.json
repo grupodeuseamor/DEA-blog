@@ -1,0 +1,118 @@
+{
+  "slug": "nossa-senhora-das-gracas",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Graças"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "três aparições",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Filhas da Caridade",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "marks": [],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "1830",
+          "text": "18 para 19 de julho",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "titleDrawing": "brilhinhos",
+      "marks": [
+        {
+          "text": "Medalha Milagrosa",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "raios brilhantes de luz",
+          "drawing": "seta"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "marks": [
+        {
+          "text": "cunhada, em Paris",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "Medalha Milagrosa · Paris",
+          "center": "1830"
+        }
+      ]
+    },
+    {
+      "target": "sections[4]",
+      "marks": [
+        {
+          "text": "distribuída a todos",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "vela"
+          ],
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[5]",
+      "marks": [
+        {
+          "text": "dogma da Imaculada Conceição",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit-datas",
+          "items": [
+            {
+              "label": "1854",
+              "text": "Papa Pio IX"
+            },
+            {
+              "label": "27 de novembro",
+              "text": "festa em homenagem a Nossa Senhora das Graças"
+            }
+          ],
+          "pin": "coracao"
+        }
+      ]
+    }
+  ]
+}

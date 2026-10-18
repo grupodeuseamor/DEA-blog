@@ -14,8 +14,8 @@ export default function TitulosNossaSenhoraPage() {
     <ListingPageTemplate
       hero={content.hero}
       items={content.galleries}
-      gradient="gold"
       testIdPrefix="gallery"
+      slug={content.slug}
     />
   )
 }

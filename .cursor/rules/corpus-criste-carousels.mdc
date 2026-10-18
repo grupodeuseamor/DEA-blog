@@ -1,6 +1,6 @@
 ---
 description: Padronização de carrosséis (hero background) no CorpusCriste
-globs: specs/content/*.json, components/content/HeroBackgroundCarousel.tsx, components/content/HeroSection.tsx, components/ministry-landing/MinistryLandingHero.tsx, app/globals.css
+globs: specs/content/*.json, components/content/HeroBackgroundCarousel.tsx, components/content/HeroSectionV2.tsx, components/ministry-landing/MinistryLandingV2.tsx, app/globals.css
 alwaysApply: true
 ---
 
@@ -19,8 +19,8 @@ alwaysApply: true
 - **CSS**: classes e keyframes em `app/globals.css`
   - Respeitar `prefers-reduced-motion` (mostrar só a primeira imagem)
 - **Overlay**:
-  - Preferir `hero.overlay` no JSON
-  - Fallback para `heroOverlayDefault` (em `lib/theme.ts`)
+  - v2: token `--overlay-hero` (Azul Noite, tratamento “azul de carimbo”) em `app/globals.css`; o campo `hero.overlay` sai dos JSON migrados
+  - Legado (páginas sem `specs/decor/`, até a Exec 7, `2.6.0-snapshot`): `hero.overlay` no JSON ou `heroOverlayDefault` (em `lib/theme.ts`)
 
 ## Como ligar o carrossel por JSON
 
@@ -28,7 +28,7 @@ No `hero` do JSON:
 
 - `backgroundImage`: primeira imagem (fallback e compatibilidade)
 - `backgroundImages`: array de imagens (min 1); **carrossel ativa quando length > 1**
-- `overlay`: opcional (recomendado quando o fundo for claro)
+- `overlay`: removido dos JSON na v2 (o tratamento vem do token `--overlay-hero`)
 
 Exemplo:
 
@@ -36,16 +36,14 @@ Exemplo:
 {
   "hero": {
     "backgroundImage": "/images/foo-01.png",
-    "backgroundImages": ["/images/foo-01.png", "/images/foo-02.png"],
-    "overlay": "linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.82))"
+    "backgroundImages": ["/images/foo-01.png", "/images/foo-02.png"]
   }
 }
 ```
 
 ## Onde usar
 
-- Páginas `ContentPageTemplate`: via `components/content/HeroSection.tsx`
-- Páginas `ministry-landing`: via `components/ministry-landing/MinistryLandingHero.tsx`
+- Páginas `ContentPageTemplate` e ministry-landing: via `components/content/HeroSectionV2.tsx` (base estática com a 1ª foto + crossfade)
 
 ## Checklist ao adicionar/alterar carrossel
 

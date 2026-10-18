@@ -1,6 +1,6 @@
 {
   "name": "corpus-criste",
-  "version": "1.0.0",
+  "version": "2.7.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "test:specs": "tsx scripts/validate-specs.ts",
     "test:video": "tsx specs/tests/video-embed.unit.ts",
+    "test:preview": "tsx specs/tests/home-preview.unit.tsx",
+    "test:links": "playwright test specs/tests/e2e/links.spec.ts",
+    "test:redirects": "tsx scripts/check-redirects.ts",
+    "test:redirects:remote": "tsx scripts/check-redirects.ts --remote",
     "test:e2e": "playwright test"
   },
   "dependencies": {

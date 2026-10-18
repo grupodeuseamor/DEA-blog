@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { isNavItemActive } from '@/lib/specs/nav'
-import { navLinkClass } from '@/lib/theme'
+import { navLinkV2 } from '@/lib/theme'
 import type { NavTreeItem } from '@/lib/specs/nav'
 
 type NavDropdownProps = {
@@ -18,7 +18,8 @@ export function NavDropdown({ item }: NavDropdownProps) {
     return (
       <Link
         href={item.path}
-        className={navLinkClass(isActive, 'desktop')}
+        className={navLinkV2(isActive)}
+        aria-current={pathname === item.path ? 'page' : undefined}
         data-testid={`nav-link-${item.path === '/' ? 'home' : item.path.slice(1).replace(/\//g, '-')}`}
       >
         {item.label}
@@ -30,17 +31,16 @@ export function NavDropdown({ item }: NavDropdownProps) {
     <div className="relative group" data-testid={`nav-dropdown-${item.path.slice(1)}`}>
       <Link
         href={item.path}
-        className={`inline-flex items-center gap-1 ${navLinkClass(isActive, 'desktop')}`}
+        className={navLinkV2(isActive)}
+        aria-current={pathname === item.path ? 'page' : undefined}
       >
         {item.label}
-        <span className="text-xs opacity-70" aria-hidden="true">
-          ▾
-        </span>
+        <i aria-hidden="true">▾</i>
       </Link>
 
       <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all z-50">
         <div
-          className="nav-scroll-invisible max-h-[min(70vh,calc(100dvh-5rem))] min-w-[220px] rounded-xl border border-[rgba(212,175,55,0.2)] bg-[#1c1e24] py-2 shadow-lg"
+          className="dd nav-scroll-invisible max-h-[min(70vh,calc(100dvh-5rem))]"
           data-testid="nav-dropdown-scroll"
         >
           {item.children.map((child) => {
@@ -49,11 +49,8 @@ export function NavDropdown({ item }: NavDropdownProps) {
               <Link
                 key={child.path}
                 href={child.path}
-                className={`block px-4 py-2.5 text-sm transition-colors ${
-                  childActive
-                    ? 'bg-[rgba(212,175,55,0.12)] text-[#d4af37]'
-                    : 'text-foreground/90 hover:bg-[rgba(212,175,55,0.08)] hover:text-[#d4af37]'
-                }`}
+                className={childActive ? 'on' : undefined}
+                aria-current={childActive ? 'page' : undefined}
                 data-testid={`nav-link-${child.path.slice(1).replace(/\//g, '-')}`}
               >
                 {child.label}

@@ -1,0 +1,87 @@
+{
+  "slug": "nossa-senhora-da-comunicacao",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Comunicação"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "escutar, acolher e transmitir a verdade com amor",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Inspiração para quem comunica a fé",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "a imagem permaneceu de pé",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "Itatiaia (MG)",
+          "text": "salesianos",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "titleDrawing": "estrela",
+      "marks": [
+        {
+          "text": "da palavra, da música, das imagens",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "responsabilidade, verdade e amor",
+          "drawing": "brilhinhos"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "marks": [
+        {
+          "text": "instrumentos de luz, esperança e paz",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "pomba"
+          ],
+          "tape": true
+        },
+        {
+          "kind": "carimbo",
+          "text": "Nossa Senhora da Comunicação · rogai por nós",
+          "centerDrawing": "cruz"
+        }
+      ]
+    }
+  ]
+}

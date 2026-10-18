@@ -14,7 +14,6 @@
       "/images/dea-ajuda-carousel-01.png",
       "/images/dea-ajuda-carousel-02.png"
     ],
-    "overlay": "linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.82))",
     "ctaLabel": "Assistir nossa história",
     "ctaHref": "#video"
   },

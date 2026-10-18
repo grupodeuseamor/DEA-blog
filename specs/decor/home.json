@@ -1,0 +1,55 @@
+{
+  "slug": "home",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela",
+      "pomba"
+    ],
+    "underline": "Amor",
+    "bilhete": "desde 2000"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "titleDrawing": "coracao-chama",
+      "marks": [
+        {
+          "text": "da oração, da fraternidade, da adoração",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "Jovens evangelizando Jovens desde 2000",
+          "centerDrawing": "coracao-chama"
+        }
+      ],
+      "highlight": false
+    },
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "Há sempre lugar para mais um jovem",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "quintas-feiras",
+          "text": "19h30 · Auditório Dona Guilhermina",
+          "pin": "coracao",
+          "paper": "areia"
+        },
+        {
+          "kind": "bilhete",
+          "text": "Será um prazer acolher você",
+          "drawing": "seta"
+        }
+      ]
+    }
+  ]
+}

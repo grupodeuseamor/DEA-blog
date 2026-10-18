@@ -88,6 +88,10 @@ export const contentPageSchema = z.object({
 export const homeContentSchema = contentPageSchema.extend({
   slug: z.literal('home'),
   sections: z.array(paragraphSectionSchema),
+  /** Botão preview (2.5.0-snapshot, item 5a): opcional e removível — apagar o campo some com o botão. */
+  previewCta: z
+    .object({ label: z.string(), href: z.string(), badge: z.literal('preview') })
+    .optional(),
 })
 
 export const nossaSenhoraAuxiliadoraContentSchema = contentPageSchema.extend({

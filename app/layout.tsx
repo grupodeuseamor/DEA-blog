@@ -1,21 +1,27 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Montserrat } from 'next/font/google'
+import { Fraunces, Gochi_Hand, Jost, Newsreader } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { RoughFilters } from '@/components/decor/RoughFilters'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
 import { loadRoutes } from '@/lib/specs/loader'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
+/* v2 (2.0.0-snapshot): títulos, corpo, bilhetes e citações longas */
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-cormorant',
+  axes: ['SOFT', 'WONK', 'opsz'],
+  variable: '--font-fraunces',
 })
 
-const montserrat = Montserrat({
+const jost = Jost({ subsets: ['latin'], variable: '--font-jost' })
+
+const gochi = Gochi_Hand({ subsets: ['latin'], weight: '400', variable: '--font-gochi' })
+
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-montserrat',
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader',
 })
 
 export const metadata: Metadata = {
@@ -36,8 +42,9 @@ export default function RootLayout({
   const routes = loadRoutes()
 
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${montserrat.variable}`}>
-      <body className="font-sans antialiased bg-[#0f0f12] text-[#f2f2f2]">
+    <html lang="pt-BR" className={`${fraunces.variable} ${jost.variable} ${gochi.variable} ${newsreader.variable}`}>
+      <body className="font-sans antialiased bg-papel text-tinta">
+        <RoughFilters />
         <Navbar routes={routes} />
         {children}
         <Footer />

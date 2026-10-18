@@ -1,0 +1,97 @@
+{
+  "slug": "nossa-senhora-de-fatima",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Fátima"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "titleDrawing": "raios",
+      "marks": [
+        {
+          "text": "ver o Sol girar",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "hero.backgroundImage",
+          "caption": "Milagre do Sol",
+          "tape": true
+        },
+        {
+          "kind": "postit",
+          "label": "1917",
+          "text": "após uma forte chuva",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "Lúcia dos Santos, Francisco Marto e Jacinta Marto",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "estrela"
+          ],
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "titleDrawing": "terco",
+      "marks": [
+        {
+          "text": "a oração do rosário",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "bilhete",
+          "text": "amor, paz e esperança",
+          "drawing": "coracao-chama"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "marks": [
+        {
+          "text": "uma mensagem de esperança",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "carimbo",
+          "text": "Fátima · 13 de outubro",
+          "center": "1917"
+        }
+      ]
+    }
+  ],
+  "sheetPhotos": [
+    {
+      "image": "hero.backgroundImage",
+      "after": "sections[2]",
+      "side": "esquerda",
+      "rotate": -4,
+      "focus": "50% 30%"
+    }
+  ]
+}

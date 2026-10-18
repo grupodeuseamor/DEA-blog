@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "2.7.0",
   "items": [
     {
       "id": "nav-horizontal-links",
@@ -37,33 +37,13 @@
       "category": "content"
     },
     {
-      "id": "dark-background",
-      "description": "Fundo escuro consistente em todas as rotas",
-      "category": "visual"
-    },
-    {
-      "id": "hero-overlay",
-      "description": "Hero com overlay escuro e texto legível",
-      "category": "visual"
-    },
-    {
-      "id": "rounded-cards",
-      "description": "Cards com cantos arredondados (rounded-2xl)",
-      "category": "visual"
-    },
-    {
-      "id": "gold-accent",
-      "description": "Destaques em dourado (#D4AF37) nos títulos e elementos principais",
-      "category": "visual"
-    },
-    {
       "id": "footer-logo",
       "description": "Rodapé exibe logo do Grupo Deus É Amor",
       "category": "footer"
     },
     {
       "id": "footer-cross",
-      "description": "Rodapé exibe símbolo da cruz",
+      "description": "Rodapé exibe símbolo da cruz (desenho à mão do banco v2, aria-hidden)",
       "category": "footer"
     },
     {
@@ -78,7 +58,7 @@
     },
     {
       "id": "home-grupo-vitrine",
-      "description": "Home não cita ministérios; hero Grupo Deus É Amor; convite quintas 19h30; link Títulos de Nossa Senhora",
+      "description": "Home não cita ministérios (única exceção: botão preview opcional previewCta para /ministerios, removível, a partir da 2.5.0-snapshot); hero Grupo Deus É Amor; convite quintas 19h30; link Títulos de Nossa Senhora",
       "category": "content"
     },
     {
@@ -103,7 +83,7 @@
     },
     {
       "id": "aparecida-content",
-      "description": "Página Aparecida apresenta hero com estátua, cards e história dos pescadores no Paraíba",
+      "description": "Página Aparecida apresenta hero com estátua, cards e história dos pescadores no Paraíba (no visual v2 a partir da 2.0.0-snapshot)",
       "category": "content"
     },
     {
@@ -158,8 +138,88 @@
     },
     {
       "id": "engineering-patterns",
-      "description": "Código segue primitivos UI e lib/theme; sem inline styles desnecessários; ver CORPUS-CRISTE-ENGINEERING.md",
+      "description": "Código segue primitivos UI, lib/theme e tokens v2 do @theme; sem inline styles nem cores literais; ver CORPUS-CRISTE-ENGINEERING.md e AGENTS.md",
       "category": "content"
+    },
+    {
+      "id": "nav-routes-unchanged",
+      "description": "Mesmas 15 rotas, pastas e opções de menu da 1.1.0; nenhuma rota dinâmica e nenhum redirect novo",
+      "category": "navigation"
+    },
+    {
+      "id": "nav-breadcrumb",
+      "description": "Páginas v2 exibem breadcrumb Início › Seção › Página com rótulos de specs/routes.json (data-testid=breadcrumb)",
+      "category": "navigation"
+    },
+    {
+      "id": "nav-section-flow",
+      "description": "Páginas v2 terminam com Anterior / Voltar para a listagem / Próximo na ordem dos cards da listagem (data-testid=section-flow), sem volta circular",
+      "category": "navigation"
+    },
+    {
+      "id": "v2-design-tokens",
+      "description": "Cores v2 só via tokens do @theme (manto, ceu, areia, tinta, papel, noite, coracao); nenhuma cor literal em className, style ou JSON de decoração",
+      "category": "visual"
+    },
+    {
+      "id": "v2-fonts",
+      "description": "Fraunces nos títulos, Jost no corpo, Gochi Hand nos bilhetes e Newsreader nas citações, via next/font",
+      "category": "visual"
+    },
+    {
+      "id": "v2-red-accent",
+      "description": "Vermelho Coração só em acentos: margem da citação, no máximo 1 tachinha vermelha por página e selos especiais",
+      "category": "visual"
+    },
+    {
+      "id": "v2-hand-drawings",
+      "description": "Desenhos SVG inline do banco (components/decor), traço à mão, nas bordas, nunca atrás ou por cima de texto, aria-hidden; 1 a 2 detalhes por seção",
+      "category": "visual"
+    },
+    {
+      "id": "v2-motion",
+      "description": "Só o brilho anima, devagar, e fica parado com prefers-reduced-motion",
+      "category": "visual"
+    },
+    {
+      "id": "v2-mobile-no-overlap",
+      "description": "Em 390 px nenhum detalhe decorativo cobre texto e não há scroll horizontal",
+      "category": "visual"
+    },
+    {
+      "id": "v2-folha-unica",
+      "category": "visual",
+      "description": "Páginas no visual v2 têm uma única folha creme contínua com todas as seções de conteúdo; títulos azuis com sublinhado rabiscado como divisores, no máximo um respiro/rabisco entre seções, highlight como bloco interno e decoração só nas margens"
+    },
+    {
+      "id": "v2-decor-content-phrases",
+      "description": "Bilhetes, post-its, carimbos, legendas e marca-texto usam só frases do JSON de conteúdo da página (validado por npm run test:specs)",
+      "category": "content"
+    },
+    {
+      "id": "v2-photos",
+      "description": "Fotos v2 só as que a página já usa (polaroid com fita ou azul de carimbo); nenhuma foto nova por seção",
+      "category": "content"
+    },
+    {
+      "id": "aparecida-v2-pilot",
+      "description": "Aparecida no visual v2 igual ao piloto v2c aprovado: todas as seções numa folha única, highlight como bloco Areia interno, decoração nas margens (polaroid, carimbo Padroeira do Brasil, post-its de datas, lírio, vela, coroa)",
+      "category": "content"
+    },
+    {
+      "id": "no-github-actions",
+      "description": "Sem GitHub Actions: testes e build rodam localmente; deploy pela integração Git da Vercel (preview da branch v2)",
+      "category": "content"
+    },
+    {
+      "id": "links-internos",
+      "description": "npm run test:links: todos os <a href> internos das 15 rotas existem em routes.json e respondem 200; âncoras existem; externos só https",
+      "category": "navigation"
+    },
+    {
+      "id": "redirects-vercel",
+      "description": "npm run test:redirects (estático: destinos em routes.json, sem loop/cadeia/duplicata) e npm run test:redirects:remote -- <baseUrl> (308 + Location; apex e dea-blog.vercel.app → www preservando caminho)",
+      "category": "navigation"
     }
   ]
 }
