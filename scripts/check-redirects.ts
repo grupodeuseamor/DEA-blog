@@ -11,7 +11,7 @@ import path from 'path'
 
 type Redirect = { source: string; destination: string; permanent?: boolean; statusCode?: number }
 const root = process.cwd()
-const routes: string[] = JSON.parse(fs.readFileSync(path.join(root, 'specs/routes.json'), 'utf-8')).items.map((r: { path: string }) => r.path)
+const routes: string[] = JSON.parse(fs.readFileSync(path.join(root, 'specs/routes.json'), 'utf-8')).items.map((r: { path: string }) => r.path).filter((route: string) => !route.includes('#'))
 const redirects: Redirect[] = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf-8')).redirects ?? []
 const nextConfig = fs.readFileSync(path.join(root, 'next.config.mjs'), 'utf-8')
 

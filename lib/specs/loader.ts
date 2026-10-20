@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { z } from 'zod'
+import { z as zod } from 'zod'
 import {
   checklistSchema,
   deaAjudaContentSchema,
@@ -41,10 +41,11 @@ import {
   type VersionSpec,
 } from './types'
 import { validateAllDecor } from './decor'
+import { meetingScheduleSchema } from '../meetings'
 
 const SPECS_DIR = path.join(process.cwd(), 'specs')
 
-function readJsonFile<T>(relativePath: string, schema: z.ZodType<T>): T {
+function readJsonFile<T>(relativePath: string, schema: zod.ZodType<T>): T {
   const filePath = path.join(SPECS_DIR, relativePath)
   const raw = fs.readFileSync(filePath, 'utf-8')
   return schema.parse(JSON.parse(raw))
@@ -56,6 +57,10 @@ export function loadVersion(): VersionSpec {
 
 export function loadRoutes(): RoutesSpec {
   return readJsonFile('routes.json', routesSchema)
+}
+
+export function loadMeetingSchedule() {
+  return readJsonFile('meetings.json', meetingScheduleSchema)
 }
 
 export function loadChecklist(): ChecklistSpec {
@@ -188,6 +193,7 @@ export function validateVersionConsistency(): void {
 }
 
 export function validateAllSpecs(): void {
+  loadMeetingSchedule()
   loadVersion()
   loadRoutes()
   loadChecklist()

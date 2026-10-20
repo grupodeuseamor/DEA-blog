@@ -1,9 +1,9 @@
 {
-  "version": "2.7.0",
+  "version": "2.8.0",
   "items": [
     {
       "id": "nav-horizontal-links",
-      "description": "Navbar exibe links horizontais Home, Títulos de Nossa Senhora e Ministérios",
+      "description": "Navbar exibe Home, Títulos de Nossa Senhora, Ministérios e Participe; Participe leva a /#primeira-vez em desktop e mobile",
       "category": "navigation"
     },
     {
@@ -143,7 +143,7 @@
     },
     {
       "id": "nav-routes-unchanged",
-      "description": "Mesmas 15 rotas, pastas e opções de menu da 1.1.0; nenhuma rota dinâmica e nenhum redirect novo",
+      "description": "Mesmas 15 rotas e pastas, sem rota dinâmica nem redirect novo; exceção aprovada neste lote: link Participe para âncora da home, sem modificar as regras gerais",
       "category": "navigation"
     },
     {
@@ -215,6 +215,26 @@
       "id": "links-internos",
       "description": "npm run test:links: todos os <a href> internos das 15 rotas existem em routes.json e respondem 200; âncoras existem; externos só https",
       "category": "navigation"
+    },
+    {
+      "id": "home-participation",
+      "description": "Apresentação exibe identificação literal aprovada, Quero participar e Conhecer o grupo; âncoras acessíveis em Venha participar e na apresentação institucional existente",
+      "category": "content"
+    },
+    {
+      "id": "home-meetings",
+      "description": "Próximo encontro e Google Agenda usam specs/meetings.json, quintas 19h30–21h, America/Sao_Paulo; pulam feriados e cancelamentos e respeitam exceções de data/horário/local",
+      "category": "content"
+    },
+    {
+      "id": "home-map",
+      "description": "Mapa responsivo e link externo mostram Auditório Dona Guilhermina, Av. Tiradentes, 710, Maringá; localização acompanha eventual exceção de encontro",
+      "category": "content"
+    },
+    {
+      "id": "footer-instagram",
+      "description": "Rodapé tem link acessível para https://www.instagram.com/grupodeuseamor/ em todas as páginas",
+      "category": "footer"
     },
     {
       "id": "redirects-vercel",

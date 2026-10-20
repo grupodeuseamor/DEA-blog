@@ -5,9 +5,11 @@ import { PageShell } from '@/components/layout/PageShell'
 import { Breadcrumb } from '@/components/navigation/Breadcrumb'
 import { SectionFlowNav } from '@/components/navigation/SectionFlowNav'
 import { loadDecor } from '@/lib/specs/decor'
-import { loadContent, loadRoutes } from '@/lib/specs/loader'
+import { loadContent, loadMeetingSchedule, loadRoutes } from '@/lib/specs/loader'
 import { getBreadcrumb, getEntryFlow, getSectionFlow } from '@/lib/specs/nav'
 import { HomePreviewCta } from '@/components/ui/HomePreviewCta'
+import { CtaButtonGroup } from '@/components/ui/CtaButtonGroup'
+import { NextMeeting } from '@/components/content/NextMeeting'
 import type { ContentPage, HomeContent } from '@/lib/specs/types'
 
 type ContentPageTemplateProps = {
@@ -30,6 +32,7 @@ export function loadListing(pathname: string) {
 }
 
 export function ContentPageTemplate({ content }: ContentPageTemplateProps) {
+  const home = content.slug === 'home' ? content as HomeContent : null
   const decor = loadDecor(content.slug)
   const routes = loadRoutes()
   const route = routes.items.find(
@@ -49,7 +52,14 @@ export function ContentPageTemplate({ content }: ContentPageTemplateProps) {
   return (
     <PageShell variant="v2">
       <Breadcrumb items={getBreadcrumb(pathname, routes)} />
-      <HeroSectionV2 hero={content.hero} decor={decor} />
+      <HeroSectionV2 hero={content.hero} decor={decor}>
+        {home && (
+          <>
+            <p className="hero-identification">{home.presentation.identification}</p>
+            <CtaButtonGroup primary={home.presentation.participate} secondary={home.presentation.about} />
+          </>
+        )}
+      </HeroSectionV2>
       <div className="c secs">
         <PaperSheet label={content.hero.title}>
           <SectionRendererV2
@@ -58,6 +68,7 @@ export function ContentPageTemplate({ content }: ContentPageTemplateProps) {
             sheetPhotos={decor.sheetPhotos}
             content={content}
             imageAlt={imageAlt}
+            sectionExtras={home ? { 'primeira-vez': <NextMeeting schedule={loadMeetingSchedule()} labels={home.meetingLabels} /> } : undefined}
           />
         </PaperSheet>
       </div>

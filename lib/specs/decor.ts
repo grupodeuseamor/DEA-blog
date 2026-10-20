@@ -8,7 +8,7 @@
  */
 import fs from 'fs'
 import path from 'path'
-import { z } from 'zod'
+import { z as zod } from 'zod'
 
 /** Banco de desenhos do design doc (seção 6) + coroa (pedido do piloto Aparecida). */
 export const drawingNames = [
@@ -22,34 +22,34 @@ export const drawingNames = [
   'sublinhado', 'circulo', 'seta', 'asterisco', 'aspas',
 ] as const
 
-export const drawingSchema = z.enum(drawingNames)
-const pinSchema = z.enum(['manto', 'coracao']).default('manto')
-const text = z.string().min(2).max(90)
+export const drawingSchema = zod.enum(drawingNames)
+const pinSchema = zod.enum(['manto', 'coracao']).default('manto')
+const text = zod.string().min(2).max(90)
 
-export const decorMarkSchema = z.object({
+export const decorMarkSchema = zod.object({
   text,
-  kind: z.enum(['marca', 'circulo', 'sublinhado']),
+  kind: zod.enum(['marca', 'circulo', 'sublinhado']),
 })
 
-export const decorSideItemSchema = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('polaroid'), image: z.string(), caption: text, tape: z.boolean().default(true) }),
-  z.object({
-    kind: z.literal('carimbo'),
+export const decorSideItemSchema = zod.discriminatedUnion('kind', [
+  zod.object({ kind: zod.literal('polaroid'), image: zod.string(), caption: text, tape: zod.boolean().default(true) }),
+  zod.object({
+    kind: zod.literal('carimbo'),
     text,
-    center: z.string().max(14).optional(),
+    center: zod.string().max(14).optional(),
     centerDrawing: drawingSchema.optional(),
   }),
-  z.object({ kind: z.literal('postit'), label: text, text, pin: pinSchema, paper: z.enum(['areia', 'papel']).default('areia') }),
-  z.object({
-    kind: z.literal('postit-datas'),
-    items: z.array(z.object({ label: text, text })).min(2).max(4),
+  zod.object({ kind: zod.literal('postit'), label: text, text, pin: pinSchema, paper: zod.enum(['areia', 'papel']).default('areia') }),
+  zod.object({
+    kind: zod.literal('postit-datas'),
+    items: zod.array(zod.object({ label: text, text })).min(2).max(4),
     pin: pinSchema,
   }),
-  z.object({ kind: z.literal('bilhete'), text, drawing: drawingSchema.optional() }),
-  z.object({
-    kind: z.literal('figurinha'),
-    drawings: z.array(drawingSchema).min(1).max(2),
-    tape: z.boolean().default(false),
+  zod.object({ kind: zod.literal('bilhete'), text, drawing: drawingSchema.optional() }),
+  zod.object({
+    kind: zod.literal('figurinha'),
+    drawings: zod.array(drawingSchema).min(1).max(2),
+    tape: zod.boolean().default(false),
     text: text.optional(),
   }),
 ])
@@ -59,74 +59,74 @@ export const decorSideItemSchema = z.discriminatedUnion('kind', [
  * já usa — caminho no JSON de conteúdo (`hero.backgroundImage`, `hero.backgroundImages[1]`) ou o `src`
  * literal (`/images/...`) que já aparece no conteúdo. Nunca uma imagem nova.
  */
-export const imageRefSchema = z.string().min(2)
+export const imageRefSchema = zod.string().min(2)
 
 /** Fundo esmaecido atrás de um bloco da folha (legibilidade garantida por véu de papel via token). */
-export const backdropSchema = z.object({
+export const backdropSchema = zod.object({
   image: imageRefSchema,
   /** `suave` (padrão, imagem quase apagada) ou `media`. O texto fica sempre sobre o véu `--veu-*`. */
-  strength: z.enum(['suave', 'media']).default('suave'),
+  strength: zod.enum(['suave', 'media']).default('suave'),
   /** Lado onde a imagem aparece; o lado do texto fica coberto pelo véu. */
-  side: z.enum(['direita', 'esquerda', 'inteiro']).default('direita'),
+  side: zod.enum(['direita', 'esquerda', 'inteiro']).default('direita'),
 })
 
-export const decorBlockSchema = z.object({
+export const decorBlockSchema = zod.object({
   /** Caminho no JSON de conteúdo: `sections[2]`, `about`, `projects`, `quote`… */
-  target: z.string(),
+  target: zod.string(),
   titleDrawing: drawingSchema.optional(),
-  marks: z.array(decorMarkSchema).max(2).default([]),
-  side: z.array(decorSideItemSchema).max(2).default([]),
+  marks: zod.array(decorMarkSchema).max(2).default([]),
+  side: zod.array(decorSideItemSchema).max(2).default([]),
   backdrop: backdropSchema.optional(),
   /** Opcional (2.5.0): força (true) ou desliga (false) o bloco Areia interno; padrão = variant highlight. */
-  highlight: z.boolean().optional(),
+  highlight: zod.boolean().optional(),
 })
 
-export const decorSchema = z.object({
-  slug: z.string(),
-  hero: z.object({
-    drawings: z.array(drawingSchema).max(3).default([]),
+export const decorSchema = zod.object({
+  slug: zod.string(),
+  hero: zod.object({
+    drawings: zod.array(drawingSchema).max(3).default([]),
     /** Palavra do título do hero que recebe o sublinhado à mão. */
-    underline: z.string().optional(),
+    underline: zod.string().optional(),
     bilhete: text.optional(),
     /** Opcional: troca a foto de fundo do hero por outra imagem que a página já usa. */
     backdrop: backdropSchema.optional(),
   }),
-  blocks: z.array(decorBlockSchema).default([]),
+  blocks: zod.array(decorBlockSchema).default([]),
   /**
    * Foto colada na borda da folha (desde 2.0.1-snapshot, opcional): reaproveita uma imagem que a página
    * já usa, presa com fitas nos cantos, levemente inclinada. Desktop largo: na margem da folha, ao lado do
    * bloco `after`; telas menores: abaixo do texto desse bloco (nunca por cima do texto).
    */
-  sheetPhotos: z
+  sheetPhotos: zod
     .array(
-      z.object({
+      zod.object({
         image: imageRefSchema,
-        after: z.string(),
-        side: z.enum(['esquerda', 'direita']).default('esquerda'),
-        rotate: z.number().min(-8).max(8).default(-4),
+        after: zod.string(),
+        side: zod.enum(['esquerda', 'direita']).default('esquerda'),
+        rotate: zod.number().min(-8).max(8).default(-4),
         caption: text.optional(),
         /** Recorte da foto (CSS object-position), ex.: "50% 20%". */
-        focus: z.string().regex(/^\d{1,3}% \d{1,3}%$/).default('50% 50%'),
+        focus: zod.string().regex(/^\d{1,3}% \d{1,3}%$/).default('50% 50%'),
       }),
     )
     .max(1)
     .default([]),
   /** Só listagens: fita nos cards, etiqueta de ano tirada da description, figurinha por card. */
-  cards: z
+  cards: zod
     .object({
-      tape: z.boolean().default(true),
-      yearFromDescription: z.boolean().default(false),
-      drawings: z.record(drawingSchema).default({}),
+      tape: zod.boolean().default(true),
+      yearFromDescription: zod.boolean().default(false),
+      drawings: zod.record(drawingSchema).default({}),
       soonStamp: text.optional(),
     })
     .optional(),
 })
 
-export type DecorDrawing = z.infer<typeof drawingSchema>
-export type PageDecor = z.infer<typeof decorSchema>
-export type DecorBlock = z.infer<typeof decorBlockSchema>
-export type DecorBackdrop = z.infer<typeof backdropSchema>
-export type DecorSideItem = z.infer<typeof decorSideItemSchema>
+export type DecorDrawing = zod.infer<typeof drawingSchema>
+export type PageDecor = zod.infer<typeof decorSchema>
+export type DecorBlock = zod.infer<typeof decorBlockSchema>
+export type DecorBackdrop = zod.infer<typeof backdropSchema>
+export type DecorSideItem = zod.infer<typeof decorSideItemSchema>
 
 const DECOR_DIR = path.join(process.cwd(), 'specs', 'decor')
 const CONTENT_DIR = path.join(process.cwd(), 'specs', 'content')

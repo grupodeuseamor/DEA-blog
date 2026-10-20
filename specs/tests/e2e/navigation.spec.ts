@@ -24,16 +24,18 @@ test.describe('Navbar horizontal', () => {
     await expect(desktopNav.getByTestId('nav-link-home')).toBeVisible()
     await expect(desktopNav.getByTestId('nav-dropdown-titulos-nossa-senhora')).toBeVisible()
     await expect(desktopNav.getByTestId('nav-dropdown-ministerios')).toBeVisible()
+    await expect(desktopNav.getByRole('link', { name: 'Participe', exact: true })).toHaveAttribute('href', '/#primeira-vez')
   })
 
   for (const route of topLevelRoutes) {
     test(`navega para ${route.label} (${route.path}) via link de topo`, async ({
       page,
     }) => {
+      const hasChildren = routes.some((item) => item.parent === route.path)
       const testId =
         route.path === '/'
           ? 'nav-link-home'
-          : `nav-dropdown-${route.path.slice(1)}`
+          : hasChildren ? `nav-dropdown-${route.path.slice(1)}` : `nav-link-${route.path.slice(1).replace(/\//g, '-')}`
 
       await page.getByTestId('nav-desktop').getByTestId(testId).click()
       await expect(page).toHaveURL(route.path)

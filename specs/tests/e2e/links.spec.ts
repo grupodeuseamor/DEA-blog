@@ -9,7 +9,7 @@ import { expect, test } from '@playwright/test'
  * - externos: só https e formato válido (listados no log). Checagem de rede opcional com LINKS_CHECK_EXTERNAL=1 (falha de rede não quebra).
  */
 type Route = { path: string; label: string }
-const routes: Route[] = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'specs/routes.json'), 'utf-8')).items
+const routes: Route[] = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'specs/routes.json'), 'utf-8')).items.filter((route: Route) => !route.path.includes('#'))
 const known = new Set(routes.map((r) => r.path))
 
 test('links internos e externos das 15 rotas', async ({ page, request, baseURL }) => {

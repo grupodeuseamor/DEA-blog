@@ -4,9 +4,9 @@ import { HeroBackgroundCarousel } from '@/components/content/HeroBackgroundCarou
 import { Drawing, ScribbleUnderline } from '@/components/decor/Drawing'
 import type { PageDecor } from '@/lib/specs/decor'
 import type { heroSchema } from '@/lib/specs/types'
-import type { z } from 'zod'
+import type { z as zod } from 'zod'
 
-type HeroData = Omit<z.infer<typeof heroSchema>, 'backgroundImage'> & { backgroundImage?: string }
+type HeroData = Omit<zod.infer<typeof heroSchema>, 'backgroundImage'> & { backgroundImage?: string }
 
 /** Posições dos desenhos do hero (máx. 3), como no piloto v2c. Só os brilhinhos se mexem. */
 const slots = [

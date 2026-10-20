@@ -100,7 +100,7 @@ export function getSectionFlow(
 
 /** Fluxo de entrada da home: card para o 1º item de topo do menu (rótulo de routes.json). */
 export function getEntryFlow(routes: RoutesSpec): SectionFlow | null {
-  const first = routes.items.find((item) => !item.parent && item.path !== '/')
+  const first = routes.items.find((item) => !item.parent && item.path !== '/' && !item.path.includes('#'))
   if (!first) return null
   return { back: { label: 'Início', path: '/' }, next: { label: first.label, path: first.path }, position: 1, total: 1, entry: true }
 }
@@ -110,7 +110,7 @@ export function getEntryFlow(routes: RoutesSpec): SectionFlow | null {
  * do menu (sem a Home), na ordem de routes.json. Sem volta circular.
  */
 export function getTopLevelFlow(pathname: string, routes: RoutesSpec): SectionFlow | null {
-  const tops = routes.items.filter((item) => !item.parent && item.path !== '/')
+  const tops = routes.items.filter((item) => !item.parent && item.path !== '/' && !item.path.includes('#'))
   const index = tops.findIndex((item) => item.path === pathname)
   if (index < 0) return null
   const toLink = (item?: { label: string; path: string }) => (item ? { label: item.label, path: item.path } : undefined)
