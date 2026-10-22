@@ -1,25 +1,25 @@
-import { z } from 'zod'
+import { z as zod } from 'zod'
 
-const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((date) => {
+const dateSchema = zod.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((date) => {
   const parsed = new Date(`${date}T12:00:00Z`)
   return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === date
 }, 'Data inválida')
-const timeSchema = z.string().regex(/^(?:[01]\d|2[0-3]):[0-5]\d$/)
-const venueSchema = z.object({ name: z.string().min(1), address: z.string().min(1) })
+const timeSchema = zod.string().regex(/^(?:[01]\d|2[0-3]):[0-5]\d$/)
+const venueSchema = zod.object({ name: zod.string().min(1), address: zod.string().min(1) })
 
-export const meetingScheduleSchema = z.object({
-  title: z.string().min(1),
-  timeZone: z.literal('America/Sao_Paulo'),
-  weekday: z.number().int().min(0).max(6),
+export const meetingScheduleSchema = zod.object({
+  title: zod.string().min(1),
+  timeZone: zod.literal('America/Sao_Paulo'),
+  weekday: zod.number().int().min(0).max(6),
   startTime: timeSchema,
   endTime: timeSchema,
   venue: venueSchema,
-  additionalHolidays: z.array(dateSchema),
-  exceptions: z.array(z.discriminatedUnion('status', [
-    z.object({ date: dateSchema, status: z.literal('cancelled') }),
-    z.object({
+  additionalHolidays: zod.array(dateSchema),
+  exceptions: zod.array(zod.discriminatedUnion('status', [
+    zod.object({ date: dateSchema, status: zod.literal('cancelled') }),
+    zod.object({
       date: dateSchema,
-      status: z.literal('scheduled'),
+      status: zod.literal('scheduled'),
       startTime: timeSchema.optional(),
       endTime: timeSchema.optional(),
       venue: venueSchema.optional(),
@@ -27,21 +27,21 @@ export const meetingScheduleSchema = z.object({
   ])),
 }).superRefine((schedule, ctx) => {
   if (schedule.endTime <= schedule.startTime) {
-    ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['endTime'], message: 'O término deve ser após o início, no mesmo dia' })
+    ctx.addIssue({ code: zod.ZodIssueCode.custom, path: ['endTime'], message: 'O término deve ser após o início, no mesmo dia' })
   }
   const dates = new Set<string>()
   schedule.exceptions.forEach((exception, index) => {
     if (dates.has(exception.date)) {
-      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['exceptions', index, 'date'], message: 'Exceção duplicada' })
+      ctx.addIssue({ code: zod.ZodIssueCode.custom, path: ['exceptions', index, 'date'], message: 'Exceção duplicada' })
     }
     dates.add(exception.date)
     if (exception.status === 'scheduled' && (exception.endTime ?? schedule.endTime) <= (exception.startTime ?? schedule.startTime)) {
-      ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['exceptions', index], message: 'O término deve ser após o início, no mesmo dia' })
+      ctx.addIssue({ code: zod.ZodIssueCode.custom, path: ['exceptions', index], message: 'O término deve ser após o início, no mesmo dia' })
     }
   })
 })
 
-export type MeetingSchedule = z.infer<typeof meetingScheduleSchema>
+export type MeetingSchedule = zod.infer<typeof meetingScheduleSchema>
 export type Meeting = Pick<MeetingSchedule, 'startTime' | 'endTime' | 'venue'> & { date: string }
 
 function addDays(date: string, days: number): string {
