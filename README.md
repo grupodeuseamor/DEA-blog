@@ -2,7 +2,7 @@
 
 Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **React 19** e **Tailwind CSS 4**. O conteúdo e os testes são versionados na pasta `specs/`.
 
-**Versão atual do conteúdo:** `2.7.0` (oficial, 2026-10-17) — ver [`specs/spec-2.7.0.md`](specs/spec-2.7.0.md) e o [`CHANGELOG.md`](CHANGELOG.md).
+**Versão em desenvolvimento:** `2.8.0` (aguardando validação, sem publicação) — ver [`specs/spec-2.8.0.md`](specs/spec-2.8.0.md) e o [`CHANGELOG.md`](CHANGELOG.md).
 **Produção:** `2.7.0` (v2, “Caderno + Novo Lote”) após o merge na `main`; rollback: release `v1.1.0`.
 
 Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
@@ -29,7 +29,9 @@ Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
 
 **Total:** 15 páginas de produção.
 
-A navegação é feita pela **navbar horizontal** (mesmas opções na v2, só com estilo novo) com dropdowns em Títulos de Nossa Senhora e Ministérios (menu expansível no mobile). As rotas da navbar vêm de [`specs/routes.json`](specs/routes.json).
+A navegação é feita pela **navbar horizontal**, com dropdowns em Títulos de Nossa Senhora e Ministérios (menu expansível no mobile). As opções vêm de [`specs/routes.json`](specs/routes.json); a 2.8.0 acrescenta o link aprovado **Participe** para `/#primeira-vez`, sem criar página. Âncoras não entram no fluxo anterior/próximo das listagens.
+
+Os encontros são mantidos em [`specs/meetings.json`](specs/meetings.json). A programação padrão é quinta, 19h30–21h, no Auditório Dona Guilhermina, Av. Tiradentes, 710, Maringá. Feriados são pulados; cancelamentos e exceções podem alterar data, horário e local. Instruções e fontes dos feriados no [spec da 2.8.0](specs/spec-2.8.0.md). O cálculo usa o horário de Maringá e se atualiza no navegador sem novo build semanal.
 
 Na v2, toda página interna tem **breadcrumb** (Início › Seção › Página) e, no fim, **Anterior · Voltar para a listagem · Próximo**, na ordem dos cards da listagem (`.cursor/rules/corpus-criste-navigation.mdc`). A v2 não cria nem renomeia rotas.
 
@@ -83,6 +85,7 @@ Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-c
 | 2.5.0-snapshot | *pre-release* — Exec 6: Home (+ botão preview Ministérios) |
 | 2.6.0-snapshot | *pre-release* — Exec 7: fechamento — limpeza do legado 1.1.0 e QA total |
 | **2.7.0** | **Oficial** — v2 “Caderno + Novo Lote” nas 15 rotas (consolida 2.0.0-snapshot … 2.6.0-snapshot) + testes de links e redirects |
+| 2.8.0 | Em desenvolvimento — 8 demandas Trello: participação, identificação, próximo encontro, mapa, Google Agenda e Instagram no rodapé |
 
 ## Estrutura de specs
 

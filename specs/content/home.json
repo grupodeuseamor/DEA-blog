@@ -22,9 +22,29 @@
       "height": 180
     }
   },
+  "presentation": {
+    "identification": "Grupo de oração jovem · Maringá · desde 2000",
+    "participate": { "label": "Quero participar", "href": "/#primeira-vez" },
+    "about": { "label": "Conhecer o grupo", "href": "/#sobre-o-grupo" }
+  },
+  "meetingLabels": {
+    "heading": "Próximo encontro",
+    "calendar": "Adicionar ao Google Agenda",
+    "maps": "Abrir no Google Maps",
+    "loading": "Consultando o próximo encontro…",
+    "empty": "Nenhum próximo encontro previsto. Acompanhe as novidades pelo Instagram do grupo.",
+    "timezone": "Horário de Maringá",
+    "holidayNotice": "Não há encontro nos feriados, salvo programação especial."
+  },
+  "footerInstagram": {
+    "label": "Instagram · @grupodeuseamor",
+    "accessibleLabel": "Instagram do Grupo Deus É Amor",
+    "href": "https://www.instagram.com/grupodeuseamor/"
+  },
   "sections": [
     {
       "type": "paragraphs",
+      "id": "sobre-o-grupo",
       "title": "Grupo Deus É Amor",
       "variant": "highlight",
       "paragraphs": [
@@ -35,6 +55,7 @@
     },
     {
       "type": "paragraphs",
+      "id": "primeira-vez",
       "title": "Venha participar",
       "variant": "highlight",
       "paragraphs": [

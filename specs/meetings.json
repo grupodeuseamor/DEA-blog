@@ -1,0 +1,13 @@
+{
+  "title": "Encontro do Grupo Deus É Amor",
+  "timeZone": "America/Sao_Paulo",
+  "weekday": 4,
+  "startTime": "19:30",
+  "endTime": "21:00",
+  "venue": {
+    "name": "Auditório Dona Guilhermina",
+    "address": "Av. Tiradentes, 710 · Maringá, PR"
+  },
+  "additionalHolidays": [],
+  "exceptions": []
+}

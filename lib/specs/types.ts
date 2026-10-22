@@ -20,6 +20,7 @@ export const routesSchema = z.object({
 
 export const paragraphSectionSchema = z.object({
   type: z.literal('paragraphs'),
+  id: z.string().regex(/^[a-z][a-z0-9-]*$/).optional(),
   title: z.string(),
   variant: z.enum(['default', 'highlight']).optional(),
   paragraphs: z.array(z.string()),
@@ -88,6 +89,25 @@ export const contentPageSchema = z.object({
 export const homeContentSchema = contentPageSchema.extend({
   slug: z.literal('home'),
   sections: z.array(paragraphSectionSchema),
+  presentation: z.object({
+    identification: z.string(),
+    participate: z.object({ label: z.string(), href: z.literal('/#primeira-vez') }),
+    about: z.object({ label: z.string(), href: z.literal('/#sobre-o-grupo') }),
+  }),
+  meetingLabels: z.object({
+    heading: z.string(),
+    calendar: z.string(),
+    maps: z.string(),
+    loading: z.string(),
+    empty: z.string(),
+    timezone: z.string(),
+    holidayNotice: z.string(),
+  }),
+  footerInstagram: z.object({
+    label: z.string().min(1),
+    accessibleLabel: z.string().min(1),
+    href: z.string().url().startsWith('https://www.instagram.com/'),
+  }),
   /** Botão preview (2.5.0-snapshot, item 5a): opcional e removível — apagar o campo some com o botão. */
   previewCta: z
     .object({ label: z.string(), href: z.string(), badge: z.literal('preview') })

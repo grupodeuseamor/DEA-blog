@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, type ReactNode } from 'react'
 import { CtaButtonGroup } from '@/components/ui/CtaButtonGroup'
 import { DecorAside } from '@/components/decor/DecorAside'
 import { DrawnTitle } from '@/components/decor/DrawnTitle'
@@ -15,13 +15,14 @@ type Props = {
   sheetPhotos?: PageDecor['sheetPhotos']
   content: unknown
   imageAlt: string
+  sectionExtras?: Record<string, ReactNode>
 }
 
 /**
  * Seções v2 dentro da folha única: sem card próprio; highlight vira bloco Areia interno;
  * coluna lateral com DecorAside; marcas no texto; citação com margem vermelha de caderno.
  */
-export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content, imageAlt }: Props) {
+export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content, imageAlt, sectionExtras }: Props) {
   return (
     <>
       {sections.map((section, i) => {
@@ -52,6 +53,8 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
               </section>
             ) : (
               <section
+                id={'id' in section ? section.id : undefined}
+                tabIndex={'id' in section && section.id ? -1 : undefined}
                 className={['bloco', (block?.highlight ?? section.variant === 'highlight') && 'hl', backdrop && 'com-fundo']
                   .filter(Boolean)
                   .join(' ')}
@@ -68,6 +71,7 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
                     {section.type === 'paragraphs' && (section.cta || section.secondaryCta) && (
                       <CtaButtonGroup primary={section.cta} secondary={section.secondaryCta} />
                     )}
+                    {section.type === 'paragraphs' && section.id && sectionExtras?.[section.id]}
                   </div>
                   <DecorAside items={block?.side ?? []} content={content} imageAlt={imageAlt} index={i} />
                 </div>

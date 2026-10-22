@@ -41,6 +41,7 @@ import {
   type VersionSpec,
 } from './types'
 import { validateAllDecor } from './decor'
+import { meetingScheduleSchema } from '../meetings'
 
 const SPECS_DIR = path.join(process.cwd(), 'specs')
 
@@ -56,6 +57,10 @@ export function loadVersion(): VersionSpec {
 
 export function loadRoutes(): RoutesSpec {
   return readJsonFile('routes.json', routesSchema)
+}
+
+export function loadMeetingSchedule() {
+  return readJsonFile('meetings.json', meetingScheduleSchema)
 }
 
 export function loadChecklist(): ChecklistSpec {
@@ -188,6 +193,7 @@ export function validateVersionConsistency(): void {
 }
 
 export function validateAllSpecs(): void {
+  loadMeetingSchedule()
   loadVersion()
   loadRoutes()
   loadChecklist()

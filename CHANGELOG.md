@@ -3,6 +3,15 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0 (versão atual).
 
+## [2.8.0] — não publicado (aguardando validação)
+
+- Header com Participe; apresentação com identificação literal, Quero participar e Conhecer o grupo.
+- Próximo encontro calculado em America/Sao_Paulo; feriados nacionais e municipais, cancelamentos e exceções em arquivo versionado.
+- Mapa do Auditório Dona Guilhermina (Av. Tiradentes, 710), link externo e Google Agenda preenchido com o próximo encontro, 19h30–21h.
+- Instagram oficial no rodapé de todas as páginas.
+- Testes de programação, feriados, âncoras, Google Agenda e apresentação desktop/mobile. Especificação: [`specs/spec-2.8.0.md`](specs/spec-2.8.0.md).
+- Projetos, administração da foto e ícones adiados por decisão do solicitante. Regras gerais preservadas.
+
 ## [2.7.0] — 2026-10-17 (oficial, Latest)
 
 Novo visual **Caderno + Novo Lote** em todas as 15 rotas, com o conteúdo em folha única, breadcrumb e navegação de fluxo. Mesmas URLs, pastas, menu e conteúdo da 1.1.0. Consolida os snapshots `2.0.0-snapshot` → `2.6.0-snapshot`. Spec: [`specs/spec-2.7.0.md`](specs/spec-2.7.0.md).

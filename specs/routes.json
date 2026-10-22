@@ -53,6 +53,7 @@
       "parent": "/titulos-nossa-senhora"
     },
     { "label": "Ministérios", "path": "/ministerios" },
+    { "label": "Participe", "path": "/#primeira-vez" },
     {
       "label": "DEA Ajuda",
       "path": "/ministerios/dea-ajuda",
