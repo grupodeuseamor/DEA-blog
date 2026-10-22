@@ -1,337 +1,337 @@
-import { z as zod } from 'zod'
+import { z } from 'zod'
 import { parseVideoUrl } from '@/lib/video/parseVideoUrl'
 
-export const versionSchema = zod.object({
-  contentVersion: zod.string(),
-  releasedAt: zod.string(),
-  approvedBy: zod.string(),
-  specFile: zod.string().optional(),
+export const versionSchema = z.object({
+  contentVersion: z.string(),
+  releasedAt: z.string(),
+  approvedBy: z.string(),
+  specFile: z.string().optional(),
 })
 
-export const routeItemSchema = zod.object({
-  label: zod.string(),
-  path: zod.string(),
-  parent: zod.string().optional(),
+export const routeItemSchema = z.object({
+  label: z.string(),
+  path: z.string(),
+  parent: z.string().optional(),
 })
 
-export const routesSchema = zod.object({
-  items: zod.array(routeItemSchema),
+export const routesSchema = z.object({
+  items: z.array(routeItemSchema),
 })
 
-export const paragraphSectionSchema = zod.object({
-  type: zod.literal('paragraphs'),
-  id: zod.string().regex(/^[a-z][a-z0-9-]*$/).optional(),
-  title: zod.string(),
-  variant: zod.enum(['default', 'highlight']).optional(),
-  paragraphs: zod.array(zod.string()),
-  quote: zod.string().optional(),
-  cta: zod
+export const paragraphSectionSchema = z.object({
+  type: z.literal('paragraphs'),
+  id: z.string().regex(/^[a-z][a-z0-9-]*$/).optional(),
+  title: z.string(),
+  variant: z.enum(['default', 'highlight']).optional(),
+  paragraphs: z.array(z.string()),
+  quote: z.string().optional(),
+  cta: z
     .object({
-      label: zod.string(),
-      href: zod.string(),
-      style: zod.enum(['instagram', 'primary', 'link']).optional(),
+      label: z.string(),
+      href: z.string(),
+      style: z.enum(['instagram', 'primary', 'link']).optional(),
     })
     .optional(),
-  secondaryCta: zod
+  secondaryCta: z
     .object({
-      label: zod.string(),
-      href: zod.string(),
-    })
-    .optional(),
-})
-
-export const quoteBlockSchema = zod.object({
-  type: zod.literal('quote'),
-  text: zod.string(),
-})
-
-export const cardSectionSchema = zod.object({
-  type: zod.literal('card'),
-  title: zod.string(),
-  variant: zod.enum(['default', 'highlight']).optional(),
-  paragraphs: zod.array(zod.string()),
-  quote: zod.string().optional(),
-})
-
-export const heroSchema = zod.object({
-  title: zod.string(),
-  subtitle: zod.string().optional(),
-  quote: zod.string().optional(),
-  backgroundImage: zod.string(),
-  backgroundImages: zod.array(zod.string()).min(1).optional(),
-  overlay: zod.string().optional(),
-  logo: zod
-    .object({
-      src: zod.string(),
-      alt: zod.string(),
-      width: zod.number().optional(),
-      height: zod.number().optional(),
+      label: z.string(),
+      href: z.string(),
     })
     .optional(),
 })
 
-export const contentSectionSchema = zod.union([
+export const quoteBlockSchema = z.object({
+  type: z.literal('quote'),
+  text: z.string(),
+})
+
+export const cardSectionSchema = z.object({
+  type: z.literal('card'),
+  title: z.string(),
+  variant: z.enum(['default', 'highlight']).optional(),
+  paragraphs: z.array(z.string()),
+  quote: z.string().optional(),
+})
+
+export const heroSchema = z.object({
+  title: z.string(),
+  subtitle: z.string().optional(),
+  quote: z.string().optional(),
+  backgroundImage: z.string(),
+  backgroundImages: z.array(z.string()).min(1).optional(),
+  overlay: z.string().optional(),
+  logo: z
+    .object({
+      src: z.string(),
+      alt: z.string(),
+      width: z.number().optional(),
+      height: z.number().optional(),
+    })
+    .optional(),
+})
+
+export const contentSectionSchema = z.union([
   paragraphSectionSchema,
   cardSectionSchema,
   quoteBlockSchema,
 ])
 
-export const contentPageSchema = zod.object({
-  slug: zod.string(),
-  meta: zod.object({
-    title: zod.string(),
-    description: zod.string(),
+export const contentPageSchema = z.object({
+  slug: z.string(),
+  meta: z.object({
+    title: z.string(),
+    description: z.string(),
   }),
   hero: heroSchema,
-  sections: zod.array(contentSectionSchema),
+  sections: z.array(contentSectionSchema),
 })
 
 export const homeContentSchema = contentPageSchema.extend({
-  slug: zod.literal('home'),
-  sections: zod.array(paragraphSectionSchema),
-  presentation: zod.object({
-    identification: zod.string(),
-    participate: zod.object({ label: zod.string(), href: zod.literal('/#primeira-vez') }),
-    about: zod.object({ label: zod.string(), href: zod.literal('/#sobre-o-grupo') }),
+  slug: z.literal('home'),
+  sections: z.array(paragraphSectionSchema),
+  presentation: z.object({
+    identification: z.string(),
+    participate: z.object({ label: z.string(), href: z.literal('/#primeira-vez') }),
+    about: z.object({ label: z.string(), href: z.literal('/#sobre-o-grupo') }),
   }),
-  meetingLabels: zod.object({
-    heading: zod.string(),
-    calendar: zod.string(),
-    maps: zod.string(),
-    loading: zod.string(),
-    empty: zod.string(),
-    timezone: zod.string(),
-    holidayNotice: zod.string(),
+  meetingLabels: z.object({
+    heading: z.string(),
+    calendar: z.string(),
+    maps: z.string(),
+    loading: z.string(),
+    empty: z.string(),
+    timezone: z.string(),
+    holidayNotice: z.string(),
   }),
-  footerInstagram: zod.object({
-    label: zod.string().min(1),
-    accessibleLabel: zod.string().min(1),
-    href: zod.string().url().startsWith('https://www.instagram.com/'),
+  footerInstagram: z.object({
+    label: z.string().min(1),
+    accessibleLabel: z.string().min(1),
+    href: z.string().url().startsWith('https://www.instagram.com/'),
   }),
   /** Botão preview (2.5.0-snapshot, item 5a): opcional e removível — apagar o campo some com o botão. */
-  previewCta: zod
-    .object({ label: zod.string(), href: zod.string(), badge: zod.literal('preview') })
+  previewCta: z
+    .object({ label: z.string(), href: z.string(), badge: z.literal('preview') })
     .optional(),
 })
 
 export const nossaSenhoraAuxiliadoraContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-auxiliadora'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-auxiliadora'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraMedjugorjeContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-medjugorje'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-medjugorje'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraAparecidaContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-aparecida'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-aparecida'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraLaSaletteContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-la-salette'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-la-salette'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraLourdesContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-lourdes'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-lourdes'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraGuadalupeContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-guadalupe'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-guadalupe'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraDasGracasContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-das-gracas'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-das-gracas'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraDaComunicacaoContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-da-comunicacao'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-da-comunicacao'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraDasDoresContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-das-dores'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-das-dores'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const nossaSenhoraDeFatimaContentSchema = contentPageSchema.extend({
-  slug: zod.literal('nossa-senhora-de-fatima'),
-  sections: zod.array(zod.union([cardSectionSchema, quoteBlockSchema])),
+  slug: z.literal('nossa-senhora-de-fatima'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 
-export const galleryItemSchema = zod.object({
-  slug: zod.string(),
-  title: zod.string(),
-  description: zod.string(),
-  path: zod.string(),
-  emoji: zod.string().optional(),
-  available: zod.boolean().default(true),
+export const galleryItemSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  description: z.string(),
+  path: z.string(),
+  emoji: z.string().optional(),
+  available: z.boolean().default(true),
 })
 
-export const titulosNossaSenhoraContentSchema = zod.object({
-  slug: zod.literal('titulos-nossa-senhora'),
-  meta: zod.object({
-    title: zod.string(),
-    description: zod.string(),
+export const titulosNossaSenhoraContentSchema = z.object({
+  slug: z.literal('titulos-nossa-senhora'),
+  meta: z.object({
+    title: z.string(),
+    description: z.string(),
   }),
-  hero: zod.object({
-    title: zod.string(),
-    subtitle: zod.string(),
+  hero: z.object({
+    title: z.string(),
+    subtitle: z.string(),
   }),
-  galleries: zod.array(galleryItemSchema),
+  galleries: z.array(galleryItemSchema),
 })
 
-export const ministryItemSchema = zod.object({
-  slug: zod.string(),
-  title: zod.string(),
-  description: zod.string(),
-  path: zod.string(),
-  emoji: zod.string().optional(),
-  available: zod.boolean().default(true),
+export const ministryItemSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  description: z.string(),
+  path: z.string(),
+  emoji: z.string().optional(),
+  available: z.boolean().default(true),
 })
 
-export const ministeriosContentSchema = zod.object({
-  slug: zod.literal('ministerios'),
-  meta: zod.object({
-    title: zod.string(),
-    description: zod.string(),
+export const ministeriosContentSchema = z.object({
+  slug: z.literal('ministerios'),
+  meta: z.object({
+    title: z.string(),
+    description: z.string(),
   }),
-  hero: zod.object({
-    title: zod.string(),
-    subtitle: zod.string(),
+  hero: z.object({
+    title: z.string(),
+    subtitle: z.string(),
   }),
-  ministries: zod.array(ministryItemSchema),
+  ministries: z.array(ministryItemSchema),
 })
 
-export const projectSchema = zod.object({
-  emoji: zod.string(),
-  title: zod.string(),
-  description: zod.string(),
+export const projectSchema = z.object({
+  emoji: z.string(),
+  title: z.string(),
+  description: z.string(),
 })
 
-export const valueSchema = zod.object({
-  icon: zod.enum(['heart', 'users', 'smile', 'cross']),
-  title: zod.string(),
-  description: zod.string(),
+export const valueSchema = z.object({
+  icon: z.enum(['heart', 'users', 'smile', 'cross']),
+  title: z.string(),
+  description: z.string(),
 })
 
 export const ministryLandingFields = {
-  meta: zod.object({
-    title: zod.string(),
-    description: zod.string(),
+  meta: z.object({
+    title: z.string(),
+    description: z.string(),
   }),
-  hero: zod.object({
-    title: zod.string(),
-    highlight: zod.string(),
-    subtitle: zod.string(),
-    tagline: zod.string(),
-    backgroundImage: zod.string(),
-    backgroundImages: zod.array(zod.string()).min(1).optional(),
-    overlay: zod.string().optional(),
-    ctaLabel: zod.string(),
-    ctaHref: zod.string(),
+  hero: z.object({
+    title: z.string(),
+    highlight: z.string(),
+    subtitle: z.string(),
+    tagline: z.string(),
+    backgroundImage: z.string(),
+    backgroundImages: z.array(z.string()).min(1).optional(),
+    overlay: z.string().optional(),
+    ctaLabel: z.string(),
+    ctaHref: z.string(),
   }),
-  about: zod.object({
-    title: zod.string(),
-    paragraphs: zod.array(zod.string()),
-    highlight: zod.string().optional(),
+  about: z.object({
+    title: z.string(),
+    paragraphs: z.array(z.string()),
+    highlight: z.string().optional(),
   }),
-  video: zod
+  video: z
     .object({
-      title: zod.string(),
-      titleHighlight: zod.string(),
-      description: zod.string(),
-      url: zod
+      title: z.string(),
+      titleHighlight: z.string(),
+      description: z.string(),
+      url: z
         .string()
         .refine((u) => parseVideoUrl(u) !== null, {
           message: 'video.url must be a supported YouTube or Google Drive link',
         }),
     })
     .optional(),
-  projects: zod.object({
-    title: zod.string(),
-    titleHighlight: zod.string(),
-    description: zod.string(),
-    items: zod.array(projectSchema),
+  projects: z.object({
+    title: z.string(),
+    titleHighlight: z.string(),
+    description: z.string(),
+    items: z.array(projectSchema),
   }),
-  inspiration: zod.object({
-    title: zod.string(),
-    titleHighlight: zod.string(),
-    backgroundImage: zod.string(),
-    paragraphs: zod.array(zod.string()),
+  inspiration: z.object({
+    title: z.string(),
+    titleHighlight: z.string(),
+    backgroundImage: z.string(),
+    paragraphs: z.array(z.string()),
   }),
-  values: zod.object({
-    title: zod.string(),
-    titleHighlight: zod.string(),
-    items: zod.array(valueSchema),
+  values: z.object({
+    title: z.string(),
+    titleHighlight: z.string(),
+    items: z.array(valueSchema),
   }),
-  quote: zod.object({
-    text: zod.string(),
-    author: zod.string(),
+  quote: z.object({
+    text: z.string(),
+    author: z.string(),
   }),
 }
 
-export const ministryLandingContentSchema = zod.object(ministryLandingFields)
+export const ministryLandingContentSchema = z.object(ministryLandingFields)
 
 export const deaAjudaContentSchema = ministryLandingContentSchema.extend({
-  slug: zod.literal('dea-ajuda'),
+  slug: z.literal('dea-ajuda'),
 })
 
 export const perseverancaContentSchema = ministryLandingContentSchema.extend({
-  slug: zod.literal('perseveranca'),
+  slug: z.literal('perseveranca'),
 })
 
-export const checklistItemSchema = zod.object({
-  id: zod.string(),
-  description: zod.string(),
-  category: zod.enum(['navigation', 'visual', 'content', 'footer']),
+export const checklistItemSchema = z.object({
+  id: z.string(),
+  description: z.string(),
+  category: z.enum(['navigation', 'visual', 'content', 'footer']),
 })
 
-export const checklistSchema = zod.object({
-  version: zod.string(),
-  items: zod.array(checklistItemSchema),
+export const checklistSchema = z.object({
+  version: z.string(),
+  items: z.array(checklistItemSchema),
 })
 
-export type VersionSpec = zod.infer<typeof versionSchema>
-export type RoutesSpec = zod.infer<typeof routesSchema>
-export type ParagraphSection = zod.infer<typeof paragraphSectionSchema>
-export type CardSection = zod.infer<typeof cardSectionSchema>
-export type QuoteBlock = zod.infer<typeof quoteBlockSchema>
-export type ContentSection = zod.infer<typeof contentSectionSchema>
-export type ContentPage = zod.infer<typeof contentPageSchema>
-export type HomeContent = zod.infer<typeof homeContentSchema>
-export type TitulosNossaSenhoraContent = zod.infer<typeof titulosNossaSenhoraContentSchema>
-export type NossaSenhoraAuxiliadoraContent = zod.infer<
+export type VersionSpec = z.infer<typeof versionSchema>
+export type RoutesSpec = z.infer<typeof routesSchema>
+export type ParagraphSection = z.infer<typeof paragraphSectionSchema>
+export type CardSection = z.infer<typeof cardSectionSchema>
+export type QuoteBlock = z.infer<typeof quoteBlockSchema>
+export type ContentSection = z.infer<typeof contentSectionSchema>
+export type ContentPage = z.infer<typeof contentPageSchema>
+export type HomeContent = z.infer<typeof homeContentSchema>
+export type TitulosNossaSenhoraContent = z.infer<typeof titulosNossaSenhoraContentSchema>
+export type NossaSenhoraAuxiliadoraContent = z.infer<
   typeof nossaSenhoraAuxiliadoraContentSchema
 >
-export type NossaSenhoraMedjugorjeContent = zod.infer<
+export type NossaSenhoraMedjugorjeContent = z.infer<
   typeof nossaSenhoraMedjugorjeContentSchema
 >
-export type NossaSenhoraAparecidaContent = zod.infer<
+export type NossaSenhoraAparecidaContent = z.infer<
   typeof nossaSenhoraAparecidaContentSchema
 >
-export type NossaSenhoraLaSaletteContent = zod.infer<
+export type NossaSenhoraLaSaletteContent = z.infer<
   typeof nossaSenhoraLaSaletteContentSchema
 >
-export type NossaSenhoraLourdesContent = zod.infer<typeof nossaSenhoraLourdesContentSchema>
-export type NossaSenhoraGuadalupeContent = zod.infer<typeof nossaSenhoraGuadalupeContentSchema>
-export type NossaSenhoraDasGracasContent = zod.infer<typeof nossaSenhoraDasGracasContentSchema>
-export type NossaSenhoraDaComunicacaoContent = zod.infer<
+export type NossaSenhoraLourdesContent = z.infer<typeof nossaSenhoraLourdesContentSchema>
+export type NossaSenhoraGuadalupeContent = z.infer<typeof nossaSenhoraGuadalupeContentSchema>
+export type NossaSenhoraDasGracasContent = z.infer<typeof nossaSenhoraDasGracasContentSchema>
+export type NossaSenhoraDaComunicacaoContent = z.infer<
   typeof nossaSenhoraDaComunicacaoContentSchema
 >
-export type NossaSenhoraDasDoresContent = zod.infer<typeof nossaSenhoraDasDoresContentSchema>
-export type NossaSenhoraDeFatimaContent = zod.infer<typeof nossaSenhoraDeFatimaContentSchema>
-export type PerseverancaContent = zod.infer<typeof perseverancaContentSchema>
-export type MinisteriosContent = zod.infer<typeof ministeriosContentSchema>
-export type MinistryLandingContent = zod.infer<typeof ministryLandingContentSchema>
-export type DeaAjudaContent = zod.infer<typeof deaAjudaContentSchema>
-export type ChecklistSpec = zod.infer<typeof checklistSchema>
+export type NossaSenhoraDasDoresContent = z.infer<typeof nossaSenhoraDasDoresContentSchema>
+export type NossaSenhoraDeFatimaContent = z.infer<typeof nossaSenhoraDeFatimaContentSchema>
+export type PerseverancaContent = z.infer<typeof perseverancaContentSchema>
+export type MinisteriosContent = z.infer<typeof ministeriosContentSchema>
+export type MinistryLandingContent = z.infer<typeof ministryLandingContentSchema>
+export type DeaAjudaContent = z.infer<typeof deaAjudaContentSchema>
+export type ChecklistSpec = z.infer<typeof checklistSchema>
 
 export type ContentSlug =
   | 'home'

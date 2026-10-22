@@ -185,10 +185,10 @@ svg.d circle { fill: currentColor; stroke: none; }
 .v2 .bloco { position: relative; }
 .v2 .bloco[id] { scroll-margin-top: 90px; }
 .v2 .bloco[id]:focus-visible { outline: 2px solid var(--color-manto); outline-offset: 6px; }
-.v2 .hero .hero-identification { margin-top: 24px; color: var(--color-papel); font-size: 17px; }
-.v2 .hero .ctas-v2 { justify-content: center; }
-.v2 .hero .btn-manto { background: var(--color-papel); color: var(--color-manto); border-color: var(--color-papel); }
-.v2 .hero .btn-outline-manto { color: var(--color-papel); border-color: var(--color-papel); }
+.v2 .home-hero-presentation .hero-identification { margin-top: 24px; color: var(--color-papel); font-size: 17px; }
+.v2 .home-hero-presentation .ctas-v2 { justify-content: center; }
+.v2 .home-hero-presentation .btn-manto { background: var(--color-papel); color: var(--color-manto); border-color: var(--color-papel); }
+.v2 .home-hero-presentation .btn-outline-manto { color: var(--color-papel); border-color: var(--color-papel); }
 .v2 .meeting { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-ceu); }
 .v2 .meeting h3 { font-family: var(--font-titulo); font-size: 24px; color: var(--color-manto); margin-bottom: 14px; }
 .v2 .meeting .meeting-date { font-weight: 600; }

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { z as zod } from 'zod'
+import { z } from 'zod'
 import {
   checklistSchema,
   deaAjudaContentSchema,
@@ -45,7 +45,7 @@ import { meetingScheduleSchema } from '../meetings'
 
 const SPECS_DIR = path.join(process.cwd(), 'specs')
 
-function readJsonFile<T>(relativePath: string, schema: zod.ZodType<T>): T {
+function readJsonFile<T>(relativePath: string, schema: z.ZodType<T>): T {
   const filePath = path.join(SPECS_DIR, relativePath)
   const raw = fs.readFileSync(filePath, 'utf-8')
   return schema.parse(JSON.parse(raw))

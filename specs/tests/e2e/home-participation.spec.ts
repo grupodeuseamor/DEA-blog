@@ -34,8 +34,13 @@ for (const width of [1440, 390]) {
     await expect(map).toHaveAttribute('loading', 'lazy')
     expect(await map.evaluate((element) => element.getBoundingClientRect().width)).toBeLessThan(width)
 
-    await expect(page.getByTestId('site-footer').getByRole('link', { name: 'Instagram do Grupo Deus É Amor' }))
+    const instagram = page.getByTestId('site-footer').getByRole('link', { name: 'Instagram · @grupodeuseamor (abre em nova aba)', exact: true })
+    await expect(instagram)
       .toHaveAttribute('href', 'https://www.instagram.com/grupodeuseamor/')
+    for (const link of [instagram, meeting.getByRole('link', { name: 'Adicionar ao Google Agenda (abre em nova aba)', exact: true }), meeting.getByRole('link', { name: 'Abrir no Google Maps (abre em nova aba)', exact: true })]) {
+      await expect(link).toHaveAttribute('target', '_blank')
+      await expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    }
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width)
 
     // O mesmo convite é alcançável a partir de uma página interna.

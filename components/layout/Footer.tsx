@@ -18,8 +18,9 @@ export function Footer() {
       <p className="pil" data-testid="footer-pillars">
         Evangelização • Amizade • Humildade • Serviço
       </p>
-      <a href={instagram.href} className="inline-block mt-4 underline underline-offset-4" aria-label={instagram.accessibleLabel}>
+      <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 underline underline-offset-4">
         {instagram.label}
+        <span className="sr-only"> (abre em nova aba)</span>
       </a>
       <p className="cp" data-testid="footer-copyright">
         © 2026 Grupo Deus É Amor. Todos os direitos reservados.

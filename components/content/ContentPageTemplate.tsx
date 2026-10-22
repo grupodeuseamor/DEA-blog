@@ -54,10 +54,10 @@ export function ContentPageTemplate({ content }: ContentPageTemplateProps) {
       <Breadcrumb items={getBreadcrumb(pathname, routes)} />
       <HeroSectionV2 hero={content.hero} decor={decor}>
         {home && (
-          <>
+          <div className="home-hero-presentation">
             <p className="hero-identification">{home.presentation.identification}</p>
             <CtaButtonGroup primary={home.presentation.participate} secondary={home.presentation.about} />
-          </>
+          </div>
         )}
       </HeroSectionV2>
       <div className="c secs">

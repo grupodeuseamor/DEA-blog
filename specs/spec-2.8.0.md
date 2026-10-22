@@ -89,7 +89,19 @@ O primeiro card, movido antes do pedido de revisão, foi devolvido ao Backlog du
 ## Ajustes durante a auditoria local
 
 - Dia da semana apresentado com iniciais maiúsculas, por exemplo “Quinta-Feira, 22 de outubro de 2026”; meses continuam em minúsculas.
-- Alias de importação `z` renomeado para `zod` nos cinco arquivos que usam a biblioteca, incluindo referências de tipos, sem alteração de comportamento.
+- Alias de importação `z` → `zod` solicitado durante a auditoria; separado deste lote após o review, para um PR próprio sem alteração de comportamento.
 - Integração de feriados com Google Agenda apenas discutida, sem implementação neste lote. O cálculo local permanece.
 
 Antes do push do PR, specs, encontros, preview, vídeo, redirects e build passaram novamente. A suíte completa de 106 testes Playwright também passou novamente, sem retries, incluindo os ajustes finais de nomenclatura e capitalização; foi reutilizado o servidor local já ativo para a auditoria do solicitante.
+
+## Ajustes do review do PR #2
+
+Decisões confirmadas pelo solicitante em 2026-10-22, mantendo a versão 2.8.0 ainda em revisão:
+
+- `lib/specs/types.ts` confirmado em LF; renomeação de Zod separada em PR próprio.
+- Mantido o próximo encontro calculado no navegador: HTML inicial com “Consultando…”, atualização imediata após carregar JavaScript, a cada 30 segundos e ao retornar à aba. Sem JavaScript, local e mapa continuam disponíveis; data, horário e Agenda dependem do JavaScript. Uma data apenas no build envelheceria até o próximo deploy.
+- Removido somente o bilhete “desde 2000” do hero; subtítulo histórico, identificação e carimbo da primeira seção preservados.
+- Instagram do rodapé, Google Maps e Google Agenda abrem em nova aba com `noopener noreferrer` e aviso acessível. O nome acessível do Instagram passa a incluir seu texto visível.
+- Estilos da identificação e dos botões do hero limitados ao bloco de apresentação da home.
+
+Validação local destes ajustes: specs, encontros, preview, vídeo, redirects e build aprovados; **106 testes Playwright aprovados**, com retries desabilitados. Após a validação, o solicitante autorizou commit e push dos ajustes na branch do PR #2. A execução da refatoração e a criação do PR de Zod aguardam uma etapa própria com as skills escolhidas.

@@ -41,8 +41,12 @@ export function NextMeeting({ schedule, labels }: { schedule: MeetingSchedule; l
       <p>{venue.name}<br />{venue.address}</p>
       <p className="meeting-note">{labels.holidayNotice}</p>
       <div className="ctas-v2">
-        {meeting && <a className="btn-manto" href={googleCalendarUrl(schedule, meeting)}>{labels.calendar}</a>}
-        <a className="btn-outline-manto" href={maps.external}>{labels.maps}</a>
+        {meeting && <a className="btn-manto" href={googleCalendarUrl(schedule, meeting)} target="_blank" rel="noopener noreferrer">
+          {labels.calendar}<span className="sr-only"> (abre em nova aba)</span>
+        </a>}
+        <a className="btn-outline-manto" href={maps.external} target="_blank" rel="noopener noreferrer">
+          {labels.maps}<span className="sr-only"> (abre em nova aba)</span>
+        </a>
       </div>
       <iframe title={`${venue.name} — Google Maps`} src={maps.embed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
     </div>
