@@ -155,6 +155,33 @@ O arquivo [`vercel.json`](vercel.json) inclui redirects de URLs legadas.
 
 **Sem GitHub Actions** (a conta está no limite gratuito): testes e build rodam localmente antes do push; a Vercel faz o deploy pela integração Git. A branch `v2` gera *Preview Deployments* automáticos para revisar os snapshots; `main` é produção.
 
+## Ambientes (produção × homologação)
+
+| Ambiente | Branch | Onde roda | URL |
+|----------|--------|-----------|-----|
+| Produção | `main` | Vercel | [dea-blog.vercel.app](https://dea-blog.vercel.app) |
+| Homologação (testes) | `develop` | Railway, projeto `dea-stage` | [dea-blog-stage.up.railway.app](https://dea-blog-stage.up.railway.app) |
+
+O ambiente é definido pela variável **`NEXT_PUBLIC_APP_ENV`**, lida em [`lib/ambiente.ts`](lib/ambiente.ts). Como começa com `NEXT_PUBLIC_`, ela entra no código **na hora do build**: depois de mudar o valor, é preciso fazer um novo deploy.
+
+| Valor de `NEXT_PUBLIC_APP_ENV` | Ambiente | Faixa laranja | Indexação no Google | Vercel Analytics |
+|--------------------------------|----------|---------------|---------------------|------------------|
+| *(não definida)*, `producao`, `production`, `prod` | Produção | Não | Sim | Sim |
+| `homologacao`, `homolog`, `staging`, `stage` | Homologação | Sim | Não (`noindex`) | Não |
+| `desenvolvimento`, `development`, `dev` | Desenvolvimento | Sim | Não (`noindex`) | Não |
+
+- **Produção (Vercel):** não precisa definir nada. Sem a variável, o site assume produção. Se quiser deixar explícito, use `producao`.
+- **Homologação (Railway `dea-stage`):** o serviço `dea-blog` usa `NEXT_PUBLIC_APP_ENV=homologacao`.
+- **Na sua máquina:** para ver a faixa, crie um `.env.local` com `NEXT_PUBLIC_APP_ENV=desenvolvimento`.
+
+Fora de produção aparece no topo a faixa laranja *"Ambiente de testes e homologação"* ([`components/layout/FaixaAmbiente.tsx`](components/layout/FaixaAmbiente.tsx)), para ninguém confundir o site de testes com o oficial. As cores vêm dos tokens `--color-alerta` e `--color-alerta-texto` em `app/globals.css`.
+
+### Fluxo de branches e proteção da `main`
+
+1. O trabalho do dia a dia vai para a `develop` (via PR das branches de feature) e sobe sozinho para a homologação.
+2. Depois de validado na homologação, abra um PR de `develop` para `main`.
+3. A `main` é protegida: não aceita push direto nem force push, todo merge passa por PR e precisa da aprovação de pelo menos um admin listado em [`.github/CODEOWNERS`](.github/CODEOWNERS). Só os admins podem fazer o merge, e a regra vale para eles também, ou seja, quem abriu o PR precisa da aprovação de outro admin.
+
 ## Identidade visual (v2 — Caderno + Novo Lote)
 
 | Token | Cor | Uso |
