@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import { Fraunces, Gochi_Hand, Jost, Newsreader } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { RoughFilters } from '@/components/decor/RoughFilters'
+import { FaixaAmbiente } from '@/components/layout/FaixaAmbiente'
 import { Footer } from '@/components/layout/Footer'
 import { Navbar } from '@/components/layout/Navbar'
+import { isAmbienteDeTeste } from '@/lib/ambiente'
 import { loadRoutes } from '@/lib/specs/loader'
 import './globals.css'
 
@@ -32,6 +34,8 @@ export const metadata: Metadata = {
     icon: '/logo-deus-e-amor.png',
     apple: '/logo-deus-e-amor.png',
   },
+  // Fora de produção, buscadores não devem indexar o site de testes.
+  ...(isAmbienteDeTeste() ? { robots: { index: false, follow: false } } : {}),
 }
 
 export default function RootLayout({
@@ -40,15 +44,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const routes = loadRoutes()
+  const ambienteDeTeste = isAmbienteDeTeste()
 
   return (
-    <html lang="pt-BR" className={`${fraunces.variable} ${jost.variable} ${gochi.variable} ${newsreader.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${fraunces.variable} ${jost.variable} ${gochi.variable} ${newsreader.variable}${ambienteDeTeste ? ' ambiente-teste' : ''}`}
+    >
       <body className="font-sans antialiased bg-papel text-tinta">
+        <FaixaAmbiente />
         <RoughFilters />
         <Navbar routes={routes} />
         {children}
         <Footer />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && !ambienteDeTeste && <Analytics />}
       </body>
     </html>
   )
