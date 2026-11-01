@@ -6,7 +6,7 @@ import { loadContent } from '@/lib/specs/loader'
  * Seção Santos — listagem no mesmo modelo de /titulos-nossa-senhora.
  *
  * Como adicionar um santo (ex.: slug `sao-francisco-de-assis`), seguindo o modelo nossa-senhora-<x>:
- * 1. specs/content/santos.json → novo item em `galleries` (slug, title, description, path `/santos/<slug>`, emoji?, available).
+ * 1. specs/content/santos.json → novo item em `galleries` (slug, title, description, path `/santos/<slug>`, emoji?, icon? (/images/icons/<slug>.webp, avatar ~160px), available).
  *    A ordem dos itens define Anterior/Próximo.
  * 2. specs/content/<slug>.json → meta, hero (title, subtitle, quote?, backgroundImage, logo?) e sections (card/quote),
  *    igual a specs/content/nossa-senhora-aparecida.json.
@@ -32,6 +32,7 @@ export default function SantosPage() {
       items={content.galleries}
       testIdPrefix="gallery"
       slug={content.slug}
+      photos={(content.photos ?? []).map((src, i) => ({ src, caption: content.photoCaptions?.[i] ?? '' }))}
     />
   )
 }

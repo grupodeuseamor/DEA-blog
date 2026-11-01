@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Drawing } from '@/components/decor/Drawing'
 import { WashiTape } from '@/components/decor/WashiTape'
@@ -10,6 +11,8 @@ export type ListingCardProps = {
   description: string
   path: string
   emoji?: string
+  /** Avatar redondo; quando presente substitui o emoji. */
+  icon?: string
   available?: boolean
   availableLabel?: string
   testIdPrefix?: string
@@ -33,6 +36,7 @@ export function ListingCardV2({
   description,
   path,
   emoji,
+  icon,
   available = true,
   availableLabel = 'Ver mais →',
   testIdPrefix = 'listing',
@@ -57,7 +61,11 @@ export function ListingCardV2({
         />
       )}
       <div className="topo">
-        {emoji && (
+        {icon ? (
+          <span className="icone" aria-hidden="true" data-testid="card-icon">
+            <Image src={icon} alt="" width={52} height={52} />
+          </span>
+        ) : emoji && (
           <span className="emoji" aria-hidden="true">
             {emoji}
           </span>

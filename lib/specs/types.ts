@@ -173,6 +173,8 @@ export const galleryItemSchema = z.object({
   description: z.string(),
   path: z.string(),
   emoji: z.string().optional(),
+  /** Ícone redondo (avatar) recortado da imagem do item; quando presente substitui o emoji. */
+  icon: z.string().optional(),
   available: z.boolean().default(true),
 })
 
@@ -195,6 +197,9 @@ export const titulosNossaSenhoraContentSchema = z.object({
  */
 export const santosContentSchema = titulosNossaSenhoraContentSchema.extend({
   slug: z.literal('santos'),
+  /** 2.9.1: polaroids da listagem (máx. 2), com legenda descritiva na mesma posição. */
+  photos: z.array(z.string()).max(2).optional(),
+  photoCaptions: z.array(z.string().max(140)).optional(),
 })
 
 export const saoJoaoPauloIiContentSchema = contentPageSchema.extend({

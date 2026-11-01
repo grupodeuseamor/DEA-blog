@@ -322,6 +322,11 @@ svg.d circle { fill: currentColor; stroke: none; }
 .v2 a.ficha:hover { transform: rotate(0deg) translateY(-3px); box-shadow: var(--sombra-polaroid); }
 .v2 .ficha .topo { display: flex; align-items: center; justify-content: space-between; min-height: 34px; }
 .v2 .ficha .emoji { font-size: 26px; line-height: 1; }
+.v2 .ficha .icone { display: inline-block; width: 52px; height: 52px; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-polaroid); box-shadow: var(--sombra-polaroid); }
+.v2 .ficha .icone img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.v2 .listing-polaroids { display: flex; flex-wrap: wrap; justify-content: center; gap: 36px; margin: 6px 0 40px; }
+.v2 .listing-polaroids .polaroid .ph { height: 236px; }
+.v2 .listing-polaroids .polaroid:nth-child(2) { transform: rotate(-3deg); }
 .v2 .ficha .ano { font-size: 22px; color: var(--color-manto); background: url(/textures/grain-light.svg), var(--color-areia); padding: 2px 12px; border-radius: 4px; transform: rotate(3deg); }
 .v2 .ficha h2 { font-size: 23px; color: var(--color-manto); }
 .v2 .ficha p { font-size: 15.5px; color: rgb(0 0 0 / 0.78); line-height: 1.55; flex: 1; }
