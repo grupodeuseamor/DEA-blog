@@ -1,0 +1,15 @@
+{
+  "slug": "santos",
+  "hero": {
+    "drawings": [
+      "brilhinhos"
+    ],
+    "underline": "Santos"
+  },
+  "blocks": [],
+  "cards": {
+    "tape": true,
+    "yearFromDescription": true,
+    "drawings": {}
+  }
+}

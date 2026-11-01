@@ -52,6 +52,7 @@
       "path": "/titulos-nossa-senhora/nossa-senhora-de-fatima",
       "parent": "/titulos-nossa-senhora"
     },
+    { "label": "Santos", "path": "/santos" },
     { "label": "Ministérios", "path": "/ministerios" },
     { "label": "Participe", "path": "/#primeira-vez" },
     {

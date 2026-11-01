@@ -16,6 +16,10 @@ const listings: Record<string, { path: string; cards: { path: string }[] }> = {
     path: '/titulos-nossa-senhora',
     cards: JSON.parse(fs.readFileSync(path.join(root, 'specs/content/titulos-nossa-senhora.json'), 'utf-8')).galleries,
   },
+  '/santos': {
+    path: '/santos',
+    cards: JSON.parse(fs.readFileSync(path.join(root, 'specs/content/santos.json'), 'utf-8')).galleries,
+  },
   '/ministerios': {
     path: '/ministerios',
     cards: JSON.parse(fs.readFileSync(path.join(root, 'specs/content/ministerios.json'), 'utf-8')).ministries,

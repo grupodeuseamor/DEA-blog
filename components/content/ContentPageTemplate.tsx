@@ -24,6 +24,10 @@ export function loadListing(pathname: string) {
     const listing = loadContent('titulos-nossa-senhora')
     return { path: '/titulos-nossa-senhora', cards: listing.galleries }
   }
+  if (pathname.startsWith('/santos/')) {
+    const listing = loadContent('santos')
+    return { path: '/santos', cards: listing.galleries }
+  }
   if (pathname.startsWith('/ministerios/')) {
     const listing = loadContent('ministerios')
     return { path: '/ministerios', cards: listing.ministries }

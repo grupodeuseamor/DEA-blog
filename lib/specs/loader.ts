@@ -19,6 +19,7 @@ import {
   perseverancaContentSchema,
   routesSchema,
   titulosNossaSenhoraContentSchema,
+  santosContentSchema,
   versionSchema,
   type ChecklistSpec,
   type ContentSlug,
@@ -38,6 +39,7 @@ import {
   type PerseverancaContent,
   type RoutesSpec,
   type TitulosNossaSenhoraContent,
+  type SantosContent,
   type VersionSpec,
 } from './types'
 import { validateAllDecor } from './decor'
@@ -80,6 +82,7 @@ type ContentMap = {
   'nossa-senhora-da-comunicacao': NossaSenhoraDaComunicacaoContent
   'nossa-senhora-das-dores': NossaSenhoraDasDoresContent
   'nossa-senhora-de-fatima': NossaSenhoraDeFatimaContent
+  santos: SantosContent
   ministerios: MinisteriosContent
   perseveranca: PerseverancaContent
   'dea-ajuda': DeaAjudaContent
@@ -144,6 +147,8 @@ export function loadContent<S extends ContentSlug>(slug: S): ContentMap[S] {
         'content/nossa-senhora-de-fatima.json',
         nossaSenhoraDeFatimaContentSchema,
       ) as ContentMap[S]
+    case 'santos':
+      return readJsonFile('content/santos.json', santosContentSchema) as ContentMap[S]
     case 'ministerios':
       return readJsonFile(
         'content/ministerios.json',
@@ -213,6 +218,7 @@ export function validateAllSpecs(): void {
       'nossa-senhora-da-comunicacao',
       'nossa-senhora-das-dores',
       'nossa-senhora-de-fatima',
+      'santos',
       'ministerios',
       'perseveranca',
       'dea-ajuda',

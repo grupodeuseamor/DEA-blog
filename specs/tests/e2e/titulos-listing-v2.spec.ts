@@ -24,13 +24,13 @@ test.describe('Listagem Títulos v2', () => {
     }
   })
 
-  test('breadcrumb e fluxo: Voltar para Início, Próximo Ministérios', async ({ page }) => {
+  test('breadcrumb e fluxo: Voltar para Início, Próximo Santos', async ({ page }) => {
     await page.goto('/titulos-nossa-senhora')
     await expect(page.getByTestId('breadcrumb').locator('li')).toHaveText(['Início', 'Títulos de Nossa Senhora'])
     const flow = page.getByTestId('section-flow')
     await expect(flow.getByTestId('section-flow-back')).toHaveAttribute('href', '/')
     await expect(flow.getByTestId('section-flow-prev')).toHaveCount(0)
-    await expect(flow.getByTestId('section-flow-next')).toHaveAttribute('href', '/ministerios')
+    await expect(flow.getByTestId('section-flow-next')).toHaveAttribute('href', '/santos')
   })
 
   test('card leva à página certa', async ({ page }) => {

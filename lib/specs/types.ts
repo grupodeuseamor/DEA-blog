@@ -187,6 +187,14 @@ export const titulosNossaSenhoraContentSchema = z.object({
   galleries: z.array(galleryItemSchema),
 })
 
+/**
+ * Seção Santos (listagem), mesmo modelo de Títulos de Nossa Senhora.
+ * Para adicionar um santo: ver o comentário em app/santos/page.tsx.
+ */
+export const santosContentSchema = titulosNossaSenhoraContentSchema.extend({
+  slug: z.literal('santos'),
+})
+
 export const ministryItemSchema = z.object({
   slug: z.string(),
   title: z.string(),
@@ -307,6 +315,7 @@ export type ContentSection = z.infer<typeof contentSectionSchema>
 export type ContentPage = z.infer<typeof contentPageSchema>
 export type HomeContent = z.infer<typeof homeContentSchema>
 export type TitulosNossaSenhoraContent = z.infer<typeof titulosNossaSenhoraContentSchema>
+export type SantosContent = z.infer<typeof santosContentSchema>
 export type NossaSenhoraAuxiliadoraContent = z.infer<
   typeof nossaSenhoraAuxiliadoraContentSchema
 >
@@ -346,6 +355,7 @@ export type ContentSlug =
   | 'nossa-senhora-da-comunicacao'
   | 'nossa-senhora-das-dores'
   | 'nossa-senhora-de-fatima'
+  | 'santos'
   | 'ministerios'
   | 'perseveranca'
   | 'dea-ajuda'
@@ -363,6 +373,7 @@ const contentSchemas = {
   'nossa-senhora-da-comunicacao': nossaSenhoraDaComunicacaoContentSchema,
   'nossa-senhora-das-dores': nossaSenhoraDasDoresContentSchema,
   'nossa-senhora-de-fatima': nossaSenhoraDeFatimaContentSchema,
+  santos: santosContentSchema,
   ministerios: ministeriosContentSchema,
   perseveranca: perseverancaContentSchema,
   'dea-ajuda': deaAjudaContentSchema,
