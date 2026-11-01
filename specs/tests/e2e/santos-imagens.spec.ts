@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test'
 const pages = {
   '/santos/sao-jose-luis-sanchez-del-rio': ['Joselito com o estandarte do Sagrado Coração', 'Joselito erguendo a cruz diante dos soldados'],
   '/santos/sao-pier-giorgio-frassati': ['Trilha São Pier Giorgio Frassati', 'Pier Giorgio Frassati sorrindo'],
-  '/santos/sao-joao-paulo-ii': ['Sua devoção a Nossa Senhora o levou a coroar Sua imagem com uma coroa que carrega a bala que o atingiu no atentado.', 'João Paulo II abençoando'],
+  '/santos/sao-joao-paulo-ii': ['São João Paulo II coroando a imagem de Nossa Senhora.', 'João Paulo II abençoando'],
 }
 
 for (const [path, captions] of Object.entries(pages)) {
