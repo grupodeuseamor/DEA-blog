@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test'
 
 /** 2.9.0: fotos dos santos com legendas, carregando de /images. */
 const pages = {
+  '/indulgencias-plenarias': ['Mãos em oração diante da luz', 'Bíblia aberta com terço e vela'],
   '/santos/sao-jose-luis-sanchez-del-rio': ['Joselito com o estandarte do Sagrado Coração', 'Joselito erguendo a cruz diante dos soldados'],
   '/santos/sao-pier-giorgio-frassati': ['Trilha São Pier Giorgio Frassati', 'Pier Giorgio Frassati sorrindo'],
   '/santos/sao-joao-paulo-ii': ['São João Paulo II coroando a imagem de Nossa Senhora.', 'João Paulo II abençoando'],

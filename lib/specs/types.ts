@@ -226,6 +226,10 @@ export const saoJoseLuisSanchezDelRioContentSchema = contentPageSchema.extend({
 
 export const indulgenciasPlenariasContentSchema = contentPageSchema.extend({
   slug: z.literal('indulgencias-plenarias'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
   sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 

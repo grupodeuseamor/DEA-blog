@@ -18,10 +18,9 @@
       ],
       "side": [
         {
-          "kind": "figurinha",
-          "drawings": [
-            "vela"
-          ],
+          "kind": "polaroid",
+          "image": "photos[0]",
+          "caption": "Mãos em oração diante da luz",
           "tape": true
         }
       ]
@@ -36,11 +35,39 @@
       ],
       "side": [
         {
+          "kind": "polaroid",
+          "image": "photos[1]",
+          "caption": "Sacerdote com estola segurando o crucifixo",
+          "tape": true
+        },
+        {
           "kind": "postit",
           "label": "De 1 a 8 de novembro",
           "text": "Visitar devotamente um cemitério.",
           "pin": "manto",
           "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[2]",
+          "caption": "Mãos erguidas com o terço",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[4]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[3]",
+          "caption": "Bíblia aberta com terço e vela",
+          "tape": true
         }
       ]
     }

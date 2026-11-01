@@ -7,7 +7,7 @@
   "hero": {
     "title": "Indulgências Plenárias",
     "subtitle": "Uma graça por aqueles que já partiram.",
-    "backgroundImage": "/placeholder.jpg",
+    "backgroundImage": "/images/indulgencias-plenarias-2.png",
     "logo": {
       "src": "/logo-deus-e-amor.png",
       "alt": "Grupo Deus É Amor",
@@ -65,5 +65,17 @@
       "type": "quote",
       "text": "\"Não deixemos de socorrer os que partiram, oferecendo por eles as nossas orações.\" — São João Damasceno"
     }
+  ],
+  "photos": [
+    "/images/indulgencias-plenarias.png",
+    "/images/indulgencias-plenarias-3.png",
+    "/images/indulgencias-plenarias-4.png",
+    "/images/indulgencias-plenarias-5.png"
+  ],
+  "photoCaptions": [
+    "Mãos em oração diante da luz",
+    "Sacerdote com estola segurando o crucifixo",
+    "Mãos erguidas com o terço",
+    "Bíblia aberta com terço e vela"
   ]
 }
