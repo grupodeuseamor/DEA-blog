@@ -1,0 +1,81 @@
+{
+  "slug": "sao-joao-paulo-ii",
+  "meta": {
+    "title": "São João Paulo II | Grupo Deus É Amor",
+    "description": "São João Paulo II dedicou sua vida a Cristo e à missão de anunciar o Evangelho."
+  },
+  "hero": {
+    "title": "São João Paulo II",
+    "subtitle": "Em Cristo a vida se transforma, mas não se acaba!",
+    "backgroundImage": "/images/sao-joao-paulo-ii-6.jpg",
+    "logo": {
+      "src": "/logo-deus-e-amor.png",
+      "alt": "Grupo Deus É Amor",
+      "width": 140,
+      "height": 140
+    }
+  },
+  "sections": [
+    {
+      "type": "card",
+      "title": "Uma Vida Entregue a Deus",
+      "variant": "highlight",
+      "paragraphs": [
+        "São João Paulo II dedicou a sua vida a Cristo e a missão de anunciar o Evangelho, levando a mensagem de Deus a povos de todo o mundo."
+      ]
+    },
+    {
+      "type": "card",
+      "title": "Firme Até O Fim",
+      "paragraphs": [
+        "Mesmo diante do sofrimento e da doença, permaneceu fiel a sua missão, testemunha uma fé inabalável, coragem e amor a Deus. Sua vida continua sendo um exemplo de santidade e entrega a Cristo.",
+        "Que seu exemplo nos inspire a viver uma vida de fé, coragem e entrega a Deus.",
+        "São João Paulo II dedicou sua vida a Cristo e à missão de anunciar o Evangelho. Mesmo diante do sofrimento e da doença, permaneceu firme em sua fé, testemunhando coragem e amor a Deus."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "\"Não tenhais medo! Abri, antes, escancarai as portas a Cristo!\" — São João Paulo II"
+    },
+    {
+      "type": "card",
+      "title": "",
+      "paragraphs": [
+        "Ao longo de seu pontificado, marcou a história da Igreja por sua dedicação aos jovens, seu amor a Nossa Senhora e sua entrega à missão que lhe foi confiada."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "\"Jovens, não tenhais medo de ser santos!\" — São João Paulo II"
+    },
+    {
+      "type": "card",
+      "title": "",
+      "paragraphs": [
+        "Que seu exemplo nos inspire a permanecer fiéis a Cristo e a confiar em Deus em todas as circunstâncias."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "São João Paulo II, rogai por nós!"
+    }
+  ],
+  "photos": [
+    "/images/sao-joao-paulo-ii.png",
+    "/images/sao-joao-paulo-ii-2.png",
+    "/images/sao-joao-paulo-ii-3.png",
+    "/images/sao-joao-paulo-ii-4.png",
+    "/images/sao-joao-paulo-ii-5.png",
+    "/images/sao-joao-paulo-ii-7.jpg",
+    "/images/sao-joao-paulo-ii-6.jpg"
+  ],
+  "photoCaptions": [
+    "São João Paulo II sorrindo",
+    "João Paulo II acenando aos fiéis",
+    "João Paulo II com a férula",
+    "João Paulo II apoiado na férula",
+    "São João Paulo II coroando a imagem de Nossa Senhora.",
+    "Sua devoção a Nossa Senhora o levou a coroar Sua imagem com uma coroa que carrega a bala que o atingiu no atentado.",
+    "João Paulo II abençoando"
+  ]
+}

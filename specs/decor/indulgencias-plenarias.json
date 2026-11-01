@@ -1,0 +1,75 @@
+{
+  "slug": "indulgencias-plenarias",
+  "hero": {
+    "drawings": [
+      "vela",
+      "cruz"
+    ],
+    "underline": "Plenárias"
+  },
+  "blocks": [
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "remissão da pena temporal",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[0]",
+          "caption": "Mãos em oração diante da luz",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "uma indulgência plenária por dia",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[1]",
+          "caption": "Sacerdote com estola segurando o crucifixo",
+          "tape": true
+        },
+        {
+          "kind": "postit",
+          "label": "De 1 a 8 de novembro",
+          "text": "Visitar devotamente um cemitério.",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[2]",
+          "caption": "Mãos erguidas com o terço",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[4]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[3]",
+          "caption": "Bíblia aberta com terço e vela",
+          "tape": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "sao-pier-giorgio-frassati",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "raios"
+    ],
+    "underline": "Frassati"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "apaixonado pelas montanhas",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[3]",
+          "caption": "Trilha São Pier Giorgio Frassati",
+          "tape": true
+        },
+        {
+          "kind": "polaroid",
+          "image": "photos[2]",
+          "caption": "Montanhas e ponte de pedra",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[0]",
+          "caption": "São Pier Giorgio Frassati com a cruz",
+          "tape": true
+        },
+        {
+          "kind": "polaroid",
+          "image": "photos[1]",
+          "caption": "Pier Giorgio Frassati sorrindo",
+          "tape": true
+        }
+      ]
+    }
+  ]
+}

@@ -112,6 +112,8 @@ export const homeContentSchema = contentPageSchema.extend({
   previewCta: z
     .object({ label: z.string(), href: z.string(), badge: z.literal('preview') })
     .optional(),
+  /** Chamada para Indulgências Plenárias (2.9.0): opcional — apagar o campo some com o link. */
+  indulgenciasCta: z.object({ label: z.string(), href: z.literal('/indulgencias-plenarias') }).optional(),
 })
 
 export const nossaSenhoraAuxiliadoraContentSchema = contentPageSchema.extend({
@@ -171,6 +173,8 @@ export const galleryItemSchema = z.object({
   description: z.string(),
   path: z.string(),
   emoji: z.string().optional(),
+  /** Ícone redondo (avatar) recortado da imagem do item; quando presente substitui o emoji. */
+  icon: z.string().optional(),
   available: z.boolean().default(true),
 })
 
@@ -185,6 +189,53 @@ export const titulosNossaSenhoraContentSchema = z.object({
     subtitle: z.string(),
   }),
   galleries: z.array(galleryItemSchema),
+})
+
+/**
+ * Seção Santos (listagem), mesmo modelo de Títulos de Nossa Senhora.
+ * Para adicionar um santo: ver o comentário em app/santos/page.tsx.
+ */
+export const santosContentSchema = titulosNossaSenhoraContentSchema.extend({
+  slug: z.literal('santos'),
+  /** 2.9.1: polaroids da listagem (máx. 2), com legenda descritiva na mesma posição. */
+  photos: z.array(z.string()).max(2).optional(),
+  photoCaptions: z.array(z.string().max(140)).optional(),
+})
+
+export const saoJoaoPauloIiContentSchema = contentPageSchema.extend({
+  slug: z.literal('sao-joao-paulo-ii'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
+export const saoPierGiorgioFrassatiContentSchema = contentPageSchema.extend({
+  slug: z.literal('sao-pier-giorgio-frassati'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
+export const saoJoseLuisSanchezDelRioContentSchema = contentPageSchema.extend({
+  slug: z.literal('sao-jose-luis-sanchez-del-rio'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
+export const indulgenciasPlenariasContentSchema = contentPageSchema.extend({
+  slug: z.literal('indulgencias-plenarias'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const ministryItemSchema = z.object({
@@ -307,6 +358,11 @@ export type ContentSection = z.infer<typeof contentSectionSchema>
 export type ContentPage = z.infer<typeof contentPageSchema>
 export type HomeContent = z.infer<typeof homeContentSchema>
 export type TitulosNossaSenhoraContent = z.infer<typeof titulosNossaSenhoraContentSchema>
+export type SantosContent = z.infer<typeof santosContentSchema>
+export type SaoJoaoPauloIiContent = z.infer<typeof saoJoaoPauloIiContentSchema>
+export type SaoPierGiorgioFrassatiContent = z.infer<typeof saoPierGiorgioFrassatiContentSchema>
+export type SaoJoseLuisSanchezDelRioContent = z.infer<typeof saoJoseLuisSanchezDelRioContentSchema>
+export type IndulgenciasPlenariasContent = z.infer<typeof indulgenciasPlenariasContentSchema>
 export type NossaSenhoraAuxiliadoraContent = z.infer<
   typeof nossaSenhoraAuxiliadoraContentSchema
 >
@@ -346,6 +402,11 @@ export type ContentSlug =
   | 'nossa-senhora-da-comunicacao'
   | 'nossa-senhora-das-dores'
   | 'nossa-senhora-de-fatima'
+  | 'santos'
+  | 'sao-joao-paulo-ii'
+  | 'sao-pier-giorgio-frassati'
+  | 'sao-jose-luis-sanchez-del-rio'
+  | 'indulgencias-plenarias'
   | 'ministerios'
   | 'perseveranca'
   | 'dea-ajuda'
@@ -363,6 +424,11 @@ const contentSchemas = {
   'nossa-senhora-da-comunicacao': nossaSenhoraDaComunicacaoContentSchema,
   'nossa-senhora-das-dores': nossaSenhoraDasDoresContentSchema,
   'nossa-senhora-de-fatima': nossaSenhoraDeFatimaContentSchema,
+  santos: santosContentSchema,
+  'sao-joao-paulo-ii': saoJoaoPauloIiContentSchema,
+  'sao-pier-giorgio-frassati': saoPierGiorgioFrassatiContentSchema,
+  'sao-jose-luis-sanchez-del-rio': saoJoseLuisSanchezDelRioContentSchema,
+  'indulgencias-plenarias': indulgenciasPlenariasContentSchema,
   ministerios: ministeriosContentSchema,
   perseveranca: perseverancaContentSchema,
   'dea-ajuda': deaAjudaContentSchema,

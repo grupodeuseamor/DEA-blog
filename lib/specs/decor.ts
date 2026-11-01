@@ -32,7 +32,7 @@ export const decorMarkSchema = z.object({
 })
 
 export const decorSideItemSchema = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('polaroid'), image: z.string(), caption: text, tape: z.boolean().default(true) }),
+  z.object({ kind: z.literal('polaroid'), image: z.string(), /** Legenda da foto: até 140 caracteres (2.9.0). */ caption: z.string().min(1).max(140), tape: z.boolean().default(true) }),
   z.object({
     kind: z.literal('carimbo'),
     text,

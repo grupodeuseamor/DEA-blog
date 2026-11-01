@@ -1,0 +1,79 @@
+{
+  "slug": "sao-joao-paulo-ii",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Paulo"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "anunciar o Evangelho",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[0]",
+          "caption": "São João Paulo II sorrindo",
+          "tape": true
+        },
+        {
+          "kind": "polaroid",
+          "image": "photos[2]",
+          "caption": "João Paulo II acenando aos fiéis",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[1]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[3]",
+          "caption": "João Paulo II com a férula",
+          "tape": true
+        },
+        {
+          "kind": "polaroid",
+          "image": "photos[4]",
+          "caption": "João Paulo II apoiado na férula",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[6]",
+          "caption": "São João Paulo II coroando a imagem de Nossa Senhora.",
+          "tape": true
+        },
+        {
+          "kind": "polaroid",
+          "image": "photos[5]",
+          "caption": "Sua devoção a Nossa Senhora o levou a coroar Sua imagem com uma coroa que carrega a bala que o atingiu no atentado.",
+          "tape": true
+        }
+      ]
+    }
+  ],
+  "sheetPhotos": [
+    {
+      "image": "photos[1]",
+      "after": "sections[2]",
+      "side": "direita",
+      "rotate": 4,
+      "focus": "50% 40%",
+      "caption": "João Paulo II abençoando"
+    }
+  ]
+}

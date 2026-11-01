@@ -1,0 +1,48 @@
+{
+  "slug": "santos",
+  "meta": {
+    "title": "Santos | Grupo Deus É Amor",
+    "description": "Santos que inspiram a fé e a caminhada cristã dos jovens."
+  },
+  "hero": {
+    "title": "Santos",
+    "subtitle": "Em Cristo a vida se transforma, mas não se acaba!"
+  },
+  "galleries": [
+    {
+      "slug": "sao-joao-paulo-ii",
+      "title": "São João Paulo II",
+      "description": "São João Paulo II dedicou sua vida a Cristo e à missão de anunciar o Evangelho.",
+      "path": "/santos/sao-joao-paulo-ii",
+      "emoji": "✝️",
+      "available": true,
+      "icon": "/images/icons/sao-joao-paulo-ii.webp"
+    },
+    {
+      "slug": "sao-pier-giorgio-frassati",
+      "title": "São Pier Giorgio Frassati",
+      "description": "São Pier Giorgio Frassati foi um jovem alegre, apaixonado pelas montanhas e pelos esportes.",
+      "path": "/santos/sao-pier-giorgio-frassati",
+      "emoji": "✝️",
+      "available": true,
+      "icon": "/images/icons/sao-pier-giorgio-frassati.webp"
+    },
+    {
+      "slug": "sao-jose-luis-sanchez-del-rio",
+      "title": "São José Luis Sánchez del Río",
+      "description": "Sua história foi marcada pela devoção, coragem e fidelidade a Deus.",
+      "path": "/santos/sao-jose-luis-sanchez-del-rio",
+      "emoji": "✝️",
+      "available": true,
+      "icon": "/images/icons/sao-jose-luis-sanchez-del-rio.webp"
+    }
+  ],
+  "photos": [
+    "/images/santos.png",
+    "/images/santos-2.png"
+  ],
+  "photoCaptions": [
+    "Santos reunidos ao redor de São Francisco",
+    "Os santos aos pés de Cristo crucificado e de Nossa Senhora"
+  ]
+}

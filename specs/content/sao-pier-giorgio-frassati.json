@@ -1,0 +1,57 @@
+{
+  "slug": "sao-pier-giorgio-frassati",
+  "meta": {
+    "title": "São Pier Giorgio Frassati | Grupo Deus É Amor",
+    "description": "São Pier Giorgio Frassati foi um jovem alegre, apaixonado pelas montanhas e pelos esportes."
+  },
+  "hero": {
+    "title": "São Pier Giorgio Frassati",
+    "subtitle": "Em Cristo a vida se transforma, mas não se acaba!",
+    "backgroundImage": "/images/sao-pier-giorgio-frassati-2.png",
+    "logo": {
+      "src": "/logo-deus-e-amor.png",
+      "alt": "Grupo Deus É Amor",
+      "width": 140,
+      "height": 140
+    }
+  },
+  "sections": [
+    {
+      "type": "card",
+      "title": "Uma vida de fé e alegria",
+      "variant": "highlight",
+      "paragraphs": [
+        "São Pier Giorgio Frassati foi um jovem alegre, apaixonado pelas montanhas e pelos esportes. Mesmo vindo de uma família rica, escolheu estar próximo dos mais pobres, dedicando seu tempo e seus recursos a ajudar quem mais precisava."
+      ]
+    },
+    {
+      "type": "card",
+      "title": "Um jovem de fé e caridade",
+      "paragraphs": [
+        "Sua vida foi marcada pela oração, pela Eucaristia e pelo amor ao próximo. Dedicou-se a ajudar os pobres e doentes, deixando um exemplo de fé e caridade que o levou à santidade.",
+        "Que seu exemplo nos inspire a buscar a santidade em nossa própria juventude, colocando Deus no centro de nossas vidas.",
+        "São Pier Giorgio Frassati nos ensina que a santidade também pode ser vivida na juventude, por meio da alegria, da amizade e da caridade. Seu exemplo nos mostra que amar a Cristo é também amar e servir ao próximo. Que seu testemunho nos inspire a viver com fé, generosidade e a buscar a santidade todos os dias."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "\"Se tiveres Deus como centro de todas as tuas ações, chegarás até o fim.\" — São Pier Giorgio Frassati"
+    },
+    {
+      "type": "quote",
+      "text": "São Pier Giorgio Frassati, rogai por nós!"
+    }
+  ],
+  "photos": [
+    "/images/sao-pier-giorgio-frassati.png",
+    "/images/sao-pier-giorgio-frassati-3.png",
+    "/images/sao-pier-giorgio-frassati-4.png",
+    "/images/sao-pier-giorgio-frassati-5.jpg"
+  ],
+  "photoCaptions": [
+    "Trilha São Pier Giorgio Frassati",
+    "Montanhas e ponte de pedra",
+    "São Pier Giorgio Frassati com a cruz",
+    "Pier Giorgio Frassati sorrindo"
+  ]
+}

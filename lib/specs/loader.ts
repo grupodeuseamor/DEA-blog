@@ -19,6 +19,11 @@ import {
   perseverancaContentSchema,
   routesSchema,
   titulosNossaSenhoraContentSchema,
+  santosContentSchema,
+  indulgenciasPlenariasContentSchema,
+  saoJoseLuisSanchezDelRioContentSchema,
+  saoPierGiorgioFrassatiContentSchema,
+  saoJoaoPauloIiContentSchema,
   versionSchema,
   type ChecklistSpec,
   type ContentSlug,
@@ -38,6 +43,11 @@ import {
   type PerseverancaContent,
   type RoutesSpec,
   type TitulosNossaSenhoraContent,
+  type SantosContent,
+  type IndulgenciasPlenariasContent,
+  type SaoJoseLuisSanchezDelRioContent,
+  type SaoPierGiorgioFrassatiContent,
+  type SaoJoaoPauloIiContent,
   type VersionSpec,
 } from './types'
 import { validateAllDecor } from './decor'
@@ -80,6 +90,11 @@ type ContentMap = {
   'nossa-senhora-da-comunicacao': NossaSenhoraDaComunicacaoContent
   'nossa-senhora-das-dores': NossaSenhoraDasDoresContent
   'nossa-senhora-de-fatima': NossaSenhoraDeFatimaContent
+  santos: SantosContent
+  'sao-joao-paulo-ii': SaoJoaoPauloIiContent
+  'sao-pier-giorgio-frassati': SaoPierGiorgioFrassatiContent
+  'sao-jose-luis-sanchez-del-rio': SaoJoseLuisSanchezDelRioContent
+  'indulgencias-plenarias': IndulgenciasPlenariasContent
   ministerios: MinisteriosContent
   perseveranca: PerseverancaContent
   'dea-ajuda': DeaAjudaContent
@@ -144,6 +159,16 @@ export function loadContent<S extends ContentSlug>(slug: S): ContentMap[S] {
         'content/nossa-senhora-de-fatima.json',
         nossaSenhoraDeFatimaContentSchema,
       ) as ContentMap[S]
+    case 'santos':
+      return readJsonFile('content/santos.json', santosContentSchema) as ContentMap[S]
+    case 'sao-joao-paulo-ii':
+      return readJsonFile('content/sao-joao-paulo-ii.json', saoJoaoPauloIiContentSchema) as ContentMap[S]
+    case 'sao-pier-giorgio-frassati':
+      return readJsonFile('content/sao-pier-giorgio-frassati.json', saoPierGiorgioFrassatiContentSchema) as ContentMap[S]
+    case 'sao-jose-luis-sanchez-del-rio':
+      return readJsonFile('content/sao-jose-luis-sanchez-del-rio.json', saoJoseLuisSanchezDelRioContentSchema) as ContentMap[S]
+    case 'indulgencias-plenarias':
+      return readJsonFile('content/indulgencias-plenarias.json', indulgenciasPlenariasContentSchema) as ContentMap[S]
     case 'ministerios':
       return readJsonFile(
         'content/ministerios.json',
@@ -213,6 +238,11 @@ export function validateAllSpecs(): void {
       'nossa-senhora-da-comunicacao',
       'nossa-senhora-das-dores',
       'nossa-senhora-de-fatima',
+      'santos',
+      'sao-joao-paulo-ii',
+      'sao-pier-giorgio-frassati',
+      'sao-jose-luis-sanchez-del-rio',
+      'indulgencias-plenarias',
       'ministerios',
       'perseveranca',
       'dea-ajuda',
@@ -220,6 +250,10 @@ export function validateAllSpecs(): void {
   ).forEach((slug) => {
     loadContent(slug)
   })
+  const indulg = loadContent('home').indulgenciasCta
+  if (indulg && !loadRoutes().items.some((item) => item.path === indulg.href)) {
+    throw new Error(`home.indulgenciasCta.href "${indulg.href}" não existe em specs/routes.json`)
+  }
   const preview = loadContent('home').previewCta
   if (preview && !loadRoutes().items.some((item) => item.path === preview.href)) {
     throw new Error(`home.previewCta.href "${preview.href}" não existe em specs/routes.json`)

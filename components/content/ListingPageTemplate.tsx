@@ -1,4 +1,5 @@
 import { HeroSectionV2 } from '@/components/content/HeroSectionV2'
+import { Polaroid } from '@/components/decor/Polaroid'
 import { PaperSheet } from '@/components/decor/PaperSheet'
 import { Breadcrumb } from '@/components/navigation/Breadcrumb'
 import { SectionFlowNav } from '@/components/navigation/SectionFlowNav'
@@ -22,6 +23,8 @@ type ListingPageTemplateProps = {
   items: ListingItem[]
   testIdPrefix?: string
   availableLabel?: string
+  /** Polaroids opcionais acima dos cards (foto + legenda do conteúdo). */
+  photos?: { src: string; caption: string }[]
   /** Slug do conteúdo (specs/decor/{slug}.json obrigatório). */
   slug: string
 }
@@ -34,6 +37,7 @@ export function ListingPageTemplate({
   testIdPrefix = 'listing',
   availableLabel = 'Ver mais →',
   slug,
+  photos,
 }: ListingPageTemplateProps) {
   const decor = loadDecor(slug)
   const routes = loadRoutes()
@@ -46,6 +50,13 @@ export function ListingPageTemplate({
       <HeroSectionV2 hero={{ title: hero.title, subtitle: hero.subtitle, backgroundImage: hero.backgroundImage }} decor={decor} />
       <div className="c secs">
         <PaperSheet label={hero.title}>
+          {photos && photos.length > 0 && (
+            <div className="listing-polaroids" data-testid={`${testIdPrefix}-photos`}>
+              {photos.map((p) => (
+                <Polaroid key={p.src} src={p.src} alt={p.caption} caption={p.caption} />
+              ))}
+            </div>
+          )}
           <div className="fichas" data-testid={`${testIdPrefix}-grid`}>
             {items.map((item, index) => (
               <ListingCardV2

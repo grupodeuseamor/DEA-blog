@@ -1,0 +1,81 @@
+{
+  "slug": "indulgencias-plenarias",
+  "meta": {
+    "title": "Indulgências Plenárias | Grupo Deus É Amor",
+    "description": "Uma graça por aqueles que já partiram."
+  },
+  "hero": {
+    "title": "Indulgências Plenárias",
+    "subtitle": "Uma graça por aqueles que já partiram.",
+    "backgroundImage": "/images/indulgencias-plenarias-2.png",
+    "logo": {
+      "src": "/logo-deus-e-amor.png",
+      "alt": "Grupo Deus É Amor",
+      "width": 140,
+      "height": 140
+    }
+  },
+  "sections": [
+    {
+      "type": "quote",
+      "text": "\"Não há nada mais poderoso do que a oração pelos defuntos.\" — São João Crisóstomo"
+    },
+    {
+      "type": "card",
+      "title": "O que são",
+      "variant": "highlight",
+      "paragraphs": [
+        "São uma graça concedida pela Igreja que consiste na remissão da pena temporal dos pecados já perdoados.",
+        "Pode ser oferecida pelas almas dos fiéis falecidos."
+      ]
+    },
+    {
+      "type": "card",
+      "title": "De 1 a 8 de novembro",
+      "paragraphs": [
+        "Uma indulgência plenária por dia, oferecida por um falecido.",
+        "É necessário:",
+        "Visitar devotamente um cemitério.",
+        "Rezar pelos falecidos.",
+        "Confessar e receber a Eucaristia.",
+        "Rezar pelas intenções do Papa.",
+        "Estar desapegado de todo pecado, até mesmo venial.",
+        "Aplicável somente às almas do purgatório."
+      ]
+    },
+    {
+      "type": "card",
+      "title": "Dia 2 de novembro",
+      "paragraphs": [
+        "Também é possível lucrar ao visitar uma igreja ou oratório público ou semipúblico.",
+        "Só uma por dia."
+      ]
+    },
+    {
+      "type": "card",
+      "title": "Como",
+      "paragraphs": [
+        "Rezar o Pai-Nosso e o Credo.",
+        "Receber a Confissão e a Santa Comunhão.",
+        "Rezar pelas intenções do Santo Padre.",
+        "Estar desapegado de todo pecado, mesmo venial."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "\"Não deixemos de socorrer os que partiram, oferecendo por eles as nossas orações.\" — São João Damasceno"
+    }
+  ],
+  "photos": [
+    "/images/indulgencias-plenarias.png",
+    "/images/indulgencias-plenarias-3.png",
+    "/images/indulgencias-plenarias-4.png",
+    "/images/indulgencias-plenarias-5.png"
+  ],
+  "photoCaptions": [
+    "Mãos em oração diante da luz",
+    "Sacerdote com estola segurando o crucifixo",
+    "Mãos erguidas com o terço",
+    "Bíblia aberta com terço e vela"
+  ]
+}

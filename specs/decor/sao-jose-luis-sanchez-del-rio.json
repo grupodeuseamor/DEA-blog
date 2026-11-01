@@ -1,0 +1,50 @@
+{
+  "slug": "sao-jose-luis-sanchez-del-rio",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "cruz"
+    ],
+    "underline": "Río"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "conhecido como Joselito",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[0]",
+          "caption": "Santinho de São José Luis Sánchez del Río",
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[3]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[2]",
+          "caption": "Joselito com o estandarte do Sagrado Coração",
+          "tape": true
+        }
+      ]
+    }
+  ],
+  "sheetPhotos": [
+    {
+      "image": "photos[1]",
+      "after": "sections[2]",
+      "side": "direita",
+      "rotate": 4,
+      "focus": "50% 40%",
+      "caption": "Joselito erguendo a cruz diante dos soldados"
+    }
+  ]
+}
