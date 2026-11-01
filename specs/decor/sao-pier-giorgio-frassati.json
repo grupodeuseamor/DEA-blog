@@ -1,0 +1,30 @@
+{
+  "slug": "sao-pier-giorgio-frassati",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "raios"
+    ],
+    "underline": "Frassati"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "apaixonado pelas montanhas",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coracao"
+          ],
+          "tape": true
+        }
+      ]
+    }
+  ]
+}

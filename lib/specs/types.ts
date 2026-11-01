@@ -195,6 +195,21 @@ export const santosContentSchema = titulosNossaSenhoraContentSchema.extend({
   slug: z.literal('santos'),
 })
 
+export const saoJoaoPauloIiContentSchema = contentPageSchema.extend({
+  slug: z.literal('sao-joao-paulo-ii'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
+export const saoPierGiorgioFrassatiContentSchema = contentPageSchema.extend({
+  slug: z.literal('sao-pier-giorgio-frassati'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
+export const saoJoseLuisSanchezDelRioContentSchema = contentPageSchema.extend({
+  slug: z.literal('sao-jose-luis-sanchez-del-rio'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
 export const ministryItemSchema = z.object({
   slug: z.string(),
   title: z.string(),
@@ -316,6 +331,9 @@ export type ContentPage = z.infer<typeof contentPageSchema>
 export type HomeContent = z.infer<typeof homeContentSchema>
 export type TitulosNossaSenhoraContent = z.infer<typeof titulosNossaSenhoraContentSchema>
 export type SantosContent = z.infer<typeof santosContentSchema>
+export type SaoJoaoPauloIiContent = z.infer<typeof saoJoaoPauloIiContentSchema>
+export type SaoPierGiorgioFrassatiContent = z.infer<typeof saoPierGiorgioFrassatiContentSchema>
+export type SaoJoseLuisSanchezDelRioContent = z.infer<typeof saoJoseLuisSanchezDelRioContentSchema>
 export type NossaSenhoraAuxiliadoraContent = z.infer<
   typeof nossaSenhoraAuxiliadoraContentSchema
 >
@@ -356,6 +374,9 @@ export type ContentSlug =
   | 'nossa-senhora-das-dores'
   | 'nossa-senhora-de-fatima'
   | 'santos'
+  | 'sao-joao-paulo-ii'
+  | 'sao-pier-giorgio-frassati'
+  | 'sao-jose-luis-sanchez-del-rio'
   | 'ministerios'
   | 'perseveranca'
   | 'dea-ajuda'
@@ -374,6 +395,9 @@ const contentSchemas = {
   'nossa-senhora-das-dores': nossaSenhoraDasDoresContentSchema,
   'nossa-senhora-de-fatima': nossaSenhoraDeFatimaContentSchema,
   santos: santosContentSchema,
+  'sao-joao-paulo-ii': saoJoaoPauloIiContentSchema,
+  'sao-pier-giorgio-frassati': saoPierGiorgioFrassatiContentSchema,
+  'sao-jose-luis-sanchez-del-rio': saoJoseLuisSanchezDelRioContentSchema,
   ministerios: ministeriosContentSchema,
   perseveranca: perseverancaContentSchema,
   'dea-ajuda': deaAjudaContentSchema,

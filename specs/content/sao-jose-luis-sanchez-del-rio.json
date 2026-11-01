@@ -1,0 +1,56 @@
+{
+  "slug": "sao-jose-luis-sanchez-del-rio",
+  "meta": {
+    "title": "São José Luis Sánchez del Río | Grupo Deus É Amor",
+    "description": "Sua história foi marcada pela devoção, coragem e fidelidade a Deus."
+  },
+  "hero": {
+    "title": "São José Luis Sánchez del Río",
+    "subtitle": "Em Cristo a vida se transforma, mas não se acaba!",
+    "backgroundImage": "/placeholder.jpg",
+    "logo": {
+      "src": "/logo-deus-e-amor.png",
+      "alt": "Grupo Deus É Amor",
+      "width": 140,
+      "height": 140
+    }
+  },
+  "sections": [
+    {
+      "type": "card",
+      "title": "Uma vida de fé",
+      "variant": "highlight",
+      "paragraphs": [
+        "São José Luis Sánchez del Río, conhecido como Joselito, nasceu no México e desde muito jovem demonstrou um profundo amor por Jesus Cristo e pela Igreja. Sua história foi marcada pela devoção, coragem e fidelidade a Deus."
+      ]
+    },
+    {
+      "type": "card",
+      "title": "Um jovem corajoso",
+      "paragraphs": [
+        "Mesmo diante da perseguição religiosa em seu país, não teve medo de testemunhar sua fé. Ainda muito jovem, escolheu permanecer fiel a Cristo, tornando-se exemplo de coragem e entrega a Deus.",
+        "Que sua coragem nos ensine a nunca renunciar à nossa fé.",
+        "Mesmo diante das ameaças e do sofrimento, São Joselito permaneceu firme em sua fé. Sua confiança em Jesus era maior que o medo, e nem mesmo a possibilidade da morte o fez abandonar Cristo."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "\"VIVA CRISTO REI!\" — São José Luis Sánchez del Río"
+    },
+    {
+      "type": "card",
+      "title": "",
+      "paragraphs": [
+        "São Joselito nos ensina que nunca somos jovens demais para viver a santidade e que o amor por Cristo deve ser maior que qualquer medo. Que seu testemunho nos inspire a permanecer firmes na fé e a escolher Jesus todos os dias."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "\"Nunca foi tão fácil ganhar o céu.\" — São José Luis Sánchez del Río"
+    },
+    {
+      "type": "quote",
+      "text": "São José Luis Sánchez del Río, rogai por nós!"
+    }
+  ]
+}

@@ -29,9 +29,25 @@ test.describe('Listagem Santos v2', () => {
     await expect(flow.getByTestId('section-flow-next')).toHaveAttribute('href', '/ministerios')
   })
 
+  test('3 santos na ordem pedida, e card leva à página', async ({ page }) => {
+    expect(listing.galleries.map((g) => g.slug)).toEqual([
+      'sao-joao-paulo-ii',
+      'sao-pier-giorgio-frassati',
+      'sao-jose-luis-sanchez-del-rio',
+    ])
+    await page.goto('/santos')
+    await page.getByTestId('gallery-sao-pier-giorgio-frassati').click()
+    await expect(page).toHaveURL('/santos/sao-pier-giorgio-frassati')
+    const flow = page.getByTestId('section-flow')
+    await expect(flow.getByTestId('section-flow-back')).toHaveAttribute('href', '/santos')
+    await expect(flow.getByTestId('section-flow-prev')).toHaveAttribute('href', '/santos/sao-joao-paulo-ii')
+    await expect(flow.getByTestId('section-flow-next')).toHaveAttribute('href', '/santos/sao-jose-luis-sanchez-del-rio')
+    await expect(page.getByText('São Pier Giorgio Frassati, rogai por nós!')).toBeVisible()
+  })
+
   test('menu tem o link Santos', async ({ page }) => {
     await page.goto('/')
-    await page.getByTestId('nav-desktop').getByTestId('nav-link-santos').click()
+    await page.getByTestId('nav-desktop').getByTestId('nav-dropdown-santos').click()
     await expect(page).toHaveURL('/santos')
   })
 })

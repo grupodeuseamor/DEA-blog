@@ -1,0 +1,30 @@
+{
+  "slug": "sao-jose-luis-sanchez-del-rio",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "cruz"
+    ],
+    "underline": "Río"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "conhecido como Joselito",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "coroa"
+          ],
+          "tape": true
+        }
+      ]
+    }
+  ]
+}

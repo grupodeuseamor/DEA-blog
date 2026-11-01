@@ -20,6 +20,9 @@ import {
   routesSchema,
   titulosNossaSenhoraContentSchema,
   santosContentSchema,
+  saoJoseLuisSanchezDelRioContentSchema,
+  saoPierGiorgioFrassatiContentSchema,
+  saoJoaoPauloIiContentSchema,
   versionSchema,
   type ChecklistSpec,
   type ContentSlug,
@@ -40,6 +43,9 @@ import {
   type RoutesSpec,
   type TitulosNossaSenhoraContent,
   type SantosContent,
+  type SaoJoseLuisSanchezDelRioContent,
+  type SaoPierGiorgioFrassatiContent,
+  type SaoJoaoPauloIiContent,
   type VersionSpec,
 } from './types'
 import { validateAllDecor } from './decor'
@@ -83,6 +89,9 @@ type ContentMap = {
   'nossa-senhora-das-dores': NossaSenhoraDasDoresContent
   'nossa-senhora-de-fatima': NossaSenhoraDeFatimaContent
   santos: SantosContent
+  'sao-joao-paulo-ii': SaoJoaoPauloIiContent
+  'sao-pier-giorgio-frassati': SaoPierGiorgioFrassatiContent
+  'sao-jose-luis-sanchez-del-rio': SaoJoseLuisSanchezDelRioContent
   ministerios: MinisteriosContent
   perseveranca: PerseverancaContent
   'dea-ajuda': DeaAjudaContent
@@ -149,6 +158,12 @@ export function loadContent<S extends ContentSlug>(slug: S): ContentMap[S] {
       ) as ContentMap[S]
     case 'santos':
       return readJsonFile('content/santos.json', santosContentSchema) as ContentMap[S]
+    case 'sao-joao-paulo-ii':
+      return readJsonFile('content/sao-joao-paulo-ii.json', saoJoaoPauloIiContentSchema) as ContentMap[S]
+    case 'sao-pier-giorgio-frassati':
+      return readJsonFile('content/sao-pier-giorgio-frassati.json', saoPierGiorgioFrassatiContentSchema) as ContentMap[S]
+    case 'sao-jose-luis-sanchez-del-rio':
+      return readJsonFile('content/sao-jose-luis-sanchez-del-rio.json', saoJoseLuisSanchezDelRioContentSchema) as ContentMap[S]
     case 'ministerios':
       return readJsonFile(
         'content/ministerios.json',
@@ -219,6 +234,9 @@ export function validateAllSpecs(): void {
       'nossa-senhora-das-dores',
       'nossa-senhora-de-fatima',
       'santos',
+      'sao-joao-paulo-ii',
+      'sao-pier-giorgio-frassati',
+      'sao-jose-luis-sanchez-del-rio',
       'ministerios',
       'perseveranca',
       'dea-ajuda',

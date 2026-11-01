@@ -53,6 +53,21 @@
       "parent": "/titulos-nossa-senhora"
     },
     { "label": "Santos", "path": "/santos" },
+    {
+      "label": "São João Paulo II",
+      "path": "/santos/sao-joao-paulo-ii",
+      "parent": "/santos"
+    },
+    {
+      "label": "São Pier Giorgio Frassati",
+      "path": "/santos/sao-pier-giorgio-frassati",
+      "parent": "/santos"
+    },
+    {
+      "label": "São José Luis Sánchez del Río",
+      "path": "/santos/sao-jose-luis-sanchez-del-rio",
+      "parent": "/santos"
+    },
     { "label": "Ministérios", "path": "/ministerios" },
     { "label": "Participe", "path": "/#primeira-vez" },
     {

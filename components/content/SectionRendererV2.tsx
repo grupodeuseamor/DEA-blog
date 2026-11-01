@@ -27,7 +27,7 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
     <>
       {sections.map((section, i) => {
         const block = blocks.find((b) => b.target === `sections[${i}]`)
-        const key = section.type === 'quote' ? section.text.slice(0, 30) : section.title
+        const key = `${i}-${section.type === 'quote' ? section.text.slice(0, 30) : section.title}`
         const marks = block?.marks ?? []
         const backdropSrc = block?.backdrop ? resolveImageRef(content, block.backdrop.image) : null
         const photo = sheetPhotos.find((p) => p.after === `sections[${i}]`)
@@ -63,7 +63,7 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
                 {backdrop}
                 <div className="row">
                   <div className="txt">
-                    <DrawnTitle title={section.title} drawing={block?.titleDrawing} />
+                    {section.title && <DrawnTitle title={section.title} drawing={block?.titleDrawing} />}
                     {section.paragraphs.map((p) => (
                       <p key={p.slice(0, 40)}>{highlightText(p, marks)}</p>
                     ))}

@@ -1,0 +1,30 @@
+{
+  "slug": "sao-joao-paulo-ii",
+  "hero": {
+    "drawings": [
+      "brilhinhos",
+      "estrela"
+    ],
+    "underline": "Paulo"
+  },
+  "blocks": [
+    {
+      "target": "sections[0]",
+      "marks": [
+        {
+          "text": "anunciar o Evangelho",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "cruz"
+          ],
+          "tape": true
+        }
+      ]
+    }
+  ]
+}
