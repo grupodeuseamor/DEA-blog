@@ -3,6 +3,13 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0 (versão atual).
 
+## [2.9.1] — não publicado (aguardando validação)
+
+### Corrigido
+- Listagem **Santos**: duas imagens novas em polaroids com legendas descritivas.
+- Cards de Santos: ícone redondo recortado do retrato de cada santo no lugar do emoji (campo opcional `icon`; demais listagens seguem com emoji).
+- Teste e2e dos ícones e das polaroids da listagem.
+
 ## [2.9.0] — não publicado (aguardando validação)
 
 ### Adicionado
