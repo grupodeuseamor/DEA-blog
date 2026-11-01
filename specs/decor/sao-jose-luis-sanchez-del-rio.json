@@ -20,14 +20,7 @@
         {
           "kind": "polaroid",
           "image": "photos[0]",
-          "caption": "São José Luis Sánchez del Río",
-          "tape": true
-        },
-        {
-          "kind": "figurinha",
-          "drawings": [
-            "coroa"
-          ],
+          "caption": "Santinho de São José Luis Sánchez del Río",
           "tape": true
         }
       ]
@@ -38,8 +31,8 @@
         {
           "kind": "polaroid",
           "image": "photos[2]",
-          "tape": true,
-          "caption": "Joselito"
+          "caption": "Joselito com o estandarte do Sagrado Coração",
+          "tape": true
         }
       ]
     }
@@ -50,7 +43,8 @@
       "after": "sections[2]",
       "side": "direita",
       "rotate": 4,
-      "focus": "50% 40%"
+      "focus": "50% 40%",
+      "caption": "Joselito erguendo a cruz diante dos soldados"
     }
   ]
 }

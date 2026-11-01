@@ -199,11 +199,19 @@ export const santosContentSchema = titulosNossaSenhoraContentSchema.extend({
 
 export const saoJoaoPauloIiContentSchema = contentPageSchema.extend({
   slug: z.literal('sao-joao-paulo-ii'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
   sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
 export const saoPierGiorgioFrassatiContentSchema = contentPageSchema.extend({
   slug: z.literal('sao-pier-giorgio-frassati'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
+  photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
   sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
@@ -211,6 +219,8 @@ export const saoJoseLuisSanchezDelRioContentSchema = contentPageSchema.extend({
   slug: z.literal('sao-jose-luis-sanchez-del-rio'),
   /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
   photos: z.array(z.string()).optional(),
+  /** Legendas das fotos (2.9.0, autorizadas por Michel): só descrevem a imagem; usadas no decor. */
+  photoCaptions: z.array(z.string()).optional(),
   sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 

@@ -50,6 +50,7 @@ export function SectionRendererV2({ sections, blocks, sheetPhotos = [], content,
             {section.type === 'quote' ? (
               <section className="bloco" data-section-index={i}>
                 <blockquote className="ql margem-caderno">{section.text}</blockquote>
+                {sheetPhoto}
               </section>
             ) : (
               <section

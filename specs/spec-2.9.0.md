@@ -14,3 +14,9 @@ Status: implementação local para revisão. Versão aprovada por Michel. Sem pu
 | Home: chamada “Quer saber mais sobre uma indulgência plenária?” | `/` → `/indulgencias-plenarias` |
 
 Textos usados na íntegra, conforme enviados. Imagens provisórias (`/placeholder.jpg`) até o envio das fotos definitivas.
+
+## Imagens dos santos (fotos enviadas por Michel)
+
+Fotos em `public/images/sao-*` (as grandes reduzidas para JPG ≤1600px). Cada foto fica junto do trecho que ilustra (polaroids no decor, uma foto colada por página), listadas em `photos` no conteúdo.
+
+**Exceção autorizada por Michel:** as legendas das fotos (`photoCaptions`) são texto novo, apenas descritivo do que a imagem mostra, sem fatos, datas ou locais novos. Fora delas, continua valendo a regra de não inventar frases na decoração.

@@ -7,7 +7,7 @@
   "hero": {
     "title": "São Pier Giorgio Frassati",
     "subtitle": "Em Cristo a vida se transforma, mas não se acaba!",
-    "backgroundImage": "/placeholder.jpg",
+    "backgroundImage": "/images/sao-pier-giorgio-frassati-2.png",
     "logo": {
       "src": "/logo-deus-e-amor.png",
       "alt": "Grupo Deus É Amor",
@@ -41,5 +41,17 @@
       "type": "quote",
       "text": "São Pier Giorgio Frassati, rogai por nós!"
     }
+  ],
+  "photos": [
+    "/images/sao-pier-giorgio-frassati.png",
+    "/images/sao-pier-giorgio-frassati-3.png",
+    "/images/sao-pier-giorgio-frassati-4.png",
+    "/images/sao-pier-giorgio-frassati-5.jpg"
+  ],
+  "photoCaptions": [
+    "Trilha São Pier Giorgio Frassati",
+    "Montanhas e ponte de pedra",
+    "São Pier Giorgio Frassati com a cruz",
+    "Pier Giorgio Frassati sorrindo"
   ]
 }
