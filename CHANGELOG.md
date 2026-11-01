@@ -3,6 +3,14 @@
 Todas as versões do CorpusCriste (site do Grupo Deus É Amor). O detalhe de cada versão está em `specs/spec-{versão}.md`.
 Formato: [SemVer](https://semver.org/lang/pt-BR/). Na v2, cada execução é uma feature (MINOR) publicada como pre-release `X.Y.0-snapshot`; correções incrementam o PATCH (`X.Y.Z-snapshot`); a oficial é a 2.7.0 (versão atual).
 
+## [2.9.0] — não publicado (aguardando validação)
+
+### Adicionado
+- Seção **Santos** (`/santos`) com dropdown no menu e as páginas São João Paulo II, São Pier Giorgio Frassati e São José Luis Sánchez del Río.
+- Seção **Indulgências Plenárias** (`/indulgencias-plenarias`) com item no menu.
+- Home: chamada “Quer saber mais sobre uma indulgência plenária?” levando à nova página.
+- Testes e2e de Santos e Indulgências; imagens provisórias.
+
 ## [2.8.0] — não publicado (aguardando validação)
 
 - Header com Participe; apresentação com identificação literal, Quero participar e Conhecer o grupo.

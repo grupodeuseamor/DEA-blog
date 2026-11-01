@@ -2,7 +2,7 @@
 
 Site institucional do Grupo Deus É Amor, construído com **Next.js 16**, **React 19** e **Tailwind CSS 4**. O conteúdo e os testes são versionados na pasta `specs/`.
 
-**Versão em desenvolvimento:** `2.8.0` (aguardando validação, sem publicação) — ver [`specs/spec-2.8.0.md`](specs/spec-2.8.0.md) e o [`CHANGELOG.md`](CHANGELOG.md).
+**Versão em desenvolvimento:** `2.9.0` (aguardando validação, sem publicação) — ver [`specs/spec-2.9.0.md`](specs/spec-2.9.0.md) e o [`CHANGELOG.md`](CHANGELOG.md).
 **Produção:** `2.7.0` (v2, “Caderno + Novo Lote”) após o merge na `main`; rollback: release `v1.1.0`.
 
 Guia para IAs e novos colaboradores: [`AGENTS.md`](AGENTS.md).
@@ -85,7 +85,8 @@ Política em [`.cursor/rules/corpus-criste-versions.mdc`](.cursor/rules/corpus-c
 | 2.5.0-snapshot | *pre-release* — Exec 6: Home (+ botão preview Ministérios) |
 | 2.6.0-snapshot | *pre-release* — Exec 7: fechamento — limpeza do legado 1.1.0 e QA total |
 | **2.7.0** | **Oficial** — v2 “Caderno + Novo Lote” nas 15 rotas (consolida 2.0.0-snapshot … 2.6.0-snapshot) + testes de links e redirects |
-| 2.8.0 | Em desenvolvimento — 8 demandas Trello: participação, identificação, próximo encontro, mapa, Google Agenda e Instagram no rodapé |
+| 2.8.0 | 8 demandas Trello: participação, identificação, próximo encontro, mapa, Google Agenda e Instagram no rodapé |
+| 2.9.0 | Em desenvolvimento — Santos (3 páginas), Indulgências Plenárias e chamada na Home |
 
 ## Estrutura de specs
 
