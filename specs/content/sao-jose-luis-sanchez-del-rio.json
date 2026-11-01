@@ -7,7 +7,7 @@
   "hero": {
     "title": "São José Luis Sánchez del Río",
     "subtitle": "Em Cristo a vida se transforma, mas não se acaba!",
-    "backgroundImage": "/placeholder.jpg",
+    "backgroundImage": "/images/sao-jose-luis-sanchez-del-rio-3.png",
     "logo": {
       "src": "/logo-deus-e-amor.png",
       "alt": "Grupo Deus É Amor",
@@ -52,5 +52,10 @@
       "type": "quote",
       "text": "São José Luis Sánchez del Río, rogai por nós!"
     }
+  ],
+  "photos": [
+    "/images/sao-jose-luis-sanchez-del-rio.png",
+    "/images/sao-jose-luis-sanchez-del-rio-2.png",
+    "/images/sao-jose-luis-sanchez-del-rio-4.png"
   ]
 }

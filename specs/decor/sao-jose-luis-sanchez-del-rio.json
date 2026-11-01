@@ -18,6 +18,12 @@
       ],
       "side": [
         {
+          "kind": "polaroid",
+          "image": "photos[0]",
+          "caption": "São José Luis Sánchez del Río",
+          "tape": true
+        },
+        {
           "kind": "figurinha",
           "drawings": [
             "coroa"
@@ -25,6 +31,26 @@
           "tape": true
         }
       ]
+    },
+    {
+      "target": "sections[3]",
+      "side": [
+        {
+          "kind": "polaroid",
+          "image": "photos[2]",
+          "tape": true,
+          "caption": "Joselito"
+        }
+      ]
+    }
+  ],
+  "sheetPhotos": [
+    {
+      "image": "photos[1]",
+      "after": "sections[2]",
+      "side": "direita",
+      "rotate": 4,
+      "focus": "50% 40%"
     }
   ]
 }

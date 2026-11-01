@@ -209,6 +209,8 @@ export const saoPierGiorgioFrassatiContentSchema = contentPageSchema.extend({
 
 export const saoJoseLuisSanchezDelRioContentSchema = contentPageSchema.extend({
   slug: z.literal('sao-jose-luis-sanchez-del-rio'),
+  /** Fotos extras da página, reaproveitadas no decor (polaroids / sheetPhotos). */
+  photos: z.array(z.string()).optional(),
   sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
