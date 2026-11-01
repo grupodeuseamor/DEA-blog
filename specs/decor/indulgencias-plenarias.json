@@ -1,0 +1,48 @@
+{
+  "slug": "indulgencias-plenarias",
+  "hero": {
+    "drawings": [
+      "vela",
+      "cruz"
+    ],
+    "underline": "Plenárias"
+  },
+  "blocks": [
+    {
+      "target": "sections[1]",
+      "marks": [
+        {
+          "text": "remissão da pena temporal",
+          "kind": "marca"
+        }
+      ],
+      "side": [
+        {
+          "kind": "figurinha",
+          "drawings": [
+            "vela"
+          ],
+          "tape": true
+        }
+      ]
+    },
+    {
+      "target": "sections[2]",
+      "marks": [
+        {
+          "text": "uma indulgência plenária por dia",
+          "kind": "circulo"
+        }
+      ],
+      "side": [
+        {
+          "kind": "postit",
+          "label": "De 1 a 8 de novembro",
+          "text": "Visitar devotamente um cemitério.",
+          "pin": "manto",
+          "paper": "areia"
+        }
+      ]
+    }
+  ]
+}

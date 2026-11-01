@@ -20,13 +20,13 @@ test.describe('Listagem Santos v2', () => {
     }
   })
 
-  test('breadcrumb e fluxo: Anterior Títulos, Próximo Ministérios', async ({ page }) => {
+  test('breadcrumb e fluxo: Anterior Títulos, Próximo Indulgências Plenárias', async ({ page }) => {
     await page.goto('/santos')
     await expect(page.getByTestId('breadcrumb').locator('li')).toHaveText(['Início', 'Santos'])
     const flow = page.getByTestId('section-flow')
     await expect(flow.getByTestId('section-flow-back')).toHaveAttribute('href', '/')
     await expect(flow.getByTestId('section-flow-prev')).toHaveAttribute('href', '/titulos-nossa-senhora')
-    await expect(flow.getByTestId('section-flow-next')).toHaveAttribute('href', '/ministerios')
+    await expect(flow.getByTestId('section-flow-next')).toHaveAttribute('href', '/indulgencias-plenarias')
   })
 
   test('3 santos na ordem pedida, e card leva à página', async ({ page }) => {

@@ -112,6 +112,8 @@ export const homeContentSchema = contentPageSchema.extend({
   previewCta: z
     .object({ label: z.string(), href: z.string(), badge: z.literal('preview') })
     .optional(),
+  /** Chamada para Indulgências Plenárias (2.9.0): opcional — apagar o campo some com o link. */
+  indulgenciasCta: z.object({ label: z.string(), href: z.literal('/indulgencias-plenarias') }).optional(),
 })
 
 export const nossaSenhoraAuxiliadoraContentSchema = contentPageSchema.extend({
@@ -207,6 +209,11 @@ export const saoPierGiorgioFrassatiContentSchema = contentPageSchema.extend({
 
 export const saoJoseLuisSanchezDelRioContentSchema = contentPageSchema.extend({
   slug: z.literal('sao-jose-luis-sanchez-del-rio'),
+  sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
+})
+
+export const indulgenciasPlenariasContentSchema = contentPageSchema.extend({
+  slug: z.literal('indulgencias-plenarias'),
   sections: z.array(z.union([cardSectionSchema, quoteBlockSchema])),
 })
 
@@ -334,6 +341,7 @@ export type SantosContent = z.infer<typeof santosContentSchema>
 export type SaoJoaoPauloIiContent = z.infer<typeof saoJoaoPauloIiContentSchema>
 export type SaoPierGiorgioFrassatiContent = z.infer<typeof saoPierGiorgioFrassatiContentSchema>
 export type SaoJoseLuisSanchezDelRioContent = z.infer<typeof saoJoseLuisSanchezDelRioContentSchema>
+export type IndulgenciasPlenariasContent = z.infer<typeof indulgenciasPlenariasContentSchema>
 export type NossaSenhoraAuxiliadoraContent = z.infer<
   typeof nossaSenhoraAuxiliadoraContentSchema
 >
@@ -377,6 +385,7 @@ export type ContentSlug =
   | 'sao-joao-paulo-ii'
   | 'sao-pier-giorgio-frassati'
   | 'sao-jose-luis-sanchez-del-rio'
+  | 'indulgencias-plenarias'
   | 'ministerios'
   | 'perseveranca'
   | 'dea-ajuda'
@@ -398,6 +407,7 @@ const contentSchemas = {
   'sao-joao-paulo-ii': saoJoaoPauloIiContentSchema,
   'sao-pier-giorgio-frassati': saoPierGiorgioFrassatiContentSchema,
   'sao-jose-luis-sanchez-del-rio': saoJoseLuisSanchezDelRioContentSchema,
+  'indulgencias-plenarias': indulgenciasPlenariasContentSchema,
   ministerios: ministeriosContentSchema,
   perseveranca: perseverancaContentSchema,
   'dea-ajuda': deaAjudaContentSchema,

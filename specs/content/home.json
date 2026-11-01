@@ -24,8 +24,14 @@
   },
   "presentation": {
     "identification": "Grupo de oração jovem · Maringá · desde 2000",
-    "participate": { "label": "Quero participar", "href": "/#primeira-vez" },
-    "about": { "label": "Conhecer o grupo", "href": "/#sobre-o-grupo" }
+    "participate": {
+      "label": "Quero participar",
+      "href": "/#primeira-vez"
+    },
+    "about": {
+      "label": "Conhecer o grupo",
+      "href": "/#sobre-o-grupo"
+    }
   },
   "meetingLabels": {
     "heading": "Próximo encontro",
@@ -79,5 +85,9 @@
     "label": "Ministérios",
     "href": "/ministerios",
     "badge": "preview"
+  },
+  "indulgenciasCta": {
+    "label": "Quer saber mais sobre uma indulgência plenária?",
+    "href": "/indulgencias-plenarias"
   }
 }

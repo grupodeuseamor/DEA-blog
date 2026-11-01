@@ -385,6 +385,7 @@ svg.d circle { fill: currentColor; stroke: none; }
 .v2 .btn-manto:hover, .v2 .btn-outline-manto:hover { transform: translateY(-2px); }
 .v2 .fluxo.entrada .grid { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
 .v2 .preview-cta { align-self: center; justify-self: start; }
+.v2 .indulgencias-cta { margin-top: 18px; }
 .v2 .etiqueta-preview { padding: 0 10px; border: 1.5px dashed var(--color-manto); border-radius: 6px; font-size: 18px; font-weight: 400; line-height: 1.4; transform: rotate(-4deg); background: var(--color-areia); }
 @media (max-width: 767px) {
   .v2 .fluxo.entrada .grid { grid-template-columns: 1fr; }

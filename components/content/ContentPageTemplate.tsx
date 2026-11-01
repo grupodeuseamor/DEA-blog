@@ -8,6 +8,7 @@ import { loadDecor } from '@/lib/specs/decor'
 import { loadContent, loadMeetingSchedule, loadRoutes } from '@/lib/specs/loader'
 import { getBreadcrumb, getEntryFlow, getSectionFlow } from '@/lib/specs/nav'
 import { HomePreviewCta } from '@/components/ui/HomePreviewCta'
+import { HomeIndulgenciasCta } from '@/components/ui/HomeIndulgenciasCta'
 import { CtaButtonGroup } from '@/components/ui/CtaButtonGroup'
 import { NextMeeting } from '@/components/content/NextMeeting'
 import type { ContentPage, HomeContent } from '@/lib/specs/types'
@@ -72,7 +73,14 @@ export function ContentPageTemplate({ content }: ContentPageTemplateProps) {
             sheetPhotos={decor.sheetPhotos}
             content={content}
             imageAlt={imageAlt}
-            sectionExtras={home ? { 'primeira-vez': <NextMeeting schedule={loadMeetingSchedule()} labels={home.meetingLabels} /> } : undefined}
+            sectionExtras={
+              home
+                ? {
+                    'sobre-o-grupo': <HomeIndulgenciasCta cta={home.indulgenciasCta} />,
+                    'primeira-vez': <NextMeeting schedule={loadMeetingSchedule()} labels={home.meetingLabels} />,
+                  }
+                : undefined
+            }
           />
         </PaperSheet>
       </div>

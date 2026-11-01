@@ -68,6 +68,7 @@
       "path": "/santos/sao-jose-luis-sanchez-del-rio",
       "parent": "/santos"
     },
+    { "label": "Indulgências Plenárias", "path": "/indulgencias-plenarias" },
     { "label": "Ministérios", "path": "/ministerios" },
     { "label": "Participe", "path": "/#primeira-vez" },
     {

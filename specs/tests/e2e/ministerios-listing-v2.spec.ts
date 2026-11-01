@@ -9,7 +9,7 @@ test.describe('Ministérios — listagem v2 (2.4.0-snapshot)', () => {
     await expect(page.getByTestId('ministry-intercessao').locator('a')).toHaveCount(0)
     await expect(page.locator('a[data-testid="ministry-dea-ajuda"]')).toHaveAttribute('href', '/ministerios/dea-ajuda')
     const nav = page.getByTestId('section-flow')
-    await expect(nav.getByTestId('section-flow-prev')).toContainText('Santos')
+    await expect(nav.getByTestId('section-flow-prev')).toContainText('Indulgências Plenárias')
     await expect(nav.getByTestId('section-flow-back')).toHaveAttribute('href', '/')
     await expect(nav.getByTestId('section-flow-next')).toHaveCount(0)
   })

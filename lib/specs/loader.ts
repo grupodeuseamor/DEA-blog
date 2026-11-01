@@ -20,6 +20,7 @@ import {
   routesSchema,
   titulosNossaSenhoraContentSchema,
   santosContentSchema,
+  indulgenciasPlenariasContentSchema,
   saoJoseLuisSanchezDelRioContentSchema,
   saoPierGiorgioFrassatiContentSchema,
   saoJoaoPauloIiContentSchema,
@@ -43,6 +44,7 @@ import {
   type RoutesSpec,
   type TitulosNossaSenhoraContent,
   type SantosContent,
+  type IndulgenciasPlenariasContent,
   type SaoJoseLuisSanchezDelRioContent,
   type SaoPierGiorgioFrassatiContent,
   type SaoJoaoPauloIiContent,
@@ -92,6 +94,7 @@ type ContentMap = {
   'sao-joao-paulo-ii': SaoJoaoPauloIiContent
   'sao-pier-giorgio-frassati': SaoPierGiorgioFrassatiContent
   'sao-jose-luis-sanchez-del-rio': SaoJoseLuisSanchezDelRioContent
+  'indulgencias-plenarias': IndulgenciasPlenariasContent
   ministerios: MinisteriosContent
   perseveranca: PerseverancaContent
   'dea-ajuda': DeaAjudaContent
@@ -164,6 +167,8 @@ export function loadContent<S extends ContentSlug>(slug: S): ContentMap[S] {
       return readJsonFile('content/sao-pier-giorgio-frassati.json', saoPierGiorgioFrassatiContentSchema) as ContentMap[S]
     case 'sao-jose-luis-sanchez-del-rio':
       return readJsonFile('content/sao-jose-luis-sanchez-del-rio.json', saoJoseLuisSanchezDelRioContentSchema) as ContentMap[S]
+    case 'indulgencias-plenarias':
+      return readJsonFile('content/indulgencias-plenarias.json', indulgenciasPlenariasContentSchema) as ContentMap[S]
     case 'ministerios':
       return readJsonFile(
         'content/ministerios.json',
@@ -237,6 +242,7 @@ export function validateAllSpecs(): void {
       'sao-joao-paulo-ii',
       'sao-pier-giorgio-frassati',
       'sao-jose-luis-sanchez-del-rio',
+      'indulgencias-plenarias',
       'ministerios',
       'perseveranca',
       'dea-ajuda',
@@ -244,6 +250,10 @@ export function validateAllSpecs(): void {
   ).forEach((slug) => {
     loadContent(slug)
   })
+  const indulg = loadContent('home').indulgenciasCta
+  if (indulg && !loadRoutes().items.some((item) => item.path === indulg.href)) {
+    throw new Error(`home.indulgenciasCta.href "${indulg.href}" não existe em specs/routes.json`)
+  }
   const preview = loadContent('home').previewCta
   if (preview && !loadRoutes().items.some((item) => item.path === preview.href)) {
     throw new Error(`home.previewCta.href "${preview.href}" não existe em specs/routes.json`)
